@@ -15,6 +15,9 @@
 		A281FF7E1F86CBAB0098F9D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A281FF7C1F86CBAB0098F9D3 /* LaunchScreen.storyboard */; };
 		A281FF891F86CBAB0098F9D3 /* TravelbagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A281FF881F86CBAB0098F9D3 /* TravelbagTests.swift */; };
 		A281FF941F86CDE80098F9D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A281FF931F86CDE80098F9D3 /* GoogleService-Info.plist */; };
+		A2AA46F61F86D496009EC94F /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2AA46F51F86D496009EC94F /* Menu.storyboard */; };
+		A2AA47371F8833C2009EC94F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AA47361F8833C2009EC94F /* MenuViewController.swift */; };
+		A2AA47391F883AD0009EC94F /* 34455-1920x1200.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A2AA47381F883A49009EC94F /* 34455-1920x1200.jpg */; };
 		EC0D87B037BB787520BC0DE6 /* Pods_Travelbag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327E40FEBA48C9CC9692A451 /* Pods_Travelbag.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +45,9 @@
 		A281FF881F86CBAB0098F9D3 /* TravelbagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelbagTests.swift; sourceTree = "<group>"; };
 		A281FF8A1F86CBAB0098F9D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A281FF931F86CDE80098F9D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A2AA46F51F86D496009EC94F /* Menu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
+		A2AA47361F8833C2009EC94F /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		A2AA47381F883A49009EC94F /* 34455-1920x1200.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "34455-1920x1200.jpg"; path = "../../34455-1920x1200.jpg"; sourceTree = "<group>"; };
 		C0FF306C9F5DDBAAE70BC1BD /* Pods-TravelbagTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelbagTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelbagTests/Pods-TravelbagTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E4D34368B183109F602F2036 /* Pods-Travelbag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travelbag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travelbag/Pods-Travelbag.debug.xcconfig"; sourceTree = "<group>"; };
 		E544EDA87FA33C32BFB42742 /* Pods_TravelbagTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelbagTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +117,7 @@
 		A281FF721F86CBAB0098F9D3 /* Travelbag */ = {
 			isa = PBXGroup;
 			children = (
+				A2AA47381F883A49009EC94F /* 34455-1920x1200.jpg */,
 				A281FF931F86CDE80098F9D3 /* GoogleService-Info.plist */,
 				A281FF731F86CBAB0098F9D3 /* AppDelegate.swift */,
 				A281FF751F86CBAB0098F9D3 /* ViewController.swift */,
@@ -118,6 +125,8 @@
 				A281FF7A1F86CBAB0098F9D3 /* Assets.xcassets */,
 				A281FF7C1F86CBAB0098F9D3 /* LaunchScreen.storyboard */,
 				A281FF7F1F86CBAB0098F9D3 /* Info.plist */,
+				A2AA46F51F86D496009EC94F /* Menu.storyboard */,
+				A2AA47361F8833C2009EC94F /* MenuViewController.swift */,
 			);
 			path = Travelbag;
 			sourceTree = "<group>";
@@ -222,8 +231,10 @@
 			files = (
 				A281FF7E1F86CBAB0098F9D3 /* LaunchScreen.storyboard in Resources */,
 				A281FF941F86CDE80098F9D3 /* GoogleService-Info.plist in Resources */,
+				A2AA46F61F86D496009EC94F /* Menu.storyboard in Resources */,
 				A281FF7B1F86CBAB0098F9D3 /* Assets.xcassets in Resources */,
 				A281FF791F86CBAB0098F9D3 /* Main.storyboard in Resources */,
+				A2AA47391F883AD0009EC94F /* 34455-1920x1200.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A281FF761F86CBAB0098F9D3 /* ViewController.swift in Sources */,
+				A2AA47371F8833C2009EC94F /* MenuViewController.swift in Sources */,
 				A281FF741F86CBAB0098F9D3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,6 +584,7 @@
 				A281FF8F1F86CBAB0098F9D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A281FF901F86CBAB0098F9D3 /* Build configuration list for PBXNativeTarget "TravelbagTests" */ = {
 			isa = XCConfigurationList;
@@ -580,6 +593,7 @@
 				A281FF921F86CBAB0098F9D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
