@@ -16,9 +16,6 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		let radius = self.profileImageView.frame.width / 2
-		self.profileImageView.layer.cornerRadius = radius
-		self.profileImageView.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
