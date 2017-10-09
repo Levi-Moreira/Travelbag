@@ -8,9 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		87951888D7682DE448727FEA /* Pods_TravelbagTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E544EDA87FA33C32BFB42742 /* Pods_TravelbagTests.framework */; };
+		A21FE0AC1F8815B2000359D7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0AB1F8815B2000359D7 /* Login.storyboard */; };
+		A21FE0B01F8817A0000359D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21FE0AF1F8817A0000359D7 /* ProfileViewController.swift */; };
+		A21FE0B61F881AB8000359D7 /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0B21F881AB8000359D7 /* SourceSansPro-Bold.otf */; };
+		A21FE0B71F881AB8000359D7 /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0B31F881AB8000359D7 /* SourceSansPro-Light.otf */; };
+		A21FE0B81F881AB8000359D7 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0B41F881AB8000359D7 /* SourceSansPro-Regular.otf */; };
+		A21FE0B91F881AB8000359D7 /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0B51F881AB8000359D7 /* SourceSansPro-Semibold.otf */; };
+		A21FE0BB1F8C144F000359D7 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21FE0BA1F8C144F000359D7 /* ForgotPasswordViewController.swift */; };
+		A21FE0BD1F8C1462000359D7 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21FE0BC1F8C1462000359D7 /* JoinViewController.swift */; };
 		A281FF741F86CBAB0098F9D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A281FF731F86CBAB0098F9D3 /* AppDelegate.swift */; };
-		A281FF761F86CBAB0098F9D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A281FF751F86CBAB0098F9D3 /* ViewController.swift */; };
-		A281FF791F86CBAB0098F9D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A281FF771F86CBAB0098F9D3 /* Main.storyboard */; };
 		A281FF7B1F86CBAB0098F9D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A281FF7A1F86CBAB0098F9D3 /* Assets.xcassets */; };
 		A281FF7E1F86CBAB0098F9D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A281FF7C1F86CBAB0098F9D3 /* LaunchScreen.storyboard */; };
 		A281FF891F86CBAB0098F9D3 /* TravelbagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A281FF881F86CBAB0098F9D3 /* TravelbagTests.swift */; };
@@ -31,10 +37,16 @@
 /* Begin PBXFileReference section */
 		327E40FEBA48C9CC9692A451 /* Pods_Travelbag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travelbag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AAA0F6A91453F2461810933 /* Pods-TravelbagTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelbagTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelbagTests/Pods-TravelbagTests.release.xcconfig"; sourceTree = "<group>"; };
+		A21FE0AB1F8815B2000359D7 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		A21FE0AF1F8817A0000359D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A21FE0B21F881AB8000359D7 /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
+		A21FE0B31F881AB8000359D7 /* SourceSansPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.otf"; sourceTree = "<group>"; };
+		A21FE0B41F881AB8000359D7 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
+		A21FE0B51F881AB8000359D7 /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
+		A21FE0BA1F8C144F000359D7 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		A21FE0BC1F8C1462000359D7 /* JoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		A281FF701F86CBAB0098F9D3 /* Travelbag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travelbag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A281FF731F86CBAB0098F9D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A281FF751F86CBAB0098F9D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A281FF781F86CBAB0098F9D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A281FF7A1F86CBAB0098F9D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A281FF7D1F86CBAB0098F9D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A281FF7F1F86CBAB0098F9D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,9 +100,40 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A21FE0AD1F881746000359D7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A21FE0AF1F8817A0000359D7 /* ProfileViewController.swift */,
+				A21FE0BA1F8C144F000359D7 /* ForgotPasswordViewController.swift */,
+				A21FE0BC1F8C1462000359D7 /* JoinViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A21FE0AE1F88175C000359D7 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A281FF7C1F86CBAB0098F9D3 /* LaunchScreen.storyboard */,
+				A21FE0AB1F8815B2000359D7 /* Login.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		A21FE0B11F881A84000359D7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A21FE0B21F881AB8000359D7 /* SourceSansPro-Bold.otf */,
+				A21FE0B31F881AB8000359D7 /* SourceSansPro-Light.otf */,
+				A21FE0B41F881AB8000359D7 /* SourceSansPro-Regular.otf */,
+				A21FE0B51F881AB8000359D7 /* SourceSansPro-Semibold.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		A281FF671F86CBAA0098F9D3 = {
 			isa = PBXGroup;
 			children = (
+				A21FE0B11F881A84000359D7 /* Resources */,
 				A281FF721F86CBAB0098F9D3 /* Travelbag */,
 				A281FF871F86CBAB0098F9D3 /* TravelbagTests */,
 				A281FF711F86CBAB0098F9D3 /* Products */,
@@ -111,12 +154,11 @@
 		A281FF721F86CBAB0098F9D3 /* Travelbag */ = {
 			isa = PBXGroup;
 			children = (
-				A281FF931F86CDE80098F9D3 /* GoogleService-Info.plist */,
 				A281FF731F86CBAB0098F9D3 /* AppDelegate.swift */,
-				A281FF751F86CBAB0098F9D3 /* ViewController.swift */,
-				A281FF771F86CBAB0098F9D3 /* Main.storyboard */,
+				A21FE0AE1F88175C000359D7 /* Storyboard */,
+				A21FE0AD1F881746000359D7 /* Controllers */,
+				A281FF931F86CDE80098F9D3 /* GoogleService-Info.plist */,
 				A281FF7A1F86CBAB0098F9D3 /* Assets.xcassets */,
-				A281FF7C1F86CBAB0098F9D3 /* LaunchScreen.storyboard */,
 				A281FF7F1F86CBAB0098F9D3 /* Info.plist */,
 			);
 			path = Travelbag;
@@ -220,10 +262,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A21FE0B71F881AB8000359D7 /* SourceSansPro-Light.otf in Resources */,
 				A281FF7E1F86CBAB0098F9D3 /* LaunchScreen.storyboard in Resources */,
 				A281FF941F86CDE80098F9D3 /* GoogleService-Info.plist in Resources */,
+				A21FE0AC1F8815B2000359D7 /* Login.storyboard in Resources */,
 				A281FF7B1F86CBAB0098F9D3 /* Assets.xcassets in Resources */,
-				A281FF791F86CBAB0098F9D3 /* Main.storyboard in Resources */,
+				A21FE0B61F881AB8000359D7 /* SourceSansPro-Bold.otf in Resources */,
+				A21FE0B81F881AB8000359D7 /* SourceSansPro-Regular.otf in Resources */,
+				A21FE0B91F881AB8000359D7 /* SourceSansPro-Semibold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,8 +407,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A281FF761F86CBAB0098F9D3 /* ViewController.swift in Sources */,
+				A21FE0B01F8817A0000359D7 /* ProfileViewController.swift in Sources */,
 				A281FF741F86CBAB0098F9D3 /* AppDelegate.swift in Sources */,
+				A21FE0BD1F8C1462000359D7 /* JoinViewController.swift in Sources */,
+				A21FE0BB1F8C144F000359D7 /* ForgotPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,14 +433,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A281FF771F86CBAB0098F9D3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A281FF781F86CBAB0098F9D3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A281FF7C1F86CBAB0098F9D3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -572,6 +612,7 @@
 				A281FF8F1F86CBAB0098F9D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A281FF901F86CBAB0098F9D3 /* Build configuration list for PBXNativeTarget "TravelbagTests" */ = {
 			isa = XCConfigurationList;
@@ -580,6 +621,7 @@
 				A281FF921F86CBAB0098F9D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

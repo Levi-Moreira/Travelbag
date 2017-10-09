@@ -10,10 +10,25 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet var inputUsername: UITextField!
+    
+    @IBOutlet var inputPassword: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        
+        inputUsername.layer.borderWidth = 1.0
+        inputUsername.layer.borderColor = UIColor.white.cgColor
+        
+        inputPassword.layer.borderWidth = 1.0
+        inputPassword.layer.borderColor = UIColor.white.cgColor
+       
     }
 
     override func didReceiveMemoryWarning() {
