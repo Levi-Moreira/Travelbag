@@ -18,11 +18,12 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
 
 
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
-        
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.isTranslucent = true
+//        self.navigationController?.view.backgroundColor = .clear
+//		self.navigationController?.isNavigationBarHidden = true
+
         inputUsername.layer.borderWidth = 1.0
         inputUsername.layer.borderColor = UIColor.white.cgColor
         
@@ -30,12 +31,21 @@ class ProfileViewController: UIViewController {
         inputPassword.layer.borderColor = UIColor.white.cgColor
        
     }
+	
+//	override var prefersStatusBarHidden: Bool {
+//		return true
+//	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+	
+	
+	
+	override func viewWillAppear(_ animated: Bool) {
+		self.navigationController?.isNavigationBarHidden = true
+	}
 
     /*
     // MARK: - Navigation
