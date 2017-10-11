@@ -41,7 +41,7 @@
         <!--Profile View Controller-->
         <scene sceneID="5VJ-Jr-uz8">
             <objects>
-                <viewController id="tP3-Ms-r4k" customClass="ProfileViewController" customModule="Travelbag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="tP3-Ms-r4k" customClass="ProfileViewController" customModule="Travelbag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7ul-kB-Acz"/>
                         <viewControllerLayoutGuide type="bottom" id="OLY-Lu-kFR"/>
@@ -57,7 +57,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0j-16-8B7">
-                                        <rect key="frame" x="188" y="72" width="56" height="35.5"/>
+
+                                        <rect key="frame" x="187" y="59" width="56" height="48"/>
+
                                         <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="28"/>
                                         <color key="textColor" red="0.2156862745" green="0.7843137255" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -107,6 +109,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="20"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTapLoginButton:" destination="tP3-Ms-r4k" eventType="touchUpInside" id="UyD-J1-6TP"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8j6-9c-cWZ">
                                         <rect key="frame" x="84" y="444" width="160" height="21"/>
@@ -136,6 +141,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="20"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="didTabFacebookLoginButton:" destination="tP3-Ms-r4k" eventType="touchUpInside" id="9u5-yP-wYg"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qE-Kc-JIk">
                                         <rect key="frame" x="86" y="378" width="157" height="30"/>
@@ -147,9 +155,9 @@
                                             <segue destination="7dh-tk-PWR" kind="show" id="6oU-aR-dox"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Travel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ike-UZ-ZeR">
-                                        <rect key="frame" x="104" y="29" width="113" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ike-UZ-ZeR">
+                                        <rect key="frame" x="108" y="24" width="113" height="50"/>
+
                                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -157,12 +165,15 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.42389547413793105" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ike-UZ-ZeR" secondAttribute="trailing" constant="99" id="2nH-W9-73H"/>
                                     <constraint firstItem="7Kk-ib-kev" firstAttribute="leading" secondItem="oer-Q0-Z6K" secondAttribute="leading" constant="57" id="38G-9Y-gv0"/>
                                     <constraint firstAttribute="trailing" secondItem="t2O-H2-M2G" secondAttribute="trailing" constant="77" id="3IW-8R-SeJ"/>
                                     <constraint firstAttribute="trailing" secondItem="PMs-8s-SH6" secondAttribute="trailing" constant="55" id="4Xf-Ac-GYG"/>
+                                    <constraint firstItem="ike-UZ-ZeR" firstAttribute="top" secondItem="oer-Q0-Z6K" secondAttribute="top" constant="24" id="7Ab-EW-ezM"/>
                                     <constraint firstAttribute="trailing" secondItem="5MB-70-juq" secondAttribute="trailing" constant="55" id="CbI-Yo-UeY"/>
                                     <constraint firstAttribute="trailing" secondItem="9OJ-WW-2H3" secondAttribute="trailing" constant="133" id="FFl-7I-8nY"/>
                                     <constraint firstItem="5MB-70-juq" firstAttribute="leading" secondItem="oer-Q0-Z6K" secondAttribute="leading" constant="55" id="HHH-FU-rFr"/>
+                                    <constraint firstItem="ike-UZ-ZeR" firstAttribute="leading" secondItem="oer-Q0-Z6K" secondAttribute="leading" constant="108" id="II7-v6-nMb"/>
                                     <constraint firstAttribute="trailing" secondItem="8j6-9c-cWZ" secondAttribute="trailing" constant="76" id="M3g-tJ-V1v"/>
                                     <constraint firstItem="m0j-16-8B7" firstAttribute="leading" secondItem="oer-Q0-Z6K" secondAttribute="leading" constant="187" id="MNb-8k-nU1"/>
                                     <constraint firstItem="8j6-9c-cWZ" firstAttribute="top" secondItem="4qE-Kc-JIk" secondAttribute="bottom" constant="36" id="Pio-Jn-vrE"/>
@@ -171,6 +182,8 @@
                                     <constraint firstItem="9OJ-WW-2H3" firstAttribute="leading" secondItem="oer-Q0-Z6K" secondAttribute="leading" constant="135" id="UmS-iZ-HVt"/>
                                     <constraint firstItem="t2O-H2-M2G" firstAttribute="centerY" secondItem="oer-Q0-Z6K" secondAttribute="centerY" id="Xti-2K-ted"/>
                                     <constraint firstAttribute="trailing" secondItem="7Kk-ib-kev" secondAttribute="trailing" constant="55" id="h5i-5x-fO7"/>
+                                    <constraint firstItem="m0j-16-8B7" firstAttribute="top" secondItem="ike-UZ-ZeR" secondAttribute="bottom" constant="-15" id="kQh-B5-xJb"/>
+                                    <constraint firstAttribute="trailing" secondItem="m0j-16-8B7" secondAttribute="trailing" constant="77" id="mh0-e5-xvs"/>
                                     <constraint firstItem="t2O-H2-M2G" firstAttribute="centerX" secondItem="oer-Q0-Z6K" secondAttribute="centerX" id="oTk-hN-Qi6"/>
                                     <constraint firstItem="4qE-Kc-JIk" firstAttribute="top" secondItem="7Kk-ib-kev" secondAttribute="bottom" constant="13" id="q8g-2f-mEz"/>
                                     <constraint firstAttribute="trailing" secondItem="m0j-16-8B7" secondAttribute="trailing" constant="77" id="qSg-sD-6BR"/>
@@ -201,11 +214,20 @@
                     <connections>
                         <outlet property="inputPassword" destination="5MB-70-juq" id="N5M-9e-WAt"/>
                         <outlet property="inputUsername" destination="PMs-8s-SH6" id="z3u-ON-031"/>
+                        <outlet property="loginFacebookButton" destination="7Kk-ib-kev" id="EOz-PH-G0L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="shV-SK-B5s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="431.25" y="-4.225352112676056"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="g4o-tk-KrK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Menu" id="q5Z-0J-N0l" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I8Q-XH-T71" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="410" y="595"/>
         </scene>
         <!--Forgot Password View Controller-->
         <scene sceneID="DKf-C6-YGN">
@@ -218,12 +240,28 @@
                     <view key="view" contentMode="scaleToFill" id="614-2w-sdz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-background" translatesAutoresizingMaskIntoConstraints="NO" id="kOc-YJ-4YE">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OQE-YK-fKB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.42195581896551726" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kOc-YJ-4YE" secondAttribute="trailing" id="92N-5q-1HS"/>
+                            <constraint firstItem="cD9-Gk-Gcq" firstAttribute="top" secondItem="kOc-YJ-4YE" secondAttribute="bottom" id="UAn-F7-uDB"/>
+                            <constraint firstItem="kOc-YJ-4YE" firstAttribute="leading" secondItem="614-2w-sdz" secondAttribute="leading" id="iov-ss-yqj"/>
+                            <constraint firstItem="kOc-YJ-4YE" firstAttribute="top" secondItem="614-2w-sdz" secondAttribute="top" id="jGI-i1-w5i"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xEj-zs-vfj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1442" y="-455"/>
+            <point key="canvasLocation" x="1441.875" y="-455.28169014084506"/>
         </scene>
         <!--Join View Controller-->
         <scene sceneID="k4Q-Rl-xZA">
