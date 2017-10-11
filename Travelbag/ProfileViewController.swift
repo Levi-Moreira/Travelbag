@@ -29,11 +29,12 @@ class ProfileViewController: UIViewController {
         }
 
 
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
-        
+//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        self.navigationController?.navigationBar.shadowImage = UIImage()
+//        self.navigationController?.navigationBar.isTranslucent = true
+//        self.navigationController?.view.backgroundColor = .clear
+//		self.navigationController?.isNavigationBarHidden = true
+
         inputUsername.layer.borderWidth = 1.0
         inputUsername.layer.borderColor = UIColor.white.cgColor
         
@@ -45,6 +46,10 @@ class ProfileViewController: UIViewController {
         inputPassword.text = "levi1110"
        
     }
+	
+//	override var prefersStatusBarHidden: Bool {
+//		return true
+//	}
 
 
     func presentHome(){
@@ -58,6 +63,7 @@ class ProfileViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
     @IBAction func didTabFacebookLoginButton(_ sender: UIButton) {
         let fbLoginManager = FBSDKLoginManager()
@@ -88,6 +94,7 @@ class ProfileViewController: UIViewController {
                 self.presentHome()
                 
             })
+
 
         }
     }

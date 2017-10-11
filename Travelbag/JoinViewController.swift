@@ -10,17 +10,49 @@ import UIKit
 
 class JoinViewController: UIViewController {
 
-    override func viewDidLoad() {
+	@IBOutlet weak var inputFirstname: UITextField!
+	@IBOutlet weak var inputLastname: UITextField!
+	@IBOutlet weak var inputEmail: UITextField!
+	@IBOutlet weak var inputPassword: UITextField!
+	@IBOutlet weak var inputDateofbirth: UITextField!
+	
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
+		
+		inputFirstname.layer.borderWidth = 1.0
+		inputFirstname.layer.borderColor = UIColor.white.cgColor
+		
+		inputLastname.layer.borderWidth = 1.0
+		inputLastname.layer.borderColor = UIColor.white.cgColor
+		
+		inputEmail.layer.borderWidth = 1.0
+		inputEmail.layer.borderColor = UIColor.white.cgColor
+		
+		inputPassword.layer.borderWidth = 1.0
+		inputPassword.layer.borderColor = UIColor.white.cgColor
+		
+		inputDateofbirth.layer.borderWidth = 1.0
+		inputDateofbirth.layer.borderColor = UIColor.white.cgColor
+		
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+	
+	
+	override func viewWillAppear(_ animated: Bool) {
+		
+		self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+		self.navigationController?.navigationBar.shadowImage = UIImage()
+		self.navigationController?.navigationBar.isTranslucent = true
+		self.navigationController?.isNavigationBarHidden = false
+		
+		
+	}
 
     /*
     // MARK: - Navigation
