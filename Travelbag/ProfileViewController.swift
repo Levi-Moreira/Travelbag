@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
 
@@ -14,8 +17,16 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet var inputPassword: UITextField!
     
+    @IBOutlet var loginFacebookButton: FBSDKLoginButton!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Auth.auth().currentUser != nil {
+            presentHome()
+        }
 
 
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -28,23 +39,81 @@ class ProfileViewController: UIViewController {
         
         inputPassword.layer.borderWidth = 1.0
         inputPassword.layer.borderColor = UIColor.white.cgColor
+        
+    
+        inputUsername.text = "levi.m.albuquerque@gmail.com"
+        inputPassword.text = "levi1110"
        
     }
 
+
+    func presentHome(){
+        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "Menu") as UIViewController
+        
+        self.present(controller, animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didTabFacebookLoginButton(_ sender: UIButton) {
+        let fbLoginManager = FBSDKLoginManager()
+        fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self){ (result, error) in
+            if let error = error {
+                print("Failed to login: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let accessToken = FBSDKAccessToken.current() else {
+                print("Failed to get access token")
+                return
+            }
+            
+            let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+            
+            Auth.auth().signIn(with: credential, completion: { (user, error) in
+                if let error = error {
+                    print("Login error: \(error.localizedDescription)")
+                    let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
+                    let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(okayAction)
+                    self.present(alertController, animated: true, completion: nil)
+                    
+                    return
+                }
+                
+                self.presentHome()
+                
+            })
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        }
     }
-    */
+    
+    
+    @IBAction func didTapLoginButton(_ sender: UIButton) {
+        
+        let username = inputUsername.text!
+        let password = inputPassword.text!
+        
+        Auth.auth().signIn(withEmail: username, password: password) { (user, error) in
+            if let error = error {
+                print("Login error: \(error.localizedDescription)")
+                let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
+                let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(okayAction)
+                self.present(alertController, animated: true, completion: nil)
+                
+                return
+            }
+            
+            self.presentHome()
+        }
+    }
+    
+
+
 
 }
