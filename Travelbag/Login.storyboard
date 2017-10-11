@@ -291,22 +291,6 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Date of birth" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YXS-Xf-u3l">
-                                        <rect key="frame" x="55" y="323" width="210" height="40"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="YXS-Xf-u3l" secondAttribute="height" multiplier="21:4" id="CRz-bD-SC9"/>
-                                        </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="21"/>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                                <color key="value" red="1" green="1" blue="1" alpha="0.55242456900000003" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Firstname" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qj1-gn-GwD">
                                         <rect key="frame" x="55" y="147" width="210" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -326,7 +310,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9k-iv-yZp">
-                                        <rect key="frame" x="78" y="406" width="165" height="45"/>
+                                        <rect key="frame" x="78" y="403" width="165" height="45"/>
                                         <color key="backgroundColor" red="0.2156862745" green="0.7843137255" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="a9k-iv-yZp" secondAttribute="height" multiplier="11:3" id="g1r-Vd-Abo"/>
@@ -338,6 +322,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="20"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="registerAccount:" destination="1xp-eb-dLE" eventType="touchUpInside" id="Bd0-M3-sE1"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sing Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4H-ez-F6q">
                                         <rect key="frame" x="97" y="75" width="126" height="34"/>
@@ -345,19 +332,36 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Confirm Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sdr-xT-Skl">
+                                        <rect key="frame" x="55" y="323" width="210" height="40"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Sdr-xT-Skl" secondAttribute="height" multiplier="21:4" id="iVV-nd-A57"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="21"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.55242456900000003" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.4238954741" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="a9k-iv-yZp" secondAttribute="bottom" constant="117" id="8vG-0i-THn"/>
-                                    <constraint firstItem="YXS-Xf-u3l" firstAttribute="top" secondItem="j6O-ke-2py" secondAttribute="bottom" constant="4" id="9MV-rz-Vgi"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sdr-xT-Skl" secondAttribute="trailing" constant="55" id="0ow-vK-PIT"/>
+                                    <constraint firstAttribute="bottom" secondItem="a9k-iv-yZp" secondAttribute="bottom" constant="120" id="8vG-0i-THn"/>
                                     <constraint firstAttribute="trailing" secondItem="a9k-iv-yZp" secondAttribute="trailing" constant="77" id="E72-lP-sA5"/>
                                     <constraint firstAttribute="trailing" secondItem="j6O-ke-2py" secondAttribute="trailing" constant="55" id="I2z-NZ-CiW"/>
                                     <constraint firstItem="mYB-6b-z8J" firstAttribute="leading" secondItem="pa5-6F-h9E" secondAttribute="leading" constant="55" id="IU1-ve-03A"/>
                                     <constraint firstItem="j6O-ke-2py" firstAttribute="leading" secondItem="pa5-6F-h9E" secondAttribute="leading" constant="55" id="Mjj-Qv-cQc"/>
                                     <constraint firstItem="j6O-ke-2py" firstAttribute="top" secondItem="bVm-AZ-cWJ" secondAttribute="bottom" constant="4" id="NdA-ej-tdy"/>
                                     <constraint firstItem="Qj1-gn-GwD" firstAttribute="leading" secondItem="pa5-6F-h9E" secondAttribute="leading" constant="55" id="O4J-Zx-Hkc"/>
-                                    <constraint firstItem="YXS-Xf-u3l" firstAttribute="leading" secondItem="pa5-6F-h9E" secondAttribute="leading" constant="55" id="Vnf-QI-6Ka"/>
-                                    <constraint firstItem="a9k-iv-yZp" firstAttribute="top" secondItem="YXS-Xf-u3l" secondAttribute="bottom" constant="43" id="WdA-KD-pIF"/>
+                                    <constraint firstItem="a9k-iv-yZp" firstAttribute="top" secondItem="Sdr-xT-Skl" secondAttribute="bottom" constant="40" id="OaA-3a-VZq"/>
+                                    <constraint firstItem="Sdr-xT-Skl" firstAttribute="top" secondItem="j6O-ke-2py" secondAttribute="bottom" constant="4" id="RT4-5w-QFU"/>
+                                    <constraint firstItem="Sdr-xT-Skl" firstAttribute="leading" secondItem="pa5-6F-h9E" secondAttribute="leading" constant="55" id="T8q-XQ-czF"/>
                                     <constraint firstItem="bVm-AZ-cWJ" firstAttribute="top" secondItem="mYB-6b-z8J" secondAttribute="bottom" constant="4" id="d2l-F4-AvQ"/>
                                     <constraint firstItem="Qj1-gn-GwD" firstAttribute="top" secondItem="E4H-ez-F6q" secondAttribute="bottom" constant="38" id="e0d-lc-HSu"/>
                                     <constraint firstItem="mYB-6b-z8J" firstAttribute="top" secondItem="Qj1-gn-GwD" secondAttribute="bottom" constant="4" id="erR-LU-hnt"/>
@@ -367,7 +371,6 @@
                                     <constraint firstAttribute="trailing" secondItem="bVm-AZ-cWJ" secondAttribute="trailing" constant="55" id="nuv-cI-IMW"/>
                                     <constraint firstItem="a9k-iv-yZp" firstAttribute="leading" secondItem="pa5-6F-h9E" secondAttribute="leading" constant="78" id="sIX-I8-wEm"/>
                                     <constraint firstItem="bVm-AZ-cWJ" firstAttribute="leading" secondItem="pa5-6F-h9E" secondAttribute="leading" constant="55" id="uFd-0S-8PF"/>
-                                    <constraint firstAttribute="trailing" secondItem="YXS-Xf-u3l" secondAttribute="trailing" constant="55" id="uSp-cy-05E"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -384,7 +387,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="inputDateofbirth" destination="YXS-Xf-u3l" id="Xll-hQ-Kla"/>
+                        <outlet property="inputConfirmPassword" destination="Sdr-xT-Skl" id="Q6H-WC-vN0"/>
                         <outlet property="inputEmail" destination="bVm-AZ-cWJ" id="N40-Ql-071"/>
                         <outlet property="inputFirstname" destination="Qj1-gn-GwD" id="jAP-ap-vD9"/>
                         <outlet property="inputLastname" destination="mYB-6b-z8J" id="OI3-Mw-yl0"/>

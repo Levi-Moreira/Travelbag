@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class JoinViewController: UIViewController {
 
@@ -14,7 +15,8 @@ class JoinViewController: UIViewController {
 	@IBOutlet weak var inputLastname: UITextField!
 	@IBOutlet weak var inputEmail: UITextField!
 	@IBOutlet weak var inputPassword: UITextField!
-	@IBOutlet weak var inputDateofbirth: UITextField!
+	@IBOutlet weak var inputConfirmPassword: UITextField!
+	
 	
 	
 	override func viewDidLoad() {
@@ -32,8 +34,9 @@ class JoinViewController: UIViewController {
 		inputPassword.layer.borderWidth = 1.0
 		inputPassword.layer.borderColor = UIColor.white.cgColor
 		
-		inputDateofbirth.layer.borderWidth = 1.0
-		inputDateofbirth.layer.borderColor = UIColor.white.cgColor
+		inputConfirmPassword.layer.borderWidth = 1.0
+		inputConfirmPassword.layer.borderColor = UIColor.white.cgColor
+		
 		
 
     }
@@ -53,6 +56,10 @@ class JoinViewController: UIViewController {
 		
 		
 	}
+	
+	@IBAction func registerAccount(_ sender: Any) {
+	}
+	
 
     /*
     // MARK: - Navigation
