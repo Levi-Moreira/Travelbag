@@ -29,12 +29,14 @@ class ProfileViewController: UIViewController {
         }
 
 
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.view.backgroundColor = .clear
-//		self.navigationController?.isNavigationBarHidden = true
-
+    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = UIColor.white
+        let bar:UINavigationBar! =  self.navigationController?.navigationBar
+        bar.backgroundColor = UIColor(red: 0.0, green: 0.3, blue: 0.5, alpha: 0.0)
         inputUsername.layer.borderWidth = 1.0
         inputUsername.layer.borderColor = UIColor.white.cgColor
         
@@ -47,10 +49,6 @@ class ProfileViewController: UIViewController {
        
     }
 	
-//	override var prefersStatusBarHidden: Bool {
-//		return true
-//	}
-
 
     func presentHome(){
         let storyboard = UIStoryboard(name: "Menu", bundle: nil)

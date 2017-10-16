@@ -7,29 +7,44 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ForgotPasswordViewController: UIViewController {
+
+    @IBOutlet var emailInput: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        emailInput.layer.borderWidth = 1.0
+        emailInput.layer.borderColor = UIColor.white.cgColor
+        
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func didTapSendEmailReset(_ sender: UIButton) {
+        
+        
+        let email = emailInput.text!
+        
+        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+            
+            if error != nil {
+                print("Deuerror")
+            }
+            
+            self.navigationController?.popToRootViewController(animated: true)
+            
+        }
     }
-    */
+
 
 }
