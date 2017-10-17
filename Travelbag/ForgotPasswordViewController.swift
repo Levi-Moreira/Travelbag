@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import ARSLineProgress
+
 
 class ForgotPasswordViewController: UIViewController {
 
@@ -35,16 +37,33 @@ class ForgotPasswordViewController: UIViewController {
         
         let email = emailInput.text!
         
-        Auth.auth().sendPasswordReset(withEmail: email) { (error) in
-            
-            if error != nil {
-                print("Deuerror")
+        if(email.isValidEmail()){
+            ARSLineProgress.show()
+            Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+                
+                if error != nil {
+                    print("Deuerror")
+                }
+                
+                ARSLineProgress.hide()
+                ARSLineProgress.showSuccess()
             }
-            
-            self.navigationController?.popToRootViewController(animated: true)
-            
+        }else{
+            let alertController = UIAlertController(title: "Email error", message: "Please, type in a valid e-mail address", preferredStyle: .alert)
+            let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(okayAction)
+            self.present(alertController, animated: true, completion: nil)
         }
     }
 
+}
 
+extension String{
+    func isValidEmail() -> Bool {
+        // print("validate calendar: \(testStr)")
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: self)
+    }
 }

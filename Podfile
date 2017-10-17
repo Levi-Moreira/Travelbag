@@ -7,6 +7,8 @@ target 'Travelbag' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage’
+  pod 'ARSLineProgress', '~> 2.0'
+
 
   use_frameworks!
 

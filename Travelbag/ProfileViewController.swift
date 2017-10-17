@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import FirebaseAuth
+import ARSLineProgress
 
 class ProfileViewController: UIViewController {
 
@@ -35,8 +36,7 @@ class ProfileViewController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem?.tintColor = UIColor.white
-        let bar:UINavigationBar! =  self.navigationController?.navigationBar
-        bar.backgroundColor = UIColor(red: 0.0, green: 0.3, blue: 0.5, alpha: 0.0)
+        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.0, green: 0.3, blue: 0.5, alpha: 0.0)
         inputUsername.layer.borderWidth = 1.0
         inputUsername.layer.borderColor = UIColor.white.cgColor
         
@@ -77,7 +77,7 @@ class ProfileViewController: UIViewController {
             }
             
             let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
-            
+            ARSLineProgress.show()
             Auth.auth().signIn(with: credential, completion: { (user, error) in
                 if let error = error {
                     print("Login error: \(error.localizedDescription)")
@@ -88,7 +88,7 @@ class ProfileViewController: UIViewController {
                     
                     return
                 }
-                
+                ARSLineProgress.hide()
                 self.presentHome()
                 
             })
@@ -103,6 +103,7 @@ class ProfileViewController: UIViewController {
         let username = inputUsername.text!
         let password = inputPassword.text!
         
+        ARSLineProgress.show()
         Auth.auth().signIn(withEmail: username, password: password) { (user, error) in
             if let error = error {
                 print("Login error: \(error.localizedDescription)")
@@ -114,6 +115,7 @@ class ProfileViewController: UIViewController {
                 return
             }
             
+            ARSLineProgress.hide()
             self.presentHome()
         }
     }
