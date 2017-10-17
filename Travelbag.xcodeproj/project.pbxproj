@@ -19,6 +19,7 @@
 		A21FE0C01F8C3346000359D7 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21FE0BE1F8C3346000359D7 /* FBSDKCoreKit.framework */; };
 		A21FE0C11F8C3346000359D7 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21FE0BF1F8C3346000359D7 /* FBSDKLoginKit.framework */; };
 		A21FE0C31F8C3418000359D7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21FE0C21F8C3418000359D7 /* Bolts.framework */; };
+		A261DCAD1F95658D00C45361 /* JoinContinuingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */; };
 		A281FF741F86CBAB0098F9D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A281FF731F86CBAB0098F9D3 /* AppDelegate.swift */; };
 		A281FF7B1F86CBAB0098F9D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A281FF7A1F86CBAB0098F9D3 /* Assets.xcassets */; };
 		A281FF7E1F86CBAB0098F9D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A281FF7C1F86CBAB0098F9D3 /* LaunchScreen.storyboard */; };
@@ -54,6 +55,7 @@
 		A21FE0BE1F8C3346000359D7 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A21FE0BF1F8C3346000359D7 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		A21FE0C21F8C3418000359D7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinContinuingViewController.swift; sourceTree = "<group>"; };
 		A281FF701F86CBAB0098F9D3 /* Travelbag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travelbag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A281FF731F86CBAB0098F9D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A281FF7A1F86CBAB0098F9D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				A21FE0BC1F8C1462000359D7 /* JoinViewController.swift */,
 				A2AC03F51F8EB905007E35AB /* MenuViewController.swift */,
 				A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */,
+				A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 			files = (
 				A21FE0B01F8817A0000359D7 /* ProfileViewController.swift in Sources */,
 				A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */,
+				A261DCAD1F95658D00C45361 /* JoinContinuingViewController.swift in Sources */,
 				A281FF741F86CBAB0098F9D3 /* AppDelegate.swift in Sources */,
 				A21FE0BD1F8C1462000359D7 /* JoinViewController.swift in Sources */,
 				A2AC03F81F8EBD38007E35AB /* FeedViewController.swift in Sources */,

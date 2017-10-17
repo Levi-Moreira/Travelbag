@@ -11,8 +11,6 @@ import Firebase
 
 class JoinViewController: UIViewController {
 
-	@IBOutlet weak var inputFirstname: UITextField!
-	@IBOutlet weak var inputLastname: UITextField!
 	@IBOutlet weak var inputEmail: UITextField!
 	@IBOutlet weak var inputPassword: UITextField!
 	@IBOutlet weak var inputConfirmPassword: UITextField!
@@ -22,11 +20,6 @@ class JoinViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
-		inputFirstname.layer.borderWidth = 1.0
-		inputFirstname.layer.borderColor = UIColor.white.cgColor
-		
-		inputLastname.layer.borderWidth = 1.0
-		inputLastname.layer.borderColor = UIColor.white.cgColor
 		
 		inputEmail.layer.borderWidth = 1.0
 		inputEmail.layer.borderColor = UIColor.white.cgColor
@@ -58,6 +51,37 @@ class JoinViewController: UIViewController {
 	}
 	
 	@IBAction func registerAccount(_ sender: Any) {
+		
+		if(inputPassword.text != inputConfirmPassword.text){
+			//alertview\
+			
+			print("As Senhas não estao iguais")
+			let alertController = UIAlertController(title: "Register Error", message:
+				"Passwords are not the same", preferredStyle: .alert)
+			let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+			alertController.addAction(okayAction)
+			self.present(alertController, animated: true, completion: nil)
+			
+			return
+			
+		}else{
+			Auth.auth().createUser(withEmail: inputEmail.text!, password: inputPassword.text!, completion: { (user, error) in
+				if let error = error {
+					print("Login error: \(error.localizedDescription)")
+				let alertController = UIAlertController(title: "Register Error", message: error.localizedDescription, preferredStyle: .alert)
+					let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+					alertController.addAction(okayAction)
+					self.present(alertController, animated: true, completion: nil)
+					
+					return
+				}
+				self.performSegue(withIdentifier: "completeJoin", sender: "")
+				print("Login Created")
+			})
+		}
+		
+		
+		
 	}
 	
 

@@ -6,8 +6,9 @@ target 'Travelbag' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
-  pod 'Firebase/Storage’
-
+  pod 'Firebase/Storage'
+  pod 'Firebase/Database'
+ 
   use_frameworks!
 
   # Pods for Travelbag
