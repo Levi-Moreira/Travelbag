@@ -8,7 +8,8 @@ target 'Travelbag' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
- 
+  pod 'ARSLineProgress', '~> 2.0'
+
   use_frameworks!
 
   # Pods for Travelbag
