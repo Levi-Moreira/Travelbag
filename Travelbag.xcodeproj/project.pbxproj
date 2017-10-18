@@ -19,8 +19,11 @@
 		A21FE0C01F8C3346000359D7 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21FE0BE1F8C3346000359D7 /* FBSDKCoreKit.framework */; };
 		A21FE0C11F8C3346000359D7 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21FE0BF1F8C3346000359D7 /* FBSDKLoginKit.framework */; };
 		A21FE0C31F8C3418000359D7 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A21FE0C21F8C3418000359D7 /* Bolts.framework */; };
-		A261DCAD1F95658D00C45361 /* JoinContinuingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */; };
 		A2368CFE1F9542B30075D88B /* ARSLineProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2368CFF1F9542B30075D88B /* ARSLineProgress.framework */; };
+		A2368D031F97E5160075D88B /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2368D021F97E5160075D88B /* CreatePostViewController.swift */; };
+		A2368D061F97F5260075D88B /* PostOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2368D051F97F5260075D88B /* PostOptionsTableViewCell.swift */; };
+		A2368D081F97F5400075D88B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2368D071F97F5400075D88B /* Post.swift */; };
+		A261DCAD1F95658D00C45361 /* JoinContinuingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */; };
 		A281FF741F86CBAB0098F9D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A281FF731F86CBAB0098F9D3 /* AppDelegate.swift */; };
 		A281FF7B1F86CBAB0098F9D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A281FF7A1F86CBAB0098F9D3 /* Assets.xcassets */; };
 		A281FF7E1F86CBAB0098F9D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A281FF7C1F86CBAB0098F9D3 /* LaunchScreen.storyboard */; };
@@ -56,12 +59,12 @@
 		A21FE0BE1F8C3346000359D7 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		A21FE0BF1F8C3346000359D7 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		A21FE0C21F8C3418000359D7 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-
-		A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinContinuingViewController.swift; sourceTree = "<group>"; };
-
 		A2368CFF1F9542B30075D88B /* ARSLineProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARSLineProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2368D011F9564030075D88B /* SDCAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDCAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-
+		A2368D021F97E5160075D88B /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
+		A2368D051F97F5260075D88B /* PostOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOptionsTableViewCell.swift; sourceTree = "<group>"; };
+		A2368D071F97F5400075D88B /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinContinuingViewController.swift; sourceTree = "<group>"; };
 		A281FF701F86CBAB0098F9D3 /* Travelbag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travelbag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A281FF731F86CBAB0098F9D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A281FF7A1F86CBAB0098F9D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -138,6 +141,7 @@
 				A2AC03F51F8EB905007E35AB /* MenuViewController.swift */,
 				A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */,
 				A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */,
+				A2368D021F97E5160075D88B /* CreatePostViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -161,6 +165,22 @@
 				A21FE0B51F881AB8000359D7 /* SourceSansPro-Semibold.otf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		A2368D041F97F5030075D88B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A2368D051F97F5260075D88B /* PostOptionsTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A2368D091F97F5460075D88B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A2368D071F97F5400075D88B /* Post.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		A281FF671F86CBAA0098F9D3 = {
@@ -187,6 +207,8 @@
 		A281FF721F86CBAB0098F9D3 /* Travelbag */ = {
 			isa = PBXGroup;
 			children = (
+				A2368D091F97F5460075D88B /* Models */,
+				A2368D041F97F5030075D88B /* Views */,
 				A281FF731F86CBAB0098F9D3 /* AppDelegate.swift */,
 				A21FE0AE1F88175C000359D7 /* Storyboard */,
 				A21FE0AD1F881746000359D7 /* Controllers */,
@@ -446,11 +468,14 @@
 			files = (
 				A21FE0B01F8817A0000359D7 /* ProfileViewController.swift in Sources */,
 				A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */,
+				A2368D031F97E5160075D88B /* CreatePostViewController.swift in Sources */,
 				A261DCAD1F95658D00C45361 /* JoinContinuingViewController.swift in Sources */,
+				A2368D061F97F5260075D88B /* PostOptionsTableViewCell.swift in Sources */,
 				A281FF741F86CBAB0098F9D3 /* AppDelegate.swift in Sources */,
 				A21FE0BD1F8C1462000359D7 /* JoinViewController.swift in Sources */,
 				A2AC03F81F8EBD38007E35AB /* FeedViewController.swift in Sources */,
 				A21FE0BB1F8C144F000359D7 /* ForgotPasswordViewController.swift in Sources */,
+				A2368D081F97F5400075D88B /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
