@@ -9,6 +9,8 @@ target 'Travelbag' do
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
   pod 'ARSLineProgress', '~> 2.0'
+  pod 'ImagePicker'
+  pod 'DatePickerDialog'
 
   use_frameworks!
 

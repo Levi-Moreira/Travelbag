@@ -8,11 +8,26 @@
 
 import UIKit
 
-class CreatePostViewController: UIViewController {
 
+class CreatePostViewController: UIViewController, PostOptionsDelegate {
+    
+    func pickInterest(completionHandler: @escaping (InterestOptions) -> Void) {
+        performSegue(withIdentifier: "pickInterestSegue" , sender: self)
+    }
+    
+ 
+    @IBOutlet var postImagePreview: UIImageView!
+    
+    func publishImage(image: UIImage) {
+        postImagePreview.image = image
+    }
+    
+
+    var optionsViewController : PostOptionsTableViewController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        optionsViewController?.optionsDelegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -23,5 +38,11 @@ class CreatePostViewController: UIViewController {
     
     @IBAction func didTapCancel(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "postOptionsSegue"{
+            optionsViewController = segue.destination as? PostOptionsTableViewController
+        }
     }
 }

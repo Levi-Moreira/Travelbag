@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Please allow us to use your photo library.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Please allow us to use your camera.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Please allow us to use your location.</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -50,25 +58,25 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb122613811738295</string>
-            </array>
-        </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>122613811738295</string>
-    <key>FacebookDisplayName</key>
-    <string>Travelbag</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb122613811738295</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>122613811738295</string>
+	<key>FacebookDisplayName</key>
+	<string>Travelbag</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 </dict>
 </plist>
