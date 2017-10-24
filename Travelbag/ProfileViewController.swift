@@ -9,7 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
-import FirebaseAuth
+import Firebase
 import ARSLineProgress
 
 class ProfileViewController: UIViewController {
@@ -24,7 +24,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        FirebaseApp.configure()
         if Auth.auth().currentUser != nil {
             presentHome()
         }

@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class MenuViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+  
         // Do any additional setup after loading the view.
     }
 
