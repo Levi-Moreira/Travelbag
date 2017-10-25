@@ -26,7 +26,6 @@
 		A261DCAD1F95658D00C45361 /* JoinContinuingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */; };
 		A26560C01F9E941900BDC06A /* LocationPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26560C11F9E941900BDC06A /* LocationPicker.framework */; };
 		A26560C31F9E9AE000BDC06A /* INterestOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */; };
-		A26560CA1F9FCD1100BDC06A /* FireRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26560CB1F9FCD1100BDC06A /* FireRecord.framework */; };
 		A26560CD1F9FED4300BDC06A /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560CC1F9FED4300BDC06A /* FirebaseModel.swift */; };
 		A26560CF1F9FF01C00BDC06A /* FirebaseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560CE1F9FF01C00BDC06A /* FirebaseImage.swift */; };
 		A26F50B71F9952F700AC6FE5 /* DatePickerDialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26F50B81F9952F700AC6FE5 /* DatePickerDialog.framework */; };
@@ -106,7 +105,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A26560CA1F9FCD1100BDC06A /* FireRecord.framework in Frameworks */,
 				A26560C01F9E941900BDC06A /* LocationPicker.framework in Frameworks */,
 				A26F50B71F9952F700AC6FE5 /* DatePickerDialog.framework in Frameworks */,
 				A2368CFE1F9542B30075D88B /* ARSLineProgress.framework in Frameworks */,
@@ -317,7 +315,7 @@
 				TargetAttributes = {
 					A281FF6F1F86CBAA0098F9D3 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 6MNS953WHJ;
+						DevelopmentTeam = GYT288GTM5;
 						ProvisioningStyle = Automatic;
 					};
 					A281FF831F86CBAB0098F9D3 = {
@@ -383,11 +381,8 @@
 				"${BUILT_PRODUCTS_DIR}/ARSLineProgress/ARSLineProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/DatePickerDialog/DatePickerDialog.framework",
-				"${BUILT_PRODUCTS_DIR}/FireRecord/FireRecord.framework",
-				"${BUILT_PRODUCTS_DIR}/FirebaseCommunity/FirebaseCommunity.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/LocationPicker/LocationPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -404,11 +399,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ARSLineProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerDialog.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FireRecord.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCommunity.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -659,7 +651,7 @@
 			baseConfigurationReference = E4D34368B183109F602F2036 /* Pods-Travelbag.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6MNS953WHJ;
+				DEVELOPMENT_TEAM = GYT288GTM5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -677,7 +669,7 @@
 			baseConfigurationReference = EE36C95294F89478708AE67B /* Pods-Travelbag.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6MNS953WHJ;
+				DEVELOPMENT_TEAM = GYT288GTM5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
