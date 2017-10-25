@@ -12,7 +12,7 @@ import FBSDKLoginKit
 import Firebase
 import ARSLineProgress
 
-class ProfileViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet var inputUsername: UITextField!
     

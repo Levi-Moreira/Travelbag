@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		87951888D7682DE448727FEA /* Pods_TravelbagTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E544EDA87FA33C32BFB42742 /* Pods_TravelbagTests.framework */; };
 		A21FE0AC1F8815B2000359D7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0AB1F8815B2000359D7 /* Login.storyboard */; };
-		A21FE0B01F8817A0000359D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21FE0AF1F8817A0000359D7 /* ProfileViewController.swift */; };
+		A21FE0B01F8817A0000359D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21FE0AF1F8817A0000359D7 /* LoginViewController.swift */; };
 		A21FE0B61F881AB8000359D7 /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0B21F881AB8000359D7 /* SourceSansPro-Bold.otf */; };
 		A21FE0B71F881AB8000359D7 /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0B31F881AB8000359D7 /* SourceSansPro-Light.otf */; };
 		A21FE0B81F881AB8000359D7 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0B41F881AB8000359D7 /* SourceSansPro-Regular.otf */; };
@@ -25,7 +25,7 @@
 		A2368D081F97F5400075D88B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2368D071F97F5400075D88B /* Post.swift */; };
 		A261DCAD1F95658D00C45361 /* JoinContinuingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */; };
 		A26560C01F9E941900BDC06A /* LocationPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26560C11F9E941900BDC06A /* LocationPicker.framework */; };
-		A26560C31F9E9AE000BDC06A /* INterestOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */; };
+		A26560C31F9E9AE000BDC06A /* InterestOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560C21F9E9AE000BDC06A /* InterestOptionsTableViewController.swift */; };
 		A26560CD1F9FED4300BDC06A /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560CC1F9FED4300BDC06A /* FirebaseModel.swift */; };
 		A26560CF1F9FF01C00BDC06A /* FirebaseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560CE1F9FF01C00BDC06A /* FirebaseImage.swift */; };
 		A26F50B71F9952F700AC6FE5 /* DatePickerDialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26F50B81F9952F700AC6FE5 /* DatePickerDialog.framework */; };
@@ -54,7 +54,7 @@
 		327E40FEBA48C9CC9692A451 /* Pods_Travelbag.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travelbag.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AAA0F6A91453F2461810933 /* Pods-TravelbagTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelbagTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravelbagTests/Pods-TravelbagTests.release.xcconfig"; sourceTree = "<group>"; };
 		A21FE0AB1F8815B2000359D7 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		A21FE0AF1F8817A0000359D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A21FE0AF1F8817A0000359D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A21FE0B21F881AB8000359D7 /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
 		A21FE0B31F881AB8000359D7 /* SourceSansPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.otf"; sourceTree = "<group>"; };
 		A21FE0B41F881AB8000359D7 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 		A2368D071F97F5400075D88B /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinContinuingViewController.swift; sourceTree = "<group>"; };
 		A26560C11F9E941900BDC06A /* LocationPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LocationPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INterestOptionsTableViewController.swift; sourceTree = "<group>"; };
+		A26560C21F9E9AE000BDC06A /* InterestOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestOptionsTableViewController.swift; sourceTree = "<group>"; };
 		A26560C51F9EA19C00BDC06A /* FireRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FireRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26560C71F9EA49300BDC06A /* FireRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FireRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26560C91F9EA49800BDC06A /* FirebaseCommunity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCommunity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,14 +163,14 @@
 		A21FE0AD1F881746000359D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A21FE0AF1F8817A0000359D7 /* ProfileViewController.swift */,
+				A21FE0AF1F8817A0000359D7 /* LoginViewController.swift */,
 				A21FE0BA1F8C144F000359D7 /* ForgotPasswordViewController.swift */,
 				A21FE0BC1F8C1462000359D7 /* JoinViewController.swift */,
 				A2AC03F51F8EB905007E35AB /* MenuViewController.swift */,
 				A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */,
 				A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */,
 				A2368D021F97E5160075D88B /* CreatePostViewController.swift */,
-				A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */,
+				A26560C21F9E9AE000BDC06A /* InterestOptionsTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -506,8 +506,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A26560CD1F9FED4300BDC06A /* FirebaseModel.swift in Sources */,
-				A26560C31F9E9AE000BDC06A /* INterestOptionsTableViewController.swift in Sources */,
-				A21FE0B01F8817A0000359D7 /* ProfileViewController.swift in Sources */,
+				A26560C31F9E9AE000BDC06A /* InterestOptionsTableViewController.swift in Sources */,
+				A21FE0B01F8817A0000359D7 /* LoginViewController.swift in Sources */,
 				A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */,
 				A2368D031F97E5160075D88B /* CreatePostViewController.swift in Sources */,
 				A261DCAD1F95658D00C45361 /* JoinContinuingViewController.swift in Sources */,

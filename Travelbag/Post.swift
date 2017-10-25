@@ -21,7 +21,6 @@ class Post: FirebaseBaseModel{
     var uid : String?
     var content: String?
     
-    
     override func toDic() -> [String : Any]{
         var dic = [String:Any]()
         dic["latitude"] = self.latitude
