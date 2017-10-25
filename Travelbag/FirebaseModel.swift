@@ -21,7 +21,7 @@ class FirebaseBaseModel: FirebaseModel{
     }
     
     func saveTo(node: String) -> String{
-        var node = self.databaseRef.child(node).childByAutoId()
+        let node = self.databaseRef.child(node).childByAutoId()
         node.setValue(self.toDic())
     
         return node.key

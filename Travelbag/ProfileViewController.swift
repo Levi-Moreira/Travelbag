@@ -20,14 +20,16 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet var loginFacebookButton: FBSDKLoginButton!
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil {
+            presentHome()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        FirebaseApp.configure()
-        if Auth.auth().currentUser != nil {
-            presentHome()
-        }
+
 
 
     self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

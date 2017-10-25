@@ -29,7 +29,7 @@ struct FirebaseImage {
         
         
         let uploadTask = fileRef.putData((self.image?.compressedData())!, metadata: metadata) { (metadata, error) in
-            guard let metadata = metadata else {
+            guard metadata != nil else {
                 errorHandler(error)
                 return
             }
@@ -41,7 +41,7 @@ struct FirebaseImage {
 //            let downloadURL = metadata.downloadURL
             
             fileRef.downloadURL { url, error in
-                if let error = error {
+                if error != nil {
                     // Handle any errors
                 } else {
                     let  databaseRef = Database.database().reference()
