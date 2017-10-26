@@ -9,7 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
-import FirebaseAuth
+import Firebase
 import ARSLineProgress
 
 class ProfileViewController: UIViewController {
@@ -20,14 +20,16 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet var loginFacebookButton: FBSDKLoginButton!
     
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
             presentHome()
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        FirebaseApp.configure()
+
 
 
     self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

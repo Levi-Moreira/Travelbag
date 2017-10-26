@@ -10,6 +10,8 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import CoreLocation
+import DatePickerDialog
+
 
 class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
@@ -75,7 +77,7 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         do {
             try firebaseAuth.signOut()
         } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+            print ("Error signing  out: %@", signOutError)
         }
         
         presentLogin()

@@ -2,23 +2,26 @@
 //  Post.swift
 //  Travelbag
 //
-//  Created by IFCE on 18/10/17.
 //  Copyright © 2017 ifce. All rights reserved.
 //
 
 import Foundation
+import UIKit
+import FirebaseDatabase
 
-class Post{
-	var date: Double?
-	var image: String?
-	var lat: Double?
-	var long: Double?
-	var owner: String?
-	var share_gas: Bool?
-	var share_group: Bool?
-	var share_host: Bool?
-	var text: String?
-	
+
+class Post: FirebaseBaseModel{
+    var latitude: Double?
+    var longitude: Double?
+    var date: String?
+    var interest: String?
+    var image: FirebaseImage?
+    var uid : String?
+    var content: String?
+    var share_gas: Bool = false
+    var share_group: Bool = false
+    var share_host: Bool = false
+
 	init(with json: [String : Any]) {
 		self.date = json["date"] as? Double
 		self.image = json["image"] as? String
@@ -30,5 +33,19 @@ class Post{
 		self.share_group = json["share_host"] as? Bool
 		self.text = json["text"] as? String
 
-	}
+		}
+    
+    override func toDic() -> [String : Any]{
+        var dic = [String:Any]()
+        dic["latitude"] = self.latitude
+        dic["longitude"] = self.longitude
+        dic["date"] = ServerValue.timestamp()
+        dic["owner"] = self.uid
+        dic["text"] = self.content
+        dic["share_gas"] = self.share_gas
+        dic["share_group"] = self.share_group
+        dic["share_host"] = self.share_host
+        dic["image"] = ""
+        return dic
+    }
 }
