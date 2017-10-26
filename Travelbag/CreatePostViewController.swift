@@ -14,6 +14,7 @@ import LocationPicker
 import SwifterSwift
 import FirebaseAuth
 import FirebaseDatabase
+import ARSLineProgress
 
 
 class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLocationManagerDelegate, InterestOptionsDelegate {
@@ -83,9 +84,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
             pickDate()
         case 4:
             performSegue(withIdentifier: "pickInterestSegue", sender: self)
-        case 5:
-            present(imagePickerController, animated: true, completion: nil)
-            
+
         default:
             return
         }
@@ -202,6 +201,9 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
        
     }
     
+    @IBAction func didTabCamera(_ sender: UIButton) {
+        present(imagePickerController, animated: true, completion: nil)
+    }
     
     
     
@@ -298,18 +300,30 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
             return
         }
         
+        ARSLineProgress.show()
+        
         
         self.post.uid = Auth.auth().currentUser?.uid
         
         let postid = self.post.saveTo(node: "posts")
-        self.post.image?.save(withResouceType: "posts", withParentId: postid, withName: "postimage.jpg", errorHandler: { (error) in
+        
+        guard let image = self.post.image else{
+            ARSLineProgress.hide()
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        image.save(withResouceType: "posts", withParentId: postid, withName: "postimage.jpg", completionHandler: { (error, snapshot) in
             if error != nil {
                 print(error)
+                ARSLineProgress.hide()
+                ARSLineProgress.showFail()
+                return
             }
+            ARSLineProgress.hide()
+            self.dismiss(animated: true, completion: nil)
+           
         })
-        
-        self.dismiss(animated: true, completion: nil)
-        
+      
     }
     
 }
