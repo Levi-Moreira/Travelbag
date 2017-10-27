@@ -143,10 +143,14 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
             (date) -> Void in
             if let dt = date {
                 let formatter = DateFormatter()
-                formatter.dateFormat = "dd/MM/yyyy"
-                self.pickedDate.text = formatter.string(from: dt)
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+                let formatterLocal = DateFormatter()
+                formatterLocal.dateFormat = "MM-dd-yyyy"
                 
-                self.post.date = date?.timeString(ofStyle : .short)
+                
+                self.pickedDate.text = formatterLocal.string(from: dt)
+                
+                self.post.date = formatter.string(from: dt)
             }
         }
         
@@ -249,7 +253,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     func publishImage(image: UIImage) {
         postImagePreview.image = image
         
-        self.post.image = FirebaseImage(image: image)
+        self.post.image_holder = FirebaseImage(image: image)
         
         self.noImage = false
         self.tableView.reloadData()
@@ -307,7 +311,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
         
         let postid = self.post.saveTo(node: "posts")
         
-        guard let image = self.post.image else{
+        guard let image = self.post.image_holder else{
             ARSLineProgress.hide()
             self.dismiss(animated: true, completion: nil)
             return
