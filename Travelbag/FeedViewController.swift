@@ -46,18 +46,30 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "post", for: indexPath) as! FeedTableViewCell
 		
-		cell.nameUser.text = self.posts[indexPath.row].uid
+		cell.nameUser.text = self.posts[indexPath.row].user?.uid
 		cell.profilePhoto.image = #imageLiteral(resourceName: "login-background")
 		
-		if let url = URL(string: self.posts[indexPath.row].image!){
-			if let data = try? Data(contentsOf: url){
-				let imagepost = UIImage(data: data)
-				cell.imagePost.image = imagepost
-			}
+        
+        if let urlString = self.posts[indexPath.row].image{
+            if let url = URL(string:urlString ){
+                if let data = try? Data(contentsOf: url){
+                    let imagepost = UIImage(data: data)
+                    cell.imagePost.image = imagepost
+                }
+        }
+		
 		}else{
 			cell.constraintHeight.constant = 0.0
 		}
-		lookUpCurrentLocation(lat: self.posts[indexPath.row].latitude!, long: self.posts[indexPath.row].longitude!) { (placemark) in
+        
+        guard let latitude = self.posts[indexPath.row].latitude else{
+            return cell
+        }
+        
+        guard let longitude = self.posts[indexPath.row].longitude else {
+            return cell
+        }
+		lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
 			cell.locationUser.text = placemark?.locality ?? ""
 		}
 		
@@ -84,7 +96,7 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func presentLogin(){
             let storyboard = UIStoryboard(name: "Login", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "Login") as UIViewController
+            let controller = storyboard.instantiateViewController(withIdentifier: "LoginNav") as! UINavigationController
             
             self.present(controller, animated: true, completion: nil)
         

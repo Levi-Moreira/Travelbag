@@ -307,7 +307,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
         ARSLineProgress.show()
         
         
-        self.post.uid = Auth.auth().currentUser?.uid
+        self.post.user?.uid = Auth.auth().currentUser?.uid
         
         let postid = self.post.saveTo(node: "posts")
         
@@ -316,7 +316,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
             self.dismiss(animated: true, completion: nil)
             return
         }
-        image.save(withResouceType: "posts", withParentId: postid, withName: "postimage.jpg", completionHandler: { (error, snapshot) in
+        image.save(withResouceType: "posts", withParentId: postid, withName: "postimage.jpg",withPathName: "image", completionHandler: { (error, snapshot) in
             if error != nil {
                 print(error)
                 ARSLineProgress.hide()

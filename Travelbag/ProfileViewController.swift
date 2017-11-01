@@ -20,6 +20,8 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet var loginFacebookButton: FBSDKLoginButton!
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
             presentHome()
@@ -36,9 +38,13 @@ class ProfileViewController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
+        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         navigationItem.backBarButtonItem?.tintColor = UIColor.white
         self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.0, green: 0.3, blue: 0.5, alpha: 0.0)
+        
+        
         inputUsername.layer.borderWidth = 1.0
         inputUsername.layer.borderColor = UIColor.white.cgColor
         

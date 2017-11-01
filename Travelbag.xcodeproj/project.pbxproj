@@ -39,6 +39,7 @@
 		A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC03F51F8EB905007E35AB /* MenuViewController.swift */; };
 		A2AC03F81F8EBD38007E35AB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */; };
 		A2C879541FA3BE140097C052 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C879531FA3BE140097C052 /* Post.swift */; };
+		A2C879561FA7D7780097C052 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C879551FA7D7780097C052 /* Profile.swift */; };
 		EC0D87B037BB787520BC0DE6 /* Pods_Travelbag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327E40FEBA48C9CC9692A451 /* Pods_Travelbag.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,7 @@
 		A2AC03F51F8EB905007E35AB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		A2C879531FA3BE140097C052 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		A2C879551FA7D7780097C052 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		C0FF306C9F5DDBAAE70BC1BD /* Pods-TravelbagTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelbagTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelbagTests/Pods-TravelbagTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E4D34368B183109F602F2036 /* Pods-Travelbag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travelbag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travelbag/Pods-Travelbag.debug.xcconfig"; sourceTree = "<group>"; };
 		E544EDA87FA33C32BFB42742 /* Pods_TravelbagTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelbagTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +217,7 @@
 				A2C879531FA3BE140097C052 /* Post.swift */,
 				A26560CC1F9FED4300BDC06A /* FirebaseModel.swift */,
 				A26560CE1F9FF01C00BDC06A /* FirebaseImage.swift */,
+				A2C879551FA7D7780097C052 /* Profile.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				A2C879541FA3BE140097C052 /* Post.swift in Sources */,
 				A261DCAD1F95658D00C45361 /* JoinContinuingViewController.swift in Sources */,
 				A26560CF1F9FF01C00BDC06A /* FirebaseImage.swift in Sources */,
+				A2C879561FA7D7780097C052 /* Profile.swift in Sources */,
 				A2368D061F97F5260075D88B /* PostOptionsTableViewCell.swift in Sources */,
 				A281FF741F86CBAB0098F9D3 /* AppDelegate.swift in Sources */,
 				A21FE0BD1F8C1462000359D7 /* JoinViewController.swift in Sources */,
