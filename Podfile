@@ -12,7 +12,6 @@ target 'Travelbag' do
   pod 'ImagePicker'
   pod 'DatePickerDialog'
   pod 'LocationPicker'
-  pod 'FireRecord'
   pod 'SwifterSwift', '~> 3.2.0'
 
   use_frameworks!

@@ -11,23 +11,26 @@ import FirebaseAuth
 import DatePickerDialog
 import FirebaseDatabase
 import CoreLocation
+import ARSLineProgress
 
 class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
 	
 	var ref:DatabaseReference!
 	var databaseHandle:DatabaseHandle?
-//	var user = Auth.auth().currentUser
-	
 	var posts = [Post]()
 	
-
+	let refreshControl = UIRefreshControl()
 	@IBOutlet weak var tableView: UITableView!
 	override func viewDidLoad()  {
 		super.viewDidLoad()
-		ref = Database.database().reference()
 		
+		ref = Database.database().reference()
+		ARSLineProgress.show()
 		getPosts()
+		
+		refreshControl.addTarget(self, action: #selector(getPosts), for: .valueChanged)
+		tableView.insertSubview(refreshControl, at: 0)
 		
 
 		tableView.rowHeight = UITableViewAutomaticDimension
@@ -40,47 +43,56 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return (posts.count)
+		return (posts.count) + 1
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "post", for: indexPath) as! FeedTableViewCell
+		let createPost = tableView.dequeueReusableCell(withIdentifier: "createPost", for: indexPath) as! PostCreationTableViewCell
 		
-		cell.nameUser.text = self.posts[indexPath.row].user?.uid
-		cell.profilePhoto.image = #imageLiteral(resourceName: "login-background")
-		
-        
-        if let urlString = self.posts[indexPath.row].image{
-            if let url = URL(string:urlString ){
-                if let data = try? Data(contentsOf: url){
-                    let imagepost = UIImage(data: data)
-                    cell.imagePost.image = imagepost
-                }
-        }
-		
+
+		if indexPath.row == 0{
+			createPost.selfImage.image = #imageLiteral(resourceName: "login-background")
+			return (createPost)
 		}else{
-			cell.constraintHeight.constant = 0.0
+			let post = self.posts[indexPath.row-1]
+			if let name = post.userName {
+				cell.nameUser.text = name
+			}
+			cell.profilePhoto.image = #imageLiteral(resourceName: "login-background")
+			
+			if let urlString = self.posts[indexPath.row-1].image{
+				if let url = URL(string:urlString ){
+					if let data = try? Data(contentsOf: url){
+						let imagepost = UIImage(data: data)
+						cell.imagePost.image = imagepost
+					}
+				} else {
+					cell.constraintHeight.constant = 0.0
+				}
+			}
+			guard let latitude = self.posts[indexPath.row-1].latitude else{
+				return cell
+			}
+			
+			guard let longitude = self.posts[indexPath.row-1].longitude else {
+				return cell
+			}
+			lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
+				cell.locationUser.text = placemark?.locality ?? ""
+			}
+			cell.textPost.text = post.content
+			
+			if let timeGet = post.post_date{
+				cell.timeAgo.text = post.timeToNow
+			}else{
+				cell.timeAgo.text = "cheguei"
+			}
+			//			cell.timeAgo.text = self.posts[indexPath.row].date
+			return (cell)
+
 		}
-        
-        guard let latitude = self.posts[indexPath.row].latitude else{
-            return cell
-        }
-        
-        guard let longitude = self.posts[indexPath.row].longitude else {
-            return cell
-        }
-		lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
-			cell.locationUser.text = placemark?.locality ?? ""
-		}
 		
-		
-		cell.textPost.text = self.posts[indexPath.row].content
-		cell.timeAgo.text = "3 min"
-		
-		
-		// Configure the cell...
-		
-		return (cell)
 	}
 
     @IBAction func logout(_ sender: Any) {
@@ -99,11 +111,12 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             let controller = storyboard.instantiateViewController(withIdentifier: "LoginNav") as! UINavigationController
             
             self.present(controller, animated: true, completion: nil)
-        
     }
 	
 	func getPosts(){
 		ref.child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
+			self.posts.removeAll()
+			
 			guard let arrayDataSnapshot = snapshot.children.allObjects as? [DataSnapshot] else {
 				return
 			}
@@ -111,10 +124,15 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 				guard let json = snap.value as? [String: Any] else {
 					return
 				}
-				
 				self.posts.append(Post(with: json))
 			}
-			self.tableView.reloadData()
+			
+			ARSLineProgress.hide()
+			DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+				self.tableView.reloadData()
+				self.refreshControl.endRefreshing()
+			})
+			
 		}) { (error) in
 			print(error.localizedDescription)
 		}
@@ -137,8 +155,6 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 												completionHandler(nil)
 											}
 		})
-		
-		
 	}
 
 }

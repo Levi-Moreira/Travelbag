@@ -21,8 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseApp.configure()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-        
-        
+		Database.database().isPersistenceEnabled = true
+		Database.database().reference().keepSynced(true)
+//
+		UserManager.getUser { user in
+			UserManager.shared.user = user
+		}
+		
+		
         return true
     }
     

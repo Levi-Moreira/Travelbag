@@ -103,7 +103,6 @@ class JoinContinuingViewController: UIViewController, ImagePickerDelegate {
                 self.presentHome()
             })
         }
-        
 	}
     
     func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)

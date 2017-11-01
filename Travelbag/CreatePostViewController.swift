@@ -35,7 +35,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     
     var locationManager = CLLocationManager()
     
-    var currentLocation : CLLocation!
+    var currentLocation : CLLocation?
     var currentPlacemark : CLPlacemark!
     
     var noImage = true
@@ -131,8 +131,8 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     func showLocation(){
         self.pickedLocation.text = self.currentPlacemark.locality
         
-        self.post.latitude = self.currentLocation.coordinate.latitude
-        self.post.longitude = self.currentLocation.coordinate.longitude
+        self.post.latitude = self.currentLocation?.coordinate.latitude
+        self.post.longitude = self.currentLocation?.coordinate.longitude
         
         
     }
@@ -146,8 +146,8 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
                 formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
                 let formatterLocal = DateFormatter()
                 formatterLocal.dateFormat = "MM-dd-yyyy"
-                
-                
+				
+				
                 self.pickedDate.text = formatterLocal.string(from: dt)
                 
                 self.post.date = formatter.string(from: dt)
@@ -158,8 +158,10 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.currentLocation = locations[0]
-        
-        getUserLocation(latitude: self.currentLocation.coordinate.latitude, longitude: self.currentLocation.coordinate.longitude) { (city) in
+		guard let altitude = self.currentLocation?.coordinate.latitude, let longitude = self.currentLocation?.coordinate.longitude else {
+			return print("Latitude e longitude n existe")
+		}
+		getUserLocation(latitude: altitude, longitude: longitude) { (city) in
             self.currentPlacemark = city
             self.showLocation()
         }
@@ -308,9 +310,9 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
         
         
         self.post.user?.uid = Auth.auth().currentUser?.uid
-        
-        let postid = self.post.saveTo(node: "posts")
-        
+        self.post.userName = UserManager.shared.user?.firstName
+		let postid = self.post.saveTo()
+
         guard let image = self.post.image_holder else{
             ARSLineProgress.hide()
             self.dismiss(animated: true, completion: nil)
