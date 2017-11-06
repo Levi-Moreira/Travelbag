@@ -13,6 +13,7 @@ target 'Travelbag' do
   pod 'DatePickerDialog'
   pod 'LocationPicker'
   pod 'SwifterSwift', '~> 3.2.0'
+	pod 'Nuke', '~> 5.0'
 
   use_frameworks!
 

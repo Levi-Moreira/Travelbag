@@ -85,6 +85,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - Nuke (5.2)
   - Protobuf (3.4.0)
   - SwifterSwift (3.2.0):
     - SwifterSwift/AppKit (= 3.2.0)
@@ -110,6 +111,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - ImagePicker
   - LocationPicker
+  - Nuke (~> 5.0)
   - SwifterSwift (~> 3.2.0)
 
 SPEC CHECKSUMS:
@@ -134,9 +136,10 @@ SPEC CHECKSUMS:
   leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
   LocationPicker: d54d59c9d14d52496e3e8167e67f13440d6bcf1e
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Nuke: 5f420c4637415f979c83afb35e73176dd03232d9
   Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
   SwifterSwift: e009210d995737f54c1fbffc5a3f004c8467ab1d
 
-PODFILE CHECKSUM: 2b73a6f69b9ac4489e2eb2b5f080f257c2bb6328
+PODFILE CHECKSUM: 8d49e613a8d7e40cd9402b0ec504cceea91ac09c
 
 COCOAPODS: 1.3.1

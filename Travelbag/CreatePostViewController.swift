@@ -302,7 +302,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
         self.post.uid = Auth.auth().currentUser?.uid
         
         let postid = self.post.saveTo(node: "posts")
-        self.post.image?.save(withResouceType: "posts", withParentId: postid, withName: "postimage.jpg", errorHandler: { (error) in
+        self.post.image?.save(withResouceType: "posts", withParentId: postid, withName: "postimage.jpg", withPathName: "image", completionHandler: { (error) in
             if error != nil {
                 print(error)
             }

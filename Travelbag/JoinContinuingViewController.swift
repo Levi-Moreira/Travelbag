@@ -44,21 +44,12 @@ class JoinContinuingViewController: UIViewController {
 	@IBAction func didTapRefresh(_ sender: Any) {
 		self.ref.child("user_profile").child("\(user!.uid)/(first_name)").setValue(inputFirstName.text)
 		self.ref.child("user_profile").child("\(user!.uid)/(last_name)").setValue(inputLastName.text)
-		self.ref.child("user_profile").child("\(user!.uid)/(sex)").setValue(inputSex.text)
-		
-		
-		
+		self.ref.child("user_profile").child("\(user!.uid)/(gender)").setValue(inputSex.text)
+        self.ref.child("user_profile").child("\(user!.uid)/(profile_photo)").setValue("profilePhotoDefault.jpg")
+        self.ref.child("user_profile").child("\(user!.uid)/(cover_photo)").setValue("coverPhotoDefault.jpg")
+        self.ref.child("user_profile").child("\(user!.uid)/(bio)").setValue("")
+        
+        
 	}
-	
-	
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

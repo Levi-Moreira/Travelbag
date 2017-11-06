@@ -22,7 +22,7 @@ struct FirebaseImage {
         storageRef = storage.reference()
     }
     
-    func save(withResouceType type: String, withParentId id: String, withName name: String, errorHandler: @escaping (_ error: Error?)->Void){
+    func save(withResouceType type: String, withParentId id: String, withName name: String, withPathName pathName: String, completionHandler: @escaping (_ error: Error?, _ snapshot: StorageTaskSnapshot?)->Void){
         let fileRef = storageRef.child(type).child(id).child(name)
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
@@ -30,22 +30,21 @@ struct FirebaseImage {
         
         let uploadTask = fileRef.putData((self.image?.compressedData())!, metadata: metadata) { (metadata, error) in
             guard metadata != nil else {
-                errorHandler(error)
+                completionHandler(error, nil)
                 return
             }
         }
         
         uploadTask.observe(.success) { snapshot in
             print("Completed")
-            
-//            let downloadURL = metadata.downloadURL
+            completionHandler(nil, snapshot)
             
             fileRef.downloadURL { url, error in
                 if error != nil {
                     // Handle any errors
                 } else {
                     let  databaseRef = Database.database().reference()
-                    databaseRef.child(type).child(id).child("image").setValue(url?.absoluteString)
+                    databaseRef.child(type).child(id).child(pathName).setValue(url?.absoluteString)
                     
                 }
             }
@@ -80,6 +79,7 @@ struct FirebaseImage {
                     break
                 }
             }
+        }
     }
-}
+    
 }
