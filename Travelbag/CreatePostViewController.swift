@@ -14,15 +14,16 @@ import LocationPicker
 import SwifterSwift
 import FirebaseAuth
 import FirebaseDatabase
+import ARSLineProgress
 
 
 class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLocationManagerDelegate, InterestOptionsDelegate {
- 
+    
     let imagePickerController = ImagePickerController()
     var post =  Post()
-   
+    
     @IBOutlet var postImagePreview: UIImageView!
-
+    
     
     @IBOutlet var pickedDate: UILabel!
     
@@ -30,17 +31,21 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     
     @IBOutlet var pickedLocation: UILabel!
     
+    @IBOutlet var imageCell: UITableViewCell!
+    
     var locationManager = CLLocationManager()
     
-    var currentLocation : CLLocation!
+    var currentLocation : CLLocation?
     var currentPlacemark : CLPlacemark!
     
-
-
+    var noImage = true
+    
+    
+    
     @IBOutlet var postContent: UITextField!
     
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePickerController.delegate = self
@@ -51,8 +56,20 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
+        
+        
     }
-
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        
+        if indexPath.row == 1 && noImage{
+            return 0
+        }
+        
+        return super.tableView(tableView, heightForRowAt: indexPath)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -61,14 +78,12 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
             
-        case 3:
+        case 2:
             pickLocation()
-        case 4:
+        case 3:
             pickDate()
-        case 5:
+        case 4:
             performSegue(withIdentifier: "pickInterestSegue", sender: self)
-        case 6:
-            present(imagePickerController, animated: true, completion: nil)
             
         default:
             return
@@ -77,7 +92,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     
     func pickLocation(){
         // you can optionally set initial location
-    let locationPicker = LocationPickerViewController()
+        let locationPicker = LocationPickerViewController()
         
         let initialLocation = Location(name: "You're here", location: currentLocation, placemark: currentPlacemark)
         locationPicker.location = initialLocation
@@ -116,8 +131,8 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     func showLocation(){
         self.pickedLocation.text = self.currentPlacemark.locality
         
-        self.post.latitude = self.currentLocation.coordinate.latitude
-        self.post.longitude = self.currentLocation.coordinate.longitude
+        self.post.latitude = self.currentLocation?.coordinate.latitude
+        self.post.longitude = self.currentLocation?.coordinate.longitude
         
         
     }
@@ -128,10 +143,14 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
             (date) -> Void in
             if let dt = date {
                 let formatter = DateFormatter()
-                formatter.dateFormat = "dd/MM/yyyy"
-                self.pickedDate.text = formatter.string(from: dt)
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+                let formatterLocal = DateFormatter()
+                formatterLocal.dateFormat = "MM-dd-yyyy"
                 
-                self.post.date = date?.timeString(ofStyle : .short)
+                
+                self.pickedDate.text = formatterLocal.string(from: dt)
+                
+                self.post.date = formatter.string(from: dt)
             }
         }
         
@@ -139,8 +158,10 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.currentLocation = locations[0]
-        
-        getUserLocation(latitude: self.currentLocation.coordinate.latitude, longitude: self.currentLocation.coordinate.longitude) { (city) in
+        guard let altitude = self.currentLocation?.coordinate.latitude, let longitude = self.currentLocation?.coordinate.longitude else {
+            return print("Latitude e longitude n existe")
+        }
+        getUserLocation(latitude: altitude, longitude: longitude) { (city) in
             self.currentPlacemark = city
             self.showLocation()
         }
@@ -167,12 +188,28 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
         }
     }
     
-    func didSelectInterestOption(option: InterestOptions) {
-        self.pickedInterest.text = option.rawValue
+    func didSelectInterestOption(options: [InterestOptions]) {
+        self.pickedInterest.text = options.first?.rawValue
+        self.post.interest = options.first?.rawValue
+        for option in options {
+            if option == .group{
+                self.post.share_group = true
+            }
+            
+            if option == .hosting{
+                self.post.share_host = true
+            }
+            
+            if option == .transport{
+                self.post.share_gas = true
+            }
+        }
         
-        self.post.interest = option.rawValue
     }
     
+    @IBAction func didTabCamera(_ sender: UIButton) {
+        present(imagePickerController, animated: true, completion: nil)
+    }
     
     
     
@@ -193,12 +230,16 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     }
     
     func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-        
+        imagePicker.dismiss(animated: true, completion: nil)
     }
     
     
     func pickInterest(completionHandler: @escaping (InterestOptions) -> Void) {
         performSegue(withIdentifier: "pickInterestSegue" , sender: self)
+        
+        self.post.share_gas = false
+        self.post.share_host = false
+        self.post.share_group = false
         
     }
     
@@ -214,24 +255,79 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     func publishImage(image: UIImage) {
         postImagePreview.image = image
         
-        self.post.image = FirebaseImage(image: image)
+        self.post.image_holder = FirebaseImage(image: image)
+        
+        self.noImage = false
+        self.tableView.reloadData()
     }
     
     @IBAction func didTapCancel(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    func showMissingDateDialog(){
+        let alertController = UIAlertController(title: "Attention", message: "Please, pick a date for your post.", preferredStyle: .alert)
+        
+        let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(okayAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showMissingInterestDialog(){
+        let alertController = UIAlertController(title: "Attention", message: "Please, pick at least one interest.", preferredStyle: .alert)
+        
+        let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(okayAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showMissingTextDialog(){
+        let alertController = UIAlertController(title: "Attention", message: "Please, add a text to your post.", preferredStyle: .alert)
+        
+        let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(okayAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func didTapSavePost(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-        
         self.post.content = postContent.text
-        self.post.uid = Auth.auth().currentUser?.uid
         
-        let postid = self.post.saveTo(node: "posts")
-        self.post.image?.save(withResouceType: "posts", withParentId: postid, withName: "postimage.jpg", errorHandler: { (error) in
+        if (self.post.content?.isEmpty)!{
+            showMissingTextDialog()
+            return
+        }
+        if self.post.date == nil{
+            showMissingDateDialog()
+            return
+        }
+        
+        if self.post.interest == nil{
+            showMissingInterestDialog()
+            return
+        }
+        
+        ARSLineProgress.show()
+        
+        
+        self.post.uid = Auth.auth().currentUser?.uid
+        self.post.userName = UserManager.shared.user?.firstName
+        let postid = self.post.saveTo()
+        
+        guard let image = self.post.image_holder else{
+            ARSLineProgress.hide()
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        image.save(withResouceType: "posts", withParentId: postid, withName: "postimage.jpg",withPathName: "image", completionHandler: { (error, snapshot) in
             if error != nil {
                 print(error)
+                ARSLineProgress.hide()
+                ARSLineProgress.showFail()
+                return
             }
+            ARSLineProgress.hide()
+            self.dismiss(animated: true, completion: nil)
+            
         })
         
     }
