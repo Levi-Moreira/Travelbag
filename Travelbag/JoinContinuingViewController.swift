@@ -70,14 +70,23 @@ class JoinContinuingViewController: UIViewController, ImagePickerDelegate {
 	@IBAction func didTapRefresh(_ sender: Any) {
         
         guard let lastName = inputLastName.text else{
+            
             return
         }
         
         guard let firstName = inputFirstName.text else{
+
             return
         }
         
         if firstName.isEmpty || lastName.isEmpty{
+            
+            let alertController = UIAlertController(title: "Attention", message: "Please, fill all fields", preferredStyle: .alert)
+            
+            let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(okayAction)
+            self.present(alertController, animated: true, completion: nil)
+            
             return
         }
         
@@ -85,6 +94,11 @@ class JoinContinuingViewController: UIViewController, ImagePickerDelegate {
         profile.last_name = lastName
         
         if self.profile.profile_holder == nil{
+            let alertController = UIAlertController(title: "Attention", message: "Please, add a picture to your profile", preferredStyle: .alert)
+            
+            let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(okayAction)
+            self.present(alertController, animated: true, completion: nil)
             return
         }
         
