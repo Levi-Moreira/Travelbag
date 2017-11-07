@@ -18,6 +18,7 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 	
 	var ref:DatabaseReference!
 	var databaseHandle:DatabaseHandle?
+	var postModel : PostModel!
 	var posts = [Post]()
 	
 	let refreshControl = UIRefreshControl()
@@ -25,11 +26,13 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 	override func viewDidLoad()  {
 		super.viewDidLoad()
 		
+		postModel = PostModel.shared
+		
 		ref = Database.database().reference()
-		ARSLineProgress.show()
+//		ARSLineProgress.show()
 		getPosts()
 		
-		refreshControl.addTarget(self, action: #selector(getPosts), for: .valueChanged)
+		refreshControl.addTarget(self, action: #selector(updatePost), for: .valueChanged)
 		tableView.insertSubview(refreshControl, at: 0)
 		
 
@@ -41,6 +44,16 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	func updatePost() {
+		postModel.getPosts { (result) in
+			self.posts = result
+			DispatchQueue.main.async {
+				self.tableView.reloadData()
+				self.refreshControl.endRefreshing()
+			}
+		}
+	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return (posts.count) + 1
@@ -114,28 +127,40 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
 	
 	func getPosts(){
-		ref.child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
-			self.posts.removeAll()
-			
-			guard let arrayDataSnapshot = snapshot.children.allObjects as? [DataSnapshot] else {
-				return
-			}
-			for snap in arrayDataSnapshot {
-				guard let json = snap.value as? [String: Any] else {
-					return
+		if postModel.posts.count > 0 {
+			posts = postModel.posts
+		}else {
+			ARSLineProgress.show()
+			postModel.getPosts(completion: { (postsResult) in
+				self.posts = postsResult
+				DispatchQueue.main.async {
+					self.tableView.reloadData()
+					ARSLineProgress.hide()
 				}
-				self.posts.append(Post(with: json))
-			}
-			
-			ARSLineProgress.hide()
-			DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-				self.tableView.reloadData()
-				self.refreshControl.endRefreshing()
 			})
-			
-		}) { (error) in
-			print(error.localizedDescription)
 		}
+//		ref.child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
+//			self.posts.removeAll()
+//
+//			guard let arrayDataSnapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+//				return
+//			}
+//			for snap in arrayDataSnapshot {
+//				guard let json = snap.value as? [String: Any] else {
+//					return
+//				}
+//				self.posts.append(Post(with: json))
+//			}
+//
+//			ARSLineProgress.hide()
+//			DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+//				self.tableView.reloadData()
+//				self.refreshControl.endRefreshing()
+//			})
+//
+//		}) { (error) in
+//			print(error.localizedDescription)
+//		}
 	}
 	
 	func lookUpCurrentLocation(lat: Double, long: Double, completionHandler: @escaping (CLPlacemark?) -> Void ){

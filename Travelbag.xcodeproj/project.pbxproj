@@ -23,6 +23,9 @@
 		A2368CFE1F9542B30075D88B /* ARSLineProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2368CFF1F9542B30075D88B /* ARSLineProgress.framework */; };
 		A2368D031F97E5160075D88B /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2368D021F97E5160075D88B /* CreatePostViewController.swift */; };
 		A2368D061F97F5260075D88B /* PostOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2368D051F97F5260075D88B /* PostOptionsTableViewCell.swift */; };
+		A24401E61FB24B78008FD3A6 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24401E51FB24B78008FD3A6 /* ExploreViewController.swift */; };
+		A24401E81FB24BE0008FD3A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24401E71FB24BE0008FD3A6 /* MapKit.framework */; };
+		A24401EA1FB262FE008FD3A6 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24401E91FB262FE008FD3A6 /* PostModel.swift */; };
 		A255C8E01F980A9B000F3EDC /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A255C8DF1F980A9B000F3EDC /* FeedTableViewCell.swift */; };
 		A261DCAD1F95658D00C45361 /* JoinContinuingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */; };
 		A26560C01F9E941900BDC06A /* LocationPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26560C11F9E941900BDC06A /* LocationPicker.framework */; };
@@ -73,6 +76,9 @@
 		A2368D011F9564030075D88B /* SDCAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDCAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2368D021F97E5160075D88B /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		A2368D051F97F5260075D88B /* PostOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOptionsTableViewCell.swift; sourceTree = "<group>"; };
+		A24401E51FB24B78008FD3A6 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		A24401E71FB24BE0008FD3A6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A24401E91FB262FE008FD3A6 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		A255C8DF1F980A9B000F3EDC /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinContinuingViewController.swift; sourceTree = "<group>"; };
 		A26560C11F9E941900BDC06A /* LocationPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LocationPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +121,7 @@
 			files = (
 				A26560C01F9E941900BDC06A /* LocationPicker.framework in Frameworks */,
 				A26F50B71F9952F700AC6FE5 /* DatePickerDialog.framework in Frameworks */,
+				A24401E81FB24BE0008FD3A6 /* MapKit.framework in Frameworks */,
 				A2368CFE1F9542B30075D88B /* ARSLineProgress.framework in Frameworks */,
 				EC0D87B037BB787520BC0DE6 /* Pods_Travelbag.framework in Frameworks */,
 				A21FE0C01F8C3346000359D7 /* FBSDKCoreKit.framework in Frameworks */,
@@ -137,6 +144,7 @@
 		07EED10C1975E7005ED1D2F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A24401E71FB24BE0008FD3A6 /* MapKit.framework */,
 				A26560CB1F9FCD1100BDC06A /* FireRecord.framework */,
 				A26560C91F9EA49800BDC06A /* FirebaseCommunity.framework */,
 				A26560C71F9EA49300BDC06A /* FireRecord.framework */,
@@ -179,6 +187,7 @@
 				A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */,
 				A2368D021F97E5160075D88B /* CreatePostViewController.swift */,
 				A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */,
+				A24401E51FB24B78008FD3A6 /* ExploreViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -221,6 +230,7 @@
 				A26560CC1F9FED4300BDC06A /* FirebaseModel.swift */,
 				A26560CE1F9FF01C00BDC06A /* FirebaseImage.swift */,
 				A2C879551FA7D7780097C052 /* Profile.swift */,
+				A24401E91FB262FE008FD3A6 /* PostModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -329,6 +339,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4PWW6C86Q4;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					A281FF831F86CBAB0098F9D3 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -531,6 +546,8 @@
 				A2368D061F97F5260075D88B /* PostOptionsTableViewCell.swift in Sources */,
 				A281FF741F86CBAB0098F9D3 /* AppDelegate.swift in Sources */,
 				A21FE0BD1F8C1462000359D7 /* JoinViewController.swift in Sources */,
+				A24401EA1FB262FE008FD3A6 /* PostModel.swift in Sources */,
+				A24401E61FB24B78008FD3A6 /* ExploreViewController.swift in Sources */,
 				A2AC03F81F8EBD38007E35AB /* FeedViewController.swift in Sources */,
 				A21FE0BB1F8C144F000359D7 /* ForgotPasswordViewController.swift in Sources */,
 				A255C8E01F980A9B000F3EDC /* FeedTableViewCell.swift in Sources */,
