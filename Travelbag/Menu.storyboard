@@ -22,6 +22,44 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Table View Person Profile Controller-->
+        <scene sceneID="mg7-I8-cfF">
+            <objects>
+                <tableViewController id="8hO-r1-bVW" customClass="TableViewPersonProfileController" customModule="Travelbag" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QDk-5O-IRT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6qw-cK-mDS">
+                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6qw-cK-mDS" id="guL-J3-PWo">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8hO-r1-bVW" id="0eh-57-CI6"/>
+                            <outlet property="delegate" destination="8hO-r1-bVW" id="PfT-Ln-Zsc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="8Qs-UV-IOn"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wUk-RA-wJ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1380" y="370"/>
+        </scene>
+        
+        
+        
+        
+        
+        
+        
+        
+
         <!--Settings-->
         <scene sceneID="mup-qx-ykQ">
             <objects>
@@ -1257,6 +1295,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8hO-r1-bVW" kind="relationship" relationship="rootViewController" id="aS9-od-V2N"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FjO-rd-XHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
