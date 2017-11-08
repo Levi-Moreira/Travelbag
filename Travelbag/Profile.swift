@@ -1,12 +1,23 @@
 //
+<<<<<<< HEAD
 //  User.swift
 //  Travelbag
 //
 //  Created by ifce on 30/10/17.
+=======
+//  Profile.swift
+//  Travelbag
+//
+//  Created by ifce on 06/11/17.
+>>>>>>> profile2
 //  Copyright © 2017 ifce. All rights reserved.
 //
 
 import Foundation
+<<<<<<< HEAD
+=======
+
+>>>>>>> profile2
 class Profile: FirebaseBaseModel{
     
     var first_name : String?
@@ -48,6 +59,9 @@ class Profile: FirebaseBaseModel{
         
         return dic
     }
+<<<<<<< HEAD
     
     
+=======
+>>>>>>> profile2
 }

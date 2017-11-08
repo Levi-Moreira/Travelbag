@@ -18,12 +18,12 @@ import ARSLineProgress
 
 
 class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLocationManagerDelegate, InterestOptionsDelegate {
- 
+    
     let imagePickerController = ImagePickerController()
     var post =  Post()
-   
+    
     @IBOutlet var postImagePreview: UIImageView!
-
+    
     
     @IBOutlet var pickedDate: UILabel!
     
@@ -39,7 +39,6 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     var currentPlacemark : CLPlacemark!
     
     var noImage = true
-    
 
 
     @IBOutlet var postContent: UITextField!
@@ -62,6 +61,17 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
+
+        if indexPath.row == 1 && noImage{
+            return 0
+        }
+        
+        return super.tableView(tableView, heightForRowAt: indexPath)
+
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         
         if indexPath.row == 1 && noImage{
             return 0
@@ -69,7 +79,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
         
         return super.tableView(tableView, heightForRowAt: indexPath)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -92,7 +102,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     
     func pickLocation(){
         // you can optionally set initial location
-    let locationPicker = LocationPickerViewController()
+        let locationPicker = LocationPickerViewController()
         
         let initialLocation = Location(name: "You're here", location: currentLocation, placemark: currentPlacemark)
         locationPicker.location = initialLocation
@@ -146,8 +156,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
                 formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
                 let formatterLocal = DateFormatter()
                 formatterLocal.dateFormat = "MM-dd-yyyy"
-				
-				
+
                 self.pickedDate.text = formatterLocal.string(from: dt)
                 
                 self.post.date = formatter.string(from: dt)
@@ -158,10 +167,12 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         self.currentLocation = locations[0]
+
 		guard let altitude = self.currentLocation?.coordinate.latitude, let longitude = self.currentLocation?.coordinate.longitude else {
 			return print("Latitude e longitude n existe")
 		}
 		getUserLocation(latitude: altitude, longitude: longitude) { (city) in
+
             self.currentPlacemark = city
             self.showLocation()
         }
@@ -193,7 +204,9 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
         self.post.interest = options.first?.rawValue
         for option in options {
             if option == .group{
+
                  self.post.share_group = true
+
             }
             
             if option == .hosting{
@@ -204,7 +217,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
                 self.post.share_gas = true
             }
         }
-       
+
     }
     
     @IBAction func didTabCamera(_ sender: UIButton) {
@@ -267,6 +280,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     
     func showMissingDateDialog(){
         let alertController = UIAlertController(title: "Attention", message: "Please, pick a date for your post.", preferredStyle: .alert)
+
         
         let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(okayAction)
@@ -275,12 +289,13 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     
     func showMissingInterestDialog(){
         let alertController = UIAlertController(title: "Attention", message: "Please, pick at least one interest.", preferredStyle: .alert)
+
         
         let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(okayAction)
         self.present(alertController, animated: true, completion: nil)
     }
-    
+
     func showMissingTextDialog(){
         let alertController = UIAlertController(title: "Attention", message: "Please, add a text to your post.", preferredStyle: .alert)
         
@@ -291,6 +306,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     
     @IBAction func didTapSavePost(_ sender: UIBarButtonItem) {
         self.post.content = postContent.text
+
         
         if (self.post.content?.isEmpty)!{
             showMissingTextDialog()
@@ -313,6 +329,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
         self.post.userName = UserManager.shared.user?.firstName
 		let postid = self.post.saveTo()
 
+
         guard let image = self.post.image_holder else{
             ARSLineProgress.hide()
             self.dismiss(animated: true, completion: nil)
@@ -327,7 +344,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
             }
             ARSLineProgress.hide()
             self.dismiss(animated: true, completion: nil)
-           
+
         })
       
     }
