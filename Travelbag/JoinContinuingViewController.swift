@@ -68,7 +68,7 @@ class JoinContinuingViewController: UIViewController, ImagePickerDelegate {
     }
     
 	@IBAction func didTapRefresh(_ sender: Any) {
-        
+
         guard let lastName = inputLastName.text else{
             return
         }
@@ -147,5 +147,6 @@ class JoinContinuingViewController: UIViewController, ImagePickerDelegate {
         
         self.present(controller, animated: true, completion: nil)
     }
+
 
 }

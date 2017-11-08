@@ -109,7 +109,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Firestore
   - Firebase/Storage
-  - ImagePicker
+  - ImagePicker (~> 3.0)
   - LocationPicker
   - Nuke (~> 5.0)
   - SwifterSwift (~> 3.2.0)
@@ -140,6 +140,6 @@ SPEC CHECKSUMS:
   Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
   SwifterSwift: e009210d995737f54c1fbffc5a3f004c8467ab1d
 
-PODFILE CHECKSUM: db814594ffd89c355dafb4c57b210d88f8405136
+PODFILE CHECKSUM: 9e870d82fef479e21dffdcc195ee21722748e9c5
 
 COCOAPODS: 1.2.1

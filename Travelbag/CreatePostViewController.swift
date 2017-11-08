@@ -41,6 +41,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     var noImage = true
 
 
+
     @IBOutlet var postContent: UITextField!
     
    
@@ -62,6 +63,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
 
+
         if indexPath.row == 1 && noImage{
             return 0
         }
@@ -70,15 +72,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        
-        if indexPath.row == 1 && noImage{
-            return 0
-        }
-        
-        return super.tableView(tableView, heightForRowAt: indexPath)
-    }
+  
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -94,6 +88,9 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
             pickDate()
         case 4:
             performSegue(withIdentifier: "pickInterestSegue", sender: self)
+
+
+            
 
         default:
             return
@@ -268,7 +265,9 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     func publishImage(image: UIImage) {
         postImagePreview.image = image
         
+
         self.post.image_holder = FirebaseImage(image: image)
+
         
         self.noImage = false
         self.tableView.reloadData()
@@ -289,12 +288,12 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     
     func showMissingInterestDialog(){
         let alertController = UIAlertController(title: "Attention", message: "Please, pick at least one interest.", preferredStyle: .alert)
-
         
         let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alertController.addAction(okayAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
 
     func showMissingTextDialog(){
         let alertController = UIAlertController(title: "Attention", message: "Please, add a text to your post.", preferredStyle: .alert)
@@ -322,10 +321,11 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
             return
         }
         
+
         ARSLineProgress.show()
         
         
-        self.post.user?.uid = Auth.auth().currentUser?.uid
+        self.post.uid = Auth.auth().currentUser?.uid
         self.post.userName = UserManager.shared.user?.firstName
 		let postid = self.post.saveTo()
 
@@ -336,6 +336,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
             return
         }
         image.save(withResouceType: "posts", withParentId: postid, withName: "postimage.jpg",withPathName: "image", completionHandler: { (error, snapshot) in
+
             if error != nil {
                 print(error)
                 ARSLineProgress.hide()
@@ -346,7 +347,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
             self.dismiss(animated: true, completion: nil)
 
         })
-      
+
     }
     
 }

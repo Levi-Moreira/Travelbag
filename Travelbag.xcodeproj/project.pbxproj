@@ -16,7 +16,7 @@
 		A20A5D151FA3CC380022183B /* TableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20A5D131FA3CC380022183B /* TableViewCell2.swift */; };
 		A20A5D161FA3CC380022183B /* TableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20A5D141FA3CC380022183B /* TableViewCell2.xib */; };
 		A21FE0AC1F8815B2000359D7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0AB1F8815B2000359D7 /* Login.storyboard */; };
-		A21FE0B01F8817A0000359D7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21FE0AF1F8817A0000359D7 /* ProfileViewController.swift */; };
+		A21FE0B01F8817A0000359D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21FE0AF1F8817A0000359D7 /* LoginViewController.swift */; };
 		A21FE0B61F881AB8000359D7 /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0B21F881AB8000359D7 /* SourceSansPro-Bold.otf */; };
 		A21FE0B71F881AB8000359D7 /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0B31F881AB8000359D7 /* SourceSansPro-Light.otf */; };
 		A21FE0B81F881AB8000359D7 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0B41F881AB8000359D7 /* SourceSansPro-Regular.otf */; };
@@ -30,16 +30,17 @@
 		A2368CFE1F9542B30075D88B /* ARSLineProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2368CFF1F9542B30075D88B /* ARSLineProgress.framework */; };
 		A2368D031F97E5160075D88B /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2368D021F97E5160075D88B /* CreatePostViewController.swift */; };
 		A2368D061F97F5260075D88B /* PostOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2368D051F97F5260075D88B /* PostOptionsTableViewCell.swift */; };
-
+		A2368D081F97F5400075D88B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2368D071F97F5400075D88B /* Post.swift */; };
+		A24FFA741FA7D94000F62D4E /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24FFA731FA7D94000F62D4E /* Profile.swift */; };
+		A24FFA761FAA719900F62D4E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24FFA751FAA719900F62D4E /* AboutViewController.swift */; };
 		A255C8E01F980A9B000F3EDC /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A255C8DF1F980A9B000F3EDC /* FeedTableViewCell.swift */; };
-
-
 		A261DCAD1F95658D00C45361 /* JoinContinuingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */; };
 		A26560C01F9E941900BDC06A /* LocationPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26560C11F9E941900BDC06A /* LocationPicker.framework */; };
 		A26560C31F9E9AE000BDC06A /* INterestOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */; };
 		A26560CD1F9FED4300BDC06A /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560CC1F9FED4300BDC06A /* FirebaseModel.swift */; };
 		A26560CF1F9FF01C00BDC06A /* FirebaseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560CE1F9FF01C00BDC06A /* FirebaseImage.swift */; };
 		A26F50B71F9952F700AC6FE5 /* DatePickerDialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26F50B81F9952F700AC6FE5 /* DatePickerDialog.framework */; };
+		A277760E1FA26D3C00DA64DC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A277760D1FA26D3C00DA64DC /* SettingsTableViewController.swift */; };
 		A281FF741F86CBAB0098F9D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A281FF731F86CBAB0098F9D3 /* AppDelegate.swift */; };
 		A281FF7B1F86CBAB0098F9D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A281FF7A1F86CBAB0098F9D3 /* Assets.xcassets */; };
 		A281FF7E1F86CBAB0098F9D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A281FF7C1F86CBAB0098F9D3 /* LaunchScreen.storyboard */; };
@@ -48,15 +49,11 @@
 		A2AC03F41F8EA587007E35AB /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2AC03F31F8EA587007E35AB /* Menu.storyboard */; };
 		A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC03F51F8EB905007E35AB /* MenuViewController.swift */; };
 		A2AC03F81F8EBD38007E35AB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */; };
-
-		A2C879541FA3BE140097C052 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C879531FA3BE140097C052 /* Post.swift */; };
-		A2C879561FA7D7780097C052 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C879551FA7D7780097C052 /* Profile.swift */; };
 		A2C99E4C1FA9328900FC1BF0 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C99E4B1FA9328900FC1BF0 /* UserManager.swift */; };
-
 		A2D7DF941FB110AF00D7F8F0 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D7DF951FB110AF00D7F8F0 /* Nuke.framework */; };
-
-
-
+		A2D7DF9A1FB3747D00D7F8F0 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7DF981FB3747C00D7F8F0 /* ChangePasswordViewController.swift */; };
+		A2D7DF9B1FB3747D00D7F8F0 /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7DF991FB3747C00D7F8F0 /* ChangeEmailViewController.swift */; };
+		A2DBDD0C1FA283600089F178 /* ProfileSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DBDD0B1FA283600089F178 /* ProfileSettingsTableViewController.swift */; };
 		EC0D87B037BB787520BC0DE6 /* Pods_Travelbag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327E40FEBA48C9CC9692A451 /* Pods_Travelbag.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +78,7 @@
 		A20A5D131FA3CC380022183B /* TableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell2.swift; sourceTree = "<group>"; };
 		A20A5D141FA3CC380022183B /* TableViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell2.xib; sourceTree = "<group>"; };
 		A21FE0AB1F8815B2000359D7 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
-		A21FE0AF1F8817A0000359D7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		A21FE0AF1F8817A0000359D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A21FE0B21F881AB8000359D7 /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
 		A21FE0B31F881AB8000359D7 /* SourceSansPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.otf"; sourceTree = "<group>"; };
 		A21FE0B41F881AB8000359D7 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
@@ -96,9 +93,10 @@
 		A2368D011F9564030075D88B /* SDCAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDCAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2368D021F97E5160075D88B /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		A2368D051F97F5260075D88B /* PostOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOptionsTableViewCell.swift; sourceTree = "<group>"; };
-
+		A2368D071F97F5400075D88B /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		A24FFA731FA7D94000F62D4E /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		A24FFA751FAA719900F62D4E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A255C8DF1F980A9B000F3EDC /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
-
 		A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinContinuingViewController.swift; sourceTree = "<group>"; };
 		A26560C11F9E941900BDC06A /* LocationPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LocationPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INterestOptionsTableViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +107,7 @@
 		A26560CC1F9FED4300BDC06A /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
 		A26560CE1F9FF01C00BDC06A /* FirebaseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImage.swift; sourceTree = "<group>"; };
 		A26F50B81F9952F700AC6FE5 /* DatePickerDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DatePickerDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A277760D1FA26D3C00DA64DC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		A281FF701F86CBAB0098F9D3 /* Travelbag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travelbag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A281FF731F86CBAB0098F9D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A281FF7A1F86CBAB0098F9D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,13 +123,11 @@
 		A2AC03F31F8EA587007E35AB /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		A2AC03F51F8EB905007E35AB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-
-		A2C879531FA3BE140097C052 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		A2C879551FA7D7780097C052 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		A2C99E4B1FA9328900FC1BF0 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-
 		A2D7DF951FB110AF00D7F8F0 /* Nuke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nuke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-
+		A2D7DF981FB3747C00D7F8F0 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		A2D7DF991FB3747C00D7F8F0 /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
+		A2DBDD0B1FA283600089F178 /* ProfileSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsTableViewController.swift; sourceTree = "<group>"; };
 		C0FF306C9F5DDBAAE70BC1BD /* Pods-TravelbagTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelbagTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelbagTests/Pods-TravelbagTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E4D34368B183109F602F2036 /* Pods-Travelbag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travelbag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travelbag/Pods-Travelbag.debug.xcconfig"; sourceTree = "<group>"; };
 		E544EDA87FA33C32BFB42742 /* Pods_TravelbagTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelbagTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,9 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				A2D7DF941FB110AF00D7F8F0 /* Nuke.framework in Frameworks */,
-
 				A26560C01F9E941900BDC06A /* LocationPicker.framework in Frameworks */,
 				A26F50B71F9952F700AC6FE5 /* DatePickerDialog.framework in Frameworks */,
 				A2368CFE1F9542B30075D88B /* ARSLineProgress.framework in Frameworks */,
@@ -213,7 +208,8 @@
 		A21FE0AD1F881746000359D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A21FE0AF1F8817A0000359D7 /* ProfileViewController.swift */,
+				A24FFA6C1FA3EDBC00F62D4E /* Settings */,
+				A21FE0AF1F8817A0000359D7 /* LoginViewController.swift */,
 				A21FE0BA1F8C144F000359D7 /* ForgotPasswordViewController.swift */,
 				A21FE0BC1F8C1462000359D7 /* JoinViewController.swift */,
 				A2AC03F51F8EB905007E35AB /* MenuViewController.swift */,
@@ -264,14 +260,24 @@
 		A2368D091F97F5460075D88B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A2C879531FA3BE140097C052 /* Post.swift */,
+				A2368D071F97F5400075D88B /* Post.swift */,
+				A24FFA731FA7D94000F62D4E /* Profile.swift */,
 				A26560CC1F9FED4300BDC06A /* FirebaseModel.swift */,
 				A26560CE1F9FF01C00BDC06A /* FirebaseImage.swift */,
-
-				A2C879551FA7D7780097C052 /* Profile.swift */,
-
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		A24FFA6C1FA3EDBC00F62D4E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A2D7DF991FB3747C00D7F8F0 /* ChangeEmailViewController.swift */,
+				A2D7DF981FB3747C00D7F8F0 /* ChangePasswordViewController.swift */,
+				A24FFA751FAA719900F62D4E /* AboutViewController.swift */,
+				A277760D1FA26D3C00DA64DC /* SettingsTableViewController.swift */,
+				A2DBDD0B1FA283600089F178 /* ProfileSettingsTableViewController.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		A281FF671F86CBAA0098F9D3 = {
@@ -307,9 +313,7 @@
 				A281FF931F86CDE80098F9D3 /* GoogleService-Info.plist */,
 				A281FF7A1F86CBAB0098F9D3 /* Assets.xcassets */,
 				A281FF7F1F86CBAB0098F9D3 /* Info.plist */,
-
 				A2C99E4B1FA9328900FC1BF0 /* UserManager.swift */,
-
 			);
 			path = Travelbag;
 			sourceTree = "<group>";
@@ -379,9 +383,7 @@
 				TargetAttributes = {
 					A281FF6F1F86CBAA0098F9D3 = {
 						CreatedOnToolsVersion = 8.2.1;
-
 						DevelopmentTeam = Q4HH628EHZ;
-
 						ProvisioningStyle = Automatic;
 					};
 					A281FF831F86CBAB0098F9D3 = {
@@ -455,6 +457,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/ImagePicker/ImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/LocationPicker/LocationPicker.framework",
+				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
@@ -473,6 +476,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
@@ -575,32 +579,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2D7DF971FB251FB00D7F8F0 /* UserManager.swift in Sources */,
-				A25870B31FB101B40007FBCD /* Profile.swift in Sources */,
+				A2D7DF9B1FB3747D00D7F8F0 /* ChangeEmailViewController.swift in Sources */,
 				A20A5D111FA3C3ED0022183B /* TableViewCell1.swift in Sources */,
 				A26560CD1F9FED4300BDC06A /* FirebaseModel.swift in Sources */,
 				A26560C31F9E9AE000BDC06A /* INterestOptionsTableViewController.swift in Sources */,
-				A21FE0B01F8817A0000359D7 /* ProfileViewController.swift in Sources */,
+				A21FE0B01F8817A0000359D7 /* LoginViewController.swift in Sources */,
 				A20A5D151FA3CC380022183B /* TableViewCell2.swift in Sources */,
 				A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */,
 				A2368D031F97E5160075D88B /* CreatePostViewController.swift in Sources */,
 				A22A950E1FA3D24700B1BE1B /* PostCreationTableViewCell.swift in Sources */,
 				A2C99E4C1FA9328900FC1BF0 /* UserManager.swift in Sources */,
-				A2C879541FA3BE140097C052 /* Post.swift in Sources */,
+				A2D7DF9A1FB3747D00D7F8F0 /* ChangePasswordViewController.swift in Sources */,
 				A261DCAD1F95658D00C45361 /* JoinContinuingViewController.swift in Sources */,
+				A277760E1FA26D3C00DA64DC /* SettingsTableViewController.swift in Sources */,
+				A24FFA741FA7D94000F62D4E /* Profile.swift in Sources */,
 				A26560CF1F9FF01C00BDC06A /* FirebaseImage.swift in Sources */,
-				A2C879561FA7D7780097C052 /* Profile.swift in Sources */,
+				A2DBDD0C1FA283600089F178 /* ProfileSettingsTableViewController.swift in Sources */,
 				A2368D061F97F5260075D88B /* PostOptionsTableViewCell.swift in Sources */,
 				A281FF741F86CBAB0098F9D3 /* AppDelegate.swift in Sources */,
 				A21FE0BD1F8C1462000359D7 /* JoinViewController.swift in Sources */,
 				A2AC03F81F8EBD38007E35AB /* FeedViewController.swift in Sources */,
 				A21FE0BB1F8C144F000359D7 /* ForgotPasswordViewController.swift in Sources */,
-
 				A255C8E01F980A9B000F3EDC /* FeedTableViewCell.swift in Sources */,
-
-
 				A20A5D0C1FA14B8F0022183B /* TableViewPersonProfileController.swift in Sources */,
-
+				A24FFA761FAA719900F62D4E /* AboutViewController.swift in Sources */,
+				A2368D081F97F5400075D88B /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,11 +737,7 @@
 			baseConfigurationReference = E4D34368B183109F602F2036 /* Pods-Travelbag.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q4HH628EHZ;
-
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -758,11 +757,7 @@
 			baseConfigurationReference = EE36C95294F89478708AE67B /* Pods-Travelbag.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q4HH628EHZ;
-
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

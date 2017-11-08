@@ -36,10 +36,10 @@
             </objects>
             <point key="canvasLocation" x="-424" y="-4"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="5VJ-Jr-uz8">
             <objects>
-                <viewController storyboardIdentifier="Login" id="tP3-Ms-r4k" customClass="ProfileViewController" customModule="Travelbag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="tP3-Ms-r4k" customClass="LoginViewController" customModule="Travelbag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7ul-kB-Acz"/>
                         <viewControllerLayoutGuide type="bottom" id="OLY-Lu-kFR"/>

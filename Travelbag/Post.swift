@@ -3,6 +3,10 @@
 //  Travelbag
 //
 
+import Foundation
+import UIKit
+import FirebaseDatabase
+
 
 import Foundation
 
@@ -50,6 +54,7 @@ class Post: FirebaseBaseModel{
         databaseRef.child("posts").child(key).setValue(toDic())
         return key
     }
+
     
     override func toDic() -> [String : Any]{
         var dic = [String:Any]()
@@ -64,6 +69,7 @@ class Post: FirebaseBaseModel{
         dic["userName"] = self.userName
         dic["image"] = ""
         dic["post_date"] = ServerValue.timestamp()
+
         return dic
     }
     
