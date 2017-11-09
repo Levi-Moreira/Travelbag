@@ -25,4 +25,10 @@ class TableViewCell1: UITableViewCell {
     
     @IBOutlet weak var topSpaceConstraint: NSLayoutConstraint!
     
+    var controller: TableViewPersonProfileController?
+    
+    @IBAction func settingsAction(_ sender: UIButton) {
+        controller?.navigationController?.navigationBar.isHidden = false
+        controller?.performSegue(withIdentifier: "settingsProfile", sender: controller)
+    }
 }

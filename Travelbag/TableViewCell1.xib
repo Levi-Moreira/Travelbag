@@ -132,6 +132,16 @@
                         <color key="textColor" red="0.45882352939999999" green="0.49803921569999998" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCY-Fe-f4R">
+                        <rect key="frame" x="238" y="164" width="45" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="TER-eJ-b3r"/>
+                            <constraint firstAttribute="width" constant="45" id="lah-KL-atJ"/>
+                        </constraints>
+                        <connections>
+                            <action selector="settingsAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PIf-aU-3yY"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="zL3-IZ-hE5" firstAttribute="top" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-96" id="0iL-bl-Yfh"/>
@@ -145,6 +155,7 @@
                     <constraint firstItem="zxd-gU-fSS" firstAttribute="top" secondItem="cpZ-aE-IDb" secondAttribute="bottom" id="HJd-yU-nHB"/>
                     <constraint firstItem="8Ei-Fh-mO4" firstAttribute="centerY" secondItem="zL3-IZ-hE5" secondAttribute="centerY" id="J9Y-xM-hgw"/>
                     <constraint firstItem="xZh-Yb-QTT" firstAttribute="centerX" secondItem="zL3-IZ-hE5" secondAttribute="centerX" id="Jfq-sD-sVH"/>
+                    <constraint firstItem="aCY-Fe-f4R" firstAttribute="centerX" secondItem="san-Sb-8TP" secondAttribute="centerX" id="Lcl-Rg-Nig"/>
                     <constraint firstItem="zL3-IZ-hE5" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="MYt-4y-Crv"/>
                     <constraint firstAttribute="bottomMargin" secondItem="taY-VB-1Pt" secondAttribute="bottom" constant="2" id="PeI-Mc-4Pr"/>
                     <constraint firstItem="zxd-gU-fSS" firstAttribute="centerX" secondItem="cpZ-aE-IDb" secondAttribute="centerX" id="UPn-4T-KR9"/>
@@ -159,6 +170,7 @@
                     <constraint firstItem="8Ei-Fh-mO4" firstAttribute="height" secondItem="zL3-IZ-hE5" secondAttribute="height" id="mvj-sv-ueA"/>
                     <constraint firstAttribute="bottom" secondItem="zL3-IZ-hE5" secondAttribute="bottom" constant="105" id="n6w-bg-ZMr"/>
                     <constraint firstItem="taY-VB-1Pt" firstAttribute="top" secondItem="san-Sb-8TP" secondAttribute="bottom" constant="20.5" id="nz6-p2-fRy"/>
+                    <constraint firstItem="aCY-Fe-f4R" firstAttribute="centerY" secondItem="san-Sb-8TP" secondAttribute="centerY" id="pia-nv-QTc"/>
                     <constraint firstItem="san-Sb-8TP" firstAttribute="centerX" secondItem="d2W-gU-dIL" secondAttribute="centerX" id="t1S-1m-a4A"/>
                     <constraint firstItem="8Ei-Fh-mO4" firstAttribute="width" secondItem="zL3-IZ-hE5" secondAttribute="width" id="t8m-ck-vfE"/>
                     <constraint firstItem="xZh-Yb-QTT" firstAttribute="top" secondItem="zL3-IZ-hE5" secondAttribute="bottom" constant="-50" id="tEL-EG-fbE"/>

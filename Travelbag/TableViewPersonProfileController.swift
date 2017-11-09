@@ -44,11 +44,8 @@ class TableViewPersonProfileController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        navigationController?.navigationBar.isHidden = true
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
         
         ARSLineProgress.show()
         
@@ -104,7 +101,7 @@ class TableViewPersonProfileController: UITableViewController {
         
         if indexPath.row == 0 {
             let cell = Bundle.main.loadNibNamed("TableViewCell1", owner: self, options: nil)?.first as! TableViewCell1
-            
+            cell.controller = self
             if let profileImageUrl = profile?.profile_picture{
                 let url = URL(string: profileImageUrl)
                 if let url = url{
@@ -231,6 +228,10 @@ class TableViewPersonProfileController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -26,7 +26,7 @@
         <scene sceneID="mg7-I8-cfF">
             <objects>
                 <tableViewController id="8hO-r1-bVW" customClass="TableViewPersonProfileController" customModule="Travelbag" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QDk-5O-IRT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QDk-5O-IRT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,20 +46,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="8Qs-UV-IOn"/>
+                    <connections>
+                        <segue destination="mta-LW-9Xk" kind="show" identifier="settingsProfile" id="u0D-6F-66p"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wUk-RA-wJ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1380" y="370"/>
+            <point key="canvasLocation" x="1187" y="392"/>
         </scene>
-        
-        
-        
-        
-        
-        
-        
-        
-
         <!--Settings-->
         <scene sceneID="mup-qx-ykQ">
             <objects>
@@ -501,7 +495,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fo-WX-D1y">
-                                <rect key="frame" x="15" y="49" width="74" height="21"/>
+                                <rect key="frame" x="15" y="93" width="74" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="D1k-Tb-Lg8"/>
                                 </constraints>
@@ -516,7 +510,7 @@
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIn-jQ-40J">
-                                <rect key="frame" x="16" y="107" width="41" height="21"/>
+                                <rect key="frame" x="16" y="151" width="41" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="41" id="o11-uN-feZ"/>
                                 </constraints>
@@ -568,13 +562,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qlw-IQ-kTu">
-                                <rect key="frame" x="87" y="94" width="200" height="30"/>
+                                <rect key="frame" x="87" y="138" width="200" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTv-TC-pfQ">
-                                <rect key="frame" x="16" y="97" width="35" height="21"/>
+                                <rect key="frame" x="16" y="141" width="35" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="WmP-tp-5Eq"/>
                                 </constraints>
@@ -583,13 +577,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password, again" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Tp-Rv-PnE">
-                                <rect key="frame" x="87" y="139" width="200" height="30"/>
+                                <rect key="frame" x="87" y="183" width="200" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSq-p7-ze3">
-                                <rect key="frame" x="16" y="144" width="45" height="21"/>
+                                <rect key="frame" x="16" y="188" width="45" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="gVD-9I-CY8"/>
                                 </constraints>
@@ -607,7 +601,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Current Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QJd-7W-55z">
-                                <rect key="frame" x="87" y="44" width="200" height="30"/>
+                                <rect key="frame" x="87" y="88" width="200" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -1105,7 +1099,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travel Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5PT-7b-xqi">
-                                                    <rect key="frame" x="60" y="11.5" width="79.5" height="21.5"/>
+                                                    <rect key="frame" x="60" y="13" width="85" height="20"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
