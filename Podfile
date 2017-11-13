@@ -14,7 +14,7 @@ target 'Travelbag' do
   pod 'LocationPicker'
   pod 'SwifterSwift', '~> 3.2.0'
   pod 'Nuke', '~> 5.0'
-
+  pod 'RAMAnimatedTabBarController'
 
   use_frameworks!
 

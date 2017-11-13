@@ -87,6 +87,7 @@ PODS:
   - nanopb/encode (0.3.8)
   - Nuke (5.2)
   - Protobuf (3.4.0)
+  - RAMAnimatedTabBarController (2.2.3)
   - SwifterSwift (3.2.0):
     - SwifterSwift/AppKit (= 3.2.0)
     - SwifterSwift/CoreGraphics (= 3.2.0)
@@ -112,6 +113,7 @@ DEPENDENCIES:
   - ImagePicker (~> 3.0)
   - LocationPicker
   - Nuke (~> 5.0)
+  - RAMAnimatedTabBarController
   - SwifterSwift (~> 3.2.0)
 
 SPEC CHECKSUMS:
@@ -138,8 +140,9 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Nuke: 5f420c4637415f979c83afb35e73176dd03232d9
   Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
+  RAMAnimatedTabBarController: 71adaa59ea22a8badfa242b8e068f0b9ebbb447d
   SwifterSwift: e009210d995737f54c1fbffc5a3f004c8467ab1d
 
-PODFILE CHECKSUM: 9e870d82fef479e21dffdcc195ee21722748e9c5
+PODFILE CHECKSUM: 8ef4b06afa33eeb625021bfb9afe2dbf3e63b66f
 
 COCOAPODS: 1.2.1

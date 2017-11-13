@@ -53,6 +53,10 @@
 		A2D7DF941FB110AF00D7F8F0 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D7DF951FB110AF00D7F8F0 /* Nuke.framework */; };
 		A2D7DF9A1FB3747D00D7F8F0 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7DF981FB3747C00D7F8F0 /* ChangePasswordViewController.swift */; };
 		A2D7DF9B1FB3747D00D7F8F0 /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7DF991FB3747C00D7F8F0 /* ChangeEmailViewController.swift */; };
+		A2D7DF9F1FB4F74500D7F8F0 /* TableViewCellProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2D7DF9E1FB4F74500D7F8F0 /* TableViewCellProfile.xib */; };
+		A2D7DFA31FB4F86600D7F8F0 /* TableViewCellProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7DFA21FB4F86600D7F8F0 /* TableViewCellProfile.swift */; };
+		A2D7DFA91FB650C000D7F8F0 /* TableViewProfileUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7DFA81FB650C000D7F8F0 /* TableViewProfileUsers.swift */; };
+		A2D7DFAA1FBA334200D7F8F0 /* RAMAnimatedTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D7DFAB1FBA334200D7F8F0 /* RAMAnimatedTabBarController.framework */; };
 		A2DBDD0C1FA283600089F178 /* ProfileSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DBDD0B1FA283600089F178 /* ProfileSettingsTableViewController.swift */; };
 		EC0D87B037BB787520BC0DE6 /* Pods_Travelbag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327E40FEBA48C9CC9692A451 /* Pods_Travelbag.framework */; };
 /* End PBXBuildFile section */
@@ -127,6 +131,10 @@
 		A2D7DF951FB110AF00D7F8F0 /* Nuke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nuke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D7DF981FB3747C00D7F8F0 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		A2D7DF991FB3747C00D7F8F0 /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
+		A2D7DF9E1FB4F74500D7F8F0 /* TableViewCellProfile.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCellProfile.xib; sourceTree = "<group>"; };
+		A2D7DFA21FB4F86600D7F8F0 /* TableViewCellProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellProfile.swift; sourceTree = "<group>"; };
+		A2D7DFA81FB650C000D7F8F0 /* TableViewProfileUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewProfileUsers.swift; sourceTree = "<group>"; };
+		A2D7DFAB1FBA334200D7F8F0 /* RAMAnimatedTabBarController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RAMAnimatedTabBarController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2DBDD0B1FA283600089F178 /* ProfileSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsTableViewController.swift; sourceTree = "<group>"; };
 		C0FF306C9F5DDBAAE70BC1BD /* Pods-TravelbagTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelbagTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelbagTests/Pods-TravelbagTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E4D34368B183109F602F2036 /* Pods-Travelbag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travelbag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travelbag/Pods-Travelbag.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2D7DFAA1FBA334200D7F8F0 /* RAMAnimatedTabBarController.framework in Frameworks */,
 				A2D7DF941FB110AF00D7F8F0 /* Nuke.framework in Frameworks */,
 				A26560C01F9E941900BDC06A /* LocationPicker.framework in Frameworks */,
 				A26F50B71F9952F700AC6FE5 /* DatePickerDialog.framework in Frameworks */,
@@ -164,6 +173,7 @@
 		07EED10C1975E7005ED1D2F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A2D7DFAB1FBA334200D7F8F0 /* RAMAnimatedTabBarController.framework */,
 				A2D7DF951FB110AF00D7F8F0 /* Nuke.framework */,
 				A26560CB1F9FCD1100BDC06A /* FireRecord.framework */,
 				A26560C91F9EA49800BDC06A /* FirebaseCommunity.framework */,
@@ -222,6 +232,9 @@
 				A20A5D101FA3C3ED0022183B /* TableViewCell1.xib */,
 				A20A5D131FA3CC380022183B /* TableViewCell2.swift */,
 				A20A5D141FA3CC380022183B /* TableViewCell2.xib */,
+				A2D7DF9E1FB4F74500D7F8F0 /* TableViewCellProfile.xib */,
+				A2D7DFA21FB4F86600D7F8F0 /* TableViewCellProfile.swift */,
+				A2D7DFA81FB650C000D7F8F0 /* TableViewProfileUsers.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -424,6 +437,7 @@
 				A21FE0AC1F8815B2000359D7 /* Login.storyboard in Resources */,
 				A20A5D081FA148230022183B /* new_york.jpg in Resources */,
 				A281FF7B1F86CBAB0098F9D3 /* Assets.xcassets in Resources */,
+				A2D7DF9F1FB4F74500D7F8F0 /* TableViewCellProfile.xib in Resources */,
 				A21FE0B61F881AB8000359D7 /* SourceSansPro-Bold.otf in Resources */,
 				A20A5D161FA3CC380022183B /* TableViewCell2.xib in Resources */,
 				A21FE0B81F881AB8000359D7 /* SourceSansPro-Regular.otf in Resources */,
@@ -584,8 +598,10 @@
 				A26560CD1F9FED4300BDC06A /* FirebaseModel.swift in Sources */,
 				A26560C31F9E9AE000BDC06A /* INterestOptionsTableViewController.swift in Sources */,
 				A21FE0B01F8817A0000359D7 /* LoginViewController.swift in Sources */,
+				A2D7DFA91FB650C000D7F8F0 /* TableViewProfileUsers.swift in Sources */,
 				A20A5D151FA3CC380022183B /* TableViewCell2.swift in Sources */,
 				A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */,
+				A2D7DFA31FB4F86600D7F8F0 /* TableViewCellProfile.swift in Sources */,
 				A2368D031F97E5160075D88B /* CreatePostViewController.swift in Sources */,
 				A22A950E1FA3D24700B1BE1B /* PostCreationTableViewCell.swift in Sources */,
 				A2C99E4C1FA9328900FC1BF0 /* UserManager.swift in Sources */,

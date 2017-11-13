@@ -1,5 +1,5 @@
 //
-//  PersonProfileViewController.swift
+//  TableViewProfileUsers.swift
 //  Travelbag
 //
 //  Created by ifce on 25/10/17.
@@ -13,18 +13,18 @@ import ARSLineProgress
 import Nuke
 import CoreLocation
 
-struct cellData {
+struct cellDataProfile {
     let cell: Int!
 }
 
-class TableViewPersonProfileController: UITableViewController {
+class TableViewProfileUsers: UITableViewController {
     
     var ref: DatabaseReference!
-    
+    var uid: String?
     var profile: Profile?
     var posts = [Post]()
     
-    var arrayOfCellData = [cellData]()
+    var arrayOfCellData = [cellDataProfile]()
     
     var lastContentOffset: CGFloat = 0
     
@@ -33,10 +33,10 @@ class TableViewPersonProfileController: UITableViewController {
         super.viewDidLoad()
         
         ref = Database.database().reference()
-    
-        arrayOfCellData = [cellData(cell: 1),
-                           cellData(cell: 2),
-                           cellData(cell: 2)
+        
+        arrayOfCellData = [cellDataProfile(cell: 1),
+                           cellDataProfile(cell: 2),
+                           cellDataProfile(cell: 2)
         ]
     }
     
@@ -48,11 +48,10 @@ class TableViewPersonProfileController: UITableViewController {
         navigationController?.navigationBar.isHidden = true
         
         ARSLineProgress.show()
-
-        let userID = Auth.auth().currentUser?.uid
         
-    
-        if let uid = userID {
+        
+        
+        if let uid = uid {
             ref.child("users_profile").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
                 let value = snapshot.value as? [String: Any]
@@ -62,8 +61,7 @@ class TableViewPersonProfileController: UITableViewController {
                 }
             }) { (error) in
                 print(error)
-//                ARSLineProgress.hide()
-                
+                ARSLineProgress.hide()
             }
         }
         
@@ -71,23 +69,22 @@ class TableViewPersonProfileController: UITableViewController {
             // Get user value
             let value = snapshot.value as! [String: Any]
             
-                for child in value {
-                    
-                    let childValue = child.value as? [String: Any]
-                    
-                    if let cv = childValue {
-                       self.posts.append(Post.init(with: cv))
-                    }
+            for child in value {
+                
+                let childValue = child.value as? [String: Any]
+                
+                if let cv = childValue {
+                    self.posts.append(Post.init(with: cv))
                 }
+            }
             
             self.posts = self.posts.filter({ (post) -> Bool in
                 post.uid == Auth.auth().currentUser?.uid
             })
-                self.tableView.reloadData()
+            self.tableView.reloadData()
         }) { (error) in
             print(error)
-//            ARSLineProgress.hide()
-            
+            ARSLineProgress.hide()
         }
     }
     
@@ -95,7 +92,6 @@ class TableViewPersonProfileController: UITableViewController {
         
         self.tableView.reloadData()
         ARSLineProgress.hide()
-       
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -105,66 +101,66 @@ class TableViewPersonProfileController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
-            let cell = Bundle.main.loadNibNamed("TableViewCell1", owner: self, options: nil)?.first as! TableViewCell1
-            cell.controller = self
+            let cell = Bundle.main.loadNibNamed("TableViewCellProfile", owner: self, options: nil)?.first as! TableViewCellProfile
+            //cell.controller = self
             if let profileImageUrl = profile?.profile_picture{
                 let url = URL(string: profileImageUrl)
                 if let url = url{
-                    Nuke.loadImage(with: url, into: cell.profileImageView)
+                    Nuke.loadImage(with: url, into: cell.profileImage)
                 }
             }
             
             if let bgImageUrl = profile?.cover_photo{
                 let url = URL(string: bgImageUrl)
                 if let url = url{
-                    Nuke.loadImage(with: url, into: cell.backgroundImageView)
+                    Nuke.loadImage(with: url, into: cell.backgroundImage)
                 }
             }
             
             // Image Profile with radius
-            cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.height/2
-            cell.profileImageView.clipsToBounds = true
+            cell.profileImage.layer.cornerRadius = cell.profileImage.frame.size.height/2
+            cell.profileImage.clipsToBounds = true
             
             // Username
-            cell.userNameLabel.font = UIFont.boldSystemFont(ofSize: 25.0)
+            cell.userName.font = UIFont.boldSystemFont(ofSize: 25.0)
             guard let firstname = profile?.first_name , let lastname = profile?.last_name else {
                 return cell
             }
-            cell.userNameLabel.text = "\(firstname) \(lastname)"
+            cell.userName.text = "\(firstname) \(lastname)"
             
             // Status user
-            cell.statusUserLabel.font = UIFont.boldSystemFont(ofSize: 15.0)
-            cell.statusUserLabel.text = "Imagine all the people living life in peace"
+            cell.statusUser.font = UIFont.boldSystemFont(ofSize: 15.0)
+            cell.statusUser.text = "Imagine all the people living life in peace"
             
-            cell.followingLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
-            cell.followingLabel.text = "Following"
-            cell.settingsLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
-            cell.settingsLabel.text = "Settings"
+            cell.following.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.following.text = "Following"
+            cell.chat.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.chat.text = "Message"
             
-            cell.lbPlaces.font = UIFont.boldSystemFont(ofSize: 12.0)
-            cell.lbPlaces.text = "Places"
-            cell.lbFollowing.font = UIFont.boldSystemFont(ofSize: 12.0)
-            cell.lbFollowing.text = "Following"
-            cell.lbFollowers.font = UIFont.boldSystemFont(ofSize: 12.0)
-            cell.lbFollowers.text = "Followers"
+            cell.places.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.places.text = "Places"
+            cell.following.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.following.text = "Following"
+            cell.followers.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.followers.text = "Followers"
             
-            cell.lbCountPlaces.text = String(posts.count) ?? "0"
-            cell.lbCountPlaces.font = UIFont.systemFont(ofSize: 13.0)
-            cell.lbCountFollowing.text = "678"
-            cell.lbCountFollowing.font = UIFont.systemFont(ofSize: 13.0)
-            cell.lbCountFollowers.text = "764"
-            cell.lbCountFollowers.font = UIFont.systemFont(ofSize: 13.0)
+            cell.countPlaces.text = String(posts.count) ?? "0"
+            cell.countPlaces.font = UIFont.systemFont(ofSize: 13.0)
+            cell.countFollowing.text = "678"
+            cell.countFollowing.font = UIFont.systemFont(ofSize: 13.0)
+            cell.countFollowers.text = "764"
+            cell.countFollowers.font = UIFont.systemFont(ofSize: 13.0)
             
-            UIView.animate(withDuration: 0.5) {
-                cell.topSpaceConstraint.constant -= self.lastContentOffset
-                self.view.layoutIfNeeded()
-            }
+//            UIView.animate(withDuration: 0.5) {
+//                cell.topSpaceConstraint.constant -= self.lastContentOffset
+//                self.view.layoutIfNeeded()
+//            }
             
             return cell
         }
         else {
             let cell = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
- 
+            
             if let profileImageUrl = profile?.profile_picture{
                 let url = URL(string: profileImageUrl)
                 if let url = url{
@@ -185,10 +181,10 @@ class TableViewPersonProfileController: UITableViewController {
             
             cell.textPostLabel.text = posts[indexPath.row - 1].content
             
-            cell.timeLabel.text = ""
+            cell.timeLabel.text = "10 min ago"
             cell.timeLabel.font = UIFont.systemFont(ofSize: 13.0)
             
-            cell.locationLabel.text = ""
+            cell.locationLabel.text = "is in New York"
             cell.locationLabel.font = UIFont.systemFont(ofSize: 11.0)
             
             if posts[indexPath.row - 1].image == nil {
@@ -221,7 +217,7 @@ class TableViewPersonProfileController: UITableViewController {
         }
     }
     
-
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return 250
@@ -264,5 +260,5 @@ class TableViewPersonProfileController: UITableViewController {
             }
         })
     }
-
+    
 }

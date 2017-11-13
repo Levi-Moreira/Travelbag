@@ -47,11 +47,10 @@
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Whd-hB-siu">
                         <rect key="frame" x="8" y="66" width="304" height="33"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <string key="text">BepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepidBepid BepidBepidBepidBepidBepidBepidBepidBepid</string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new_york" translatesAutoresizingMaskIntoConstraints="NO" id="nk9-Kh-57E">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nk9-Kh-57E">
                         <rect key="frame" x="8" y="99" width="304" height="133"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="133" id="S5s-oJ-RO0"/>
@@ -101,7 +100,4 @@
             <point key="canvasLocation" x="10" y="-7"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="new_york" width="1023" height="682"/>
-    </resources>
 </document>

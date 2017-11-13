@@ -15,9 +15,7 @@ import ARSLineProgress
 class LoginViewController: UIViewController {
 
     @IBOutlet var inputUsername: UITextField!
-    
     @IBOutlet var inputPassword: UITextField!
-    
     @IBOutlet var loginFacebookButton: FBSDKLoginButton!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,7 +23,6 @@ class LoginViewController: UIViewController {
             presentHome()
         }
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,8 +96,6 @@ class LoginViewController: UIViewController {
                 self.presentHome()
                 
             })
-
-
         }
     }
     
@@ -126,8 +121,5 @@ class LoginViewController: UIViewController {
             self.presentHome()
         }
     }
-    
-
-
 
 }
