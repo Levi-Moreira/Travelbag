@@ -12,11 +12,12 @@ import DatePickerDialog
 import FirebaseDatabase
 import CoreLocation
 import ARSLineProgress
-
+import Nuke
 class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-	
-	var ref:DatabaseReference!
+
+    
+    var ref:DatabaseReference!
 	var databaseHandle:DatabaseHandle?
 	var posts = [Post]()
 	
@@ -61,21 +62,21 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 			}
 			cell.profilePhoto.image = #imageLiteral(resourceName: "login-background")
 			
-			if let urlString = self.posts[indexPath.row-1].image{
-				if let url = URL(string:urlString ){
-					if let data = try? Data(contentsOf: url){
-						let imagepost = UIImage(data: data)
-						cell.imagePost.image = imagepost
-					}
-				} else {
-					cell.constraintHeight.constant = 0.0
-				}
+			if let urlString = post.image{
+                
+                if !urlString.isEmpty{
+                    Nuke.loadImage(with: URL(string:urlString )!, into: cell.imagePost)
+                    cell.constraintHeight.constant = 191.0
+                }else{
+                    cell.constraintHeight.constant = 0.0
+                }
+				 
 			}
-			guard let latitude = self.posts[indexPath.row-1].latitude else{
+			guard let latitude = post.latitude else{
 				return cell
 			}
 			
-			guard let longitude = self.posts[indexPath.row-1].longitude else {
+			guard let longitude = post.longitude else {
 				return cell
 			}
 			lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
@@ -88,7 +89,47 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 			}else{
 				cell.timeAgo.text = "cheguei"
 			}
-			//			cell.timeAgo.text = self.posts[indexPath.row].date
+			
+            
+            var interests = [InterestOptions]()
+            
+            if post.share_gas{
+                interests.append(.transport)
+            }
+            
+            if post.share_host{
+                interests.append(.hosting)
+            }
+            
+            if post.share_group{
+                interests.append(.group)
+            }
+            
+            switch (interests.count){
+            case 1:
+                cell.secondINterestImage.isHidden = true
+                cell.secondInterestText.isHidden = true
+                cell.thirdInterestText.isHidden = true
+                cell.thirdInterestImage.isHidden = true
+                break;
+            case 2:
+                cell.thirdInterestText.isHidden = true
+                cell.thirdInterestImage.isHidden = true
+                break;
+            case 3:
+                cell.firstInterestImage.isHidden = false
+                cell.firstInterestText.isHidden = false
+                cell.secondINterestImage.isHidden = false
+                cell.secondInterestText.isHidden = false
+                cell.thirdInterestText.isHidden = false
+                cell.thirdInterestImage.isHidden = false
+                break;
+            default:
+                return cell
+            }
+            
+            
+            
 			return (cell)
 
 		}
