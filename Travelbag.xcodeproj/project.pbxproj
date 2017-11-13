@@ -34,6 +34,8 @@
 		A24FFA741FA7D94000F62D4E /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24FFA731FA7D94000F62D4E /* Profile.swift */; };
 		A24FFA761FAA719900F62D4E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24FFA751FAA719900F62D4E /* AboutViewController.swift */; };
 		A255C8E01F980A9B000F3EDC /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A255C8DF1F980A9B000F3EDC /* FeedTableViewCell.swift */; };
+		A25EFD641FBA37BC004149AF /* ChatEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EFD631FBA37BC004149AF /* ChatEntry.swift */; };
+		A25EFD661FBA3A8B004149AF /* ChatListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EFD651FBA3A8B004149AF /* ChatListTableViewController.swift */; };
 		A261DCAD1F95658D00C45361 /* JoinContinuingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */; };
 		A26560C01F9E941900BDC06A /* LocationPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26560C11F9E941900BDC06A /* LocationPicker.framework */; };
 		A26560C31F9E9AE000BDC06A /* INterestOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */; };
@@ -97,6 +99,8 @@
 		A24FFA731FA7D94000F62D4E /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		A24FFA751FAA719900F62D4E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A255C8DF1F980A9B000F3EDC /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		A25EFD631FBA37BC004149AF /* ChatEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEntry.swift; sourceTree = "<group>"; };
+		A25EFD651FBA3A8B004149AF /* ChatListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewController.swift; sourceTree = "<group>"; };
 		A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinContinuingViewController.swift; sourceTree = "<group>"; };
 		A26560C11F9E941900BDC06A /* LocationPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LocationPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INterestOptionsTableViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				A20A5D101FA3C3ED0022183B /* TableViewCell1.xib */,
 				A20A5D131FA3CC380022183B /* TableViewCell2.swift */,
 				A20A5D141FA3CC380022183B /* TableViewCell2.xib */,
+				A25EFD651FBA3A8B004149AF /* ChatListTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 				A24FFA731FA7D94000F62D4E /* Profile.swift */,
 				A26560CC1F9FED4300BDC06A /* FirebaseModel.swift */,
 				A26560CE1F9FF01C00BDC06A /* FirebaseImage.swift */,
+				A25EFD631FBA37BC004149AF /* ChatEntry.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -580,6 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2D7DF9B1FB3747D00D7F8F0 /* ChangeEmailViewController.swift in Sources */,
+				A25EFD661FBA3A8B004149AF /* ChatListTableViewController.swift in Sources */,
 				A20A5D111FA3C3ED0022183B /* TableViewCell1.swift in Sources */,
 				A26560CD1F9FED4300BDC06A /* FirebaseModel.swift in Sources */,
 				A26560C31F9E9AE000BDC06A /* INterestOptionsTableViewController.swift in Sources */,
@@ -595,6 +602,7 @@
 				A24FFA741FA7D94000F62D4E /* Profile.swift in Sources */,
 				A26560CF1F9FF01C00BDC06A /* FirebaseImage.swift in Sources */,
 				A2DBDD0C1FA283600089F178 /* ProfileSettingsTableViewController.swift in Sources */,
+				A25EFD641FBA37BC004149AF /* ChatEntry.swift in Sources */,
 				A2368D061F97F5260075D88B /* PostOptionsTableViewCell.swift in Sources */,
 				A281FF741F86CBAB0098F9D3 /* AppDelegate.swift in Sources */,
 				A21FE0BD1F8C1462000359D7 /* JoinViewController.swift in Sources */,
