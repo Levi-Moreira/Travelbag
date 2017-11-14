@@ -53,7 +53,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
+//        locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
        
       

@@ -29,15 +29,13 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 		postModel = PostModel.shared
 		
 		ref = Database.database().reference()
-//		ARSLineProgress.show()
-		getPosts()
-		
 		refreshControl.addTarget(self, action: #selector(updatePost), for: .valueChanged)
 		tableView.insertSubview(refreshControl, at: 0)
 		
 
 		tableView.rowHeight = UITableViewAutomaticDimension
 
+		updatePost()
     }
 
     override func didReceiveMemoryWarning() {
