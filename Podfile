@@ -15,6 +15,7 @@ target 'Travelbag' do
   pod 'SwifterSwift', '~> 3.2.0'
   pod 'Nuke', '~> 5.0'
   pod 'RAMAnimatedTabBarController'
+  pod 'JSQMessagesViewController'
 
   use_frameworks!
 

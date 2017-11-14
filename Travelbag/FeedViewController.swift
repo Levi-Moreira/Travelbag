@@ -12,8 +12,10 @@ import DatePickerDialog
 import FirebaseDatabase
 import CoreLocation
 import ARSLineProgress
+import Nuke
+class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
     
     var ref:DatabaseReference!
     var databaseHandle:DatabaseHandle?
@@ -32,6 +34,13 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.insertSubview(refreshControl, at: 0)
         
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tabBarController?.tabBar.tintColor = UIColor.red
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,14 +75,41 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 } else {
                     cell.constraintHeight.constant = 0.0
                 }
+                 
             }
-            guard let latitude = self.posts[indexPath.row-1].latitude else{
+            guard let latitude = post.latitude else{
                 return cell
             }
             
-            guard let longitude = self.posts[indexPath.row-1].longitude else {
+            guard let longitude = post.longitude else {
                 return cell
             }
+            lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
+                cell.locationUser.text = placemark?.locality ?? ""
+            }
+            cell.textPost.text = post.content
+            
+            if let timeGet = post.post_date{
+                cell.timeAgo.text = post.timeToNow
+            }else{
+                cell.timeAgo.text = "cheguei"
+            }
+            
+            
+            var interests = [InterestOptions]()
+            
+            if post.share_gas{
+                interests.append(.transport)
+            }
+            
+            if post.share_host{
+                interests.append(.hosting)
+            }
+            
+            if post.share_group{
+                interests.append(.group)
+            }
+            
             lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
                 cell.locationUser.text = placemark?.locality ?? ""
             }
@@ -83,6 +119,28 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 cell.timeAgo.text = post.timeToNow
             } else {
                 cell.timeAgo.text = "cheguei"
+            switch (interests.count){
+            case 1:
+                cell.secondINterestImage.isHidden = true
+                cell.secondInterestText.isHidden = true
+                cell.thirdInterestText.isHidden = true
+                cell.thirdInterestImage.isHidden = true
+                break;
+            case 2:
+                cell.thirdInterestText.isHidden = true
+                cell.thirdInterestImage.isHidden = true
+                break;
+            case 3:
+                cell.firstInterestImage.isHidden = false
+                cell.firstInterestText.isHidden = false
+                cell.secondINterestImage.isHidden = false
+                cell.secondInterestText.isHidden = false
+                cell.thirdInterestText.isHidden = false
+                cell.thirdInterestImage.isHidden = false
+                break;
+            default:
+                return cell
+            }
             }
             //            cell.timeAgo.text = self.posts[indexPath.row].date
             return (cell)

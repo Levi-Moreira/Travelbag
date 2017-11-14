@@ -60,6 +60,7 @@
 		A2D7DFA91FB650C000D7F8F0 /* TableViewProfileUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7DFA81FB650C000D7F8F0 /* TableViewProfileUsers.swift */; };
 		A2D7DFAA1FBA334200D7F8F0 /* RAMAnimatedTabBarController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D7DFAB1FBA334200D7F8F0 /* RAMAnimatedTabBarController.framework */; };
 		A2DBDD0C1FA283600089F178 /* ProfileSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DBDD0B1FA283600089F178 /* ProfileSettingsTableViewController.swift */; };
+		A2DCAD9E1FBB82840093A0F4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DCAD9D1FBB82840093A0F4 /* MainTabBarController.swift */; };
 		EC0D87B037BB787520BC0DE6 /* Pods_Travelbag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 327E40FEBA48C9CC9692A451 /* Pods_Travelbag.framework */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,7 @@
 		A2D7DFA81FB650C000D7F8F0 /* TableViewProfileUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewProfileUsers.swift; sourceTree = "<group>"; };
 		A2D7DFAB1FBA334200D7F8F0 /* RAMAnimatedTabBarController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RAMAnimatedTabBarController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2DBDD0B1FA283600089F178 /* ProfileSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsTableViewController.swift; sourceTree = "<group>"; };
+		A2DCAD9D1FBB82840093A0F4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C0FF306C9F5DDBAAE70BC1BD /* Pods-TravelbagTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravelbagTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravelbagTests/Pods-TravelbagTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E4D34368B183109F602F2036 /* Pods-Travelbag.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travelbag.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travelbag/Pods-Travelbag.debug.xcconfig"; sourceTree = "<group>"; };
 		E544EDA87FA33C32BFB42742 /* Pods_TravelbagTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravelbagTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,6 +241,8 @@
 				A2D7DF9E1FB4F74500D7F8F0 /* TableViewCellProfile.xib */,
 				A2D7DFA21FB4F86600D7F8F0 /* TableViewCellProfile.swift */,
 				A2D7DFA81FB650C000D7F8F0 /* TableViewProfileUsers.swift */,
+				A25EFD651FBA3A8B004149AF /* ChatListTableViewController.swift */,
+				A2DCAD9D1FBB82840093A0F4 /* MainTabBarController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -529,7 +533,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		62C268D4B07A8FE99001AFA8 /* [CP] Embed Pods Frameworks */ = {
@@ -562,7 +566,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E34C83470C58C7DF3FBF7F5D /* [CP] Copy Pods Resources */ = {
@@ -604,6 +608,7 @@
 			files = (
 				A2D7DF9B1FB3747D00D7F8F0 /* ChangeEmailViewController.swift in Sources */,
 				A25EFD661FBA3A8B004149AF /* ChatListTableViewController.swift in Sources */,
+				A2DCAD9E1FBB82840093A0F4 /* MainTabBarController.swift in Sources */,
 				A20A5D111FA3C3ED0022183B /* TableViewCell1.swift in Sources */,
 				A26560CD1F9FED4300BDC06A /* FirebaseModel.swift in Sources */,
 				A26560C31F9E9AE000BDC06A /* INterestOptionsTableViewController.swift in Sources */,
