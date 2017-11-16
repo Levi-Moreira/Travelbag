@@ -150,17 +150,19 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let uid = posts[indexPath.row - 1].uid
-        if uid == Auth.auth().currentUser?.uid {
-            tabBarController?.selectedIndex = 1
-            
-        } else {
-            let storyboard = UIStoryboard(name: "Menu", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "storyboardProfile") as!  TableViewProfileUsers
-            
-            controller.uid = uid
-            //self.present(controller, animated: true, completion: nil)
-            self.navigationController?.pushViewController(controller, animated: true)
+        if indexPath.row != 0{
+            let uid = posts[indexPath.row - 1].uid
+            if uid == Auth.auth().currentUser?.uid {
+                tabBarController?.selectedIndex = 1
+                
+            } else {
+                let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "storyboardProfile") as!  TableViewProfileUsers
+                
+                controller.uid = uid
+                //self.present(controller, animated: true, completion: nil)
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
         }
     }
     
