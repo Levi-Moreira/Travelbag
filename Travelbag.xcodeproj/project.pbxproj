@@ -51,6 +51,7 @@
 		A2AC03F41F8EA587007E35AB /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2AC03F31F8EA587007E35AB /* Menu.storyboard */; };
 		A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC03F51F8EB905007E35AB /* MenuViewController.swift */; };
 		A2AC03F81F8EBD38007E35AB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */; };
+		A2BB83E71FBA4A77004BC4E5 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB83E61FBA4A77004BC4E5 /* ChatListTableViewCell.swift */; };
 		A2C99E4C1FA9328900FC1BF0 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C99E4B1FA9328900FC1BF0 /* UserManager.swift */; };
 		A2D7DF941FB110AF00D7F8F0 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D7DF951FB110AF00D7F8F0 /* Nuke.framework */; };
 		A2D7DF9A1FB3747D00D7F8F0 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7DF981FB3747C00D7F8F0 /* ChangePasswordViewController.swift */; };
@@ -127,6 +128,7 @@
 		A2AC03F31F8EA587007E35AB /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		A2AC03F51F8EB905007E35AB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		A2BB83E61FBA4A77004BC4E5 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		A2C99E4B1FA9328900FC1BF0 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		A2D7DF951FB110AF00D7F8F0 /* Nuke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nuke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D7DF981FB3747C00D7F8F0 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -221,12 +223,12 @@
 				A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */,
 				A2368D021F97E5160075D88B /* CreatePostViewController.swift */,
 				A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */,
+				A25EFD651FBA3A8B004149AF /* ChatListTableViewController.swift */,
 				A20A5D0B1FA14B8F0022183B /* TableViewPersonProfileController.swift */,
 				A20A5D0F1FA3C3ED0022183B /* TableViewCell1.swift */,
 				A20A5D101FA3C3ED0022183B /* TableViewCell1.xib */,
 				A20A5D131FA3CC380022183B /* TableViewCell2.swift */,
 				A20A5D141FA3CC380022183B /* TableViewCell2.xib */,
-				A25EFD651FBA3A8B004149AF /* ChatListTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -255,6 +257,7 @@
 		A2368D041F97F5030075D88B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A2BB83E61FBA4A77004BC4E5 /* ChatListTableViewCell.swift */,
 				A2368D051F97F5260075D88B /* PostOptionsTableViewCell.swift */,
 				A255C8DF1F980A9B000F3EDC /* FeedTableViewCell.swift */,
 				A22A950D1FA3D24700B1BE1B /* PostCreationTableViewCell.swift */,
@@ -594,6 +597,7 @@
 				A20A5D151FA3CC380022183B /* TableViewCell2.swift in Sources */,
 				A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */,
 				A2368D031F97E5160075D88B /* CreatePostViewController.swift in Sources */,
+				A2BB83E71FBA4A77004BC4E5 /* ChatListTableViewCell.swift in Sources */,
 				A22A950E1FA3D24700B1BE1B /* PostCreationTableViewCell.swift in Sources */,
 				A2C99E4C1FA9328900FC1BF0 /* UserManager.swift in Sources */,
 				A2D7DF9A1FB3747D00D7F8F0 /* ChangePasswordViewController.swift in Sources */,

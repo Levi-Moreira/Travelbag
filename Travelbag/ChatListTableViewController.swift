@@ -8,85 +8,97 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
+import Nuke
+import ARSLineProgress
 
 class ChatListTableViewController: UITableViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-       
+    var chats = [ChatEntry]()
+    let userID = Auth.auth().currentUser?.uid
+    
+    override func viewWillAppear(_ animated: Bool) {
+        ARSLineProgress.show()
+        getChats()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        return chats.count
     }
 
-    /*
+    func getChats() {
+       
+        chats.removeAll()
+        ref.child("chats").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as! [String: Any]
+            
+            for child in value {
+                
+                let childValue = child.value as? [String: Any]
+                
+                if let json = childValue {
+                    self.chats.append(ChatEntry.init(with: json))
+                }
+            }
+            
+            self.chats = self.chats.filter({ (chats) -> Bool in
+                chats.firstUserUID == self.userID || chats.secondUserUID == self.userID
+            })
+            
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                ARSLineProgress.hide()
+            }
+            
+        }) { (error) in
+            print(error)
+        }
+    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "chat", for: indexPath) as! ChatListTableViewCell
+        
+            if chats[indexPath.row].firstUserUID == self.userID {
+            
+            cell.nameUser.text = chats[indexPath.row].secondUserName ?? ""
+            cell.lastMessageUser.text = chats[indexPath.row].lastMessage ?? ""
+            cell.lastMessageDateUser.text = chats[indexPath.row].timeToNow ?? "nil"
+            
+            if let url = chats[indexPath.row].secondUserImage {
+                if url.isValidHttpsUrl {
+                    Nuke.loadImage(with: URL(string: url)!, into: cell.imageUser)
+                }
+            }
+            
+        } else {
+        
+            cell.nameUser.text = chats[indexPath.row].firstUserName ?? ""
+            cell.lastMessageUser.text = chats[indexPath.row].lastMessage ?? ""
+            cell.lastMessageDateUser.text = chats[indexPath.row].timeToNow ?? "nil"
+            
+            if let url = chats[indexPath.row].firstUserImage {
+                if url.isValidHttpsUrl {
+                    Nuke.loadImage(with: URL(string: url)!, into: cell.imageUser)
+                }
+            }
+            
+            
+        }
+        
+        cell.imageUser.layer.cornerRadius = cell.imageUser.frame.size.width/2
+        cell.imageUser.layer.masksToBounds = true
+    
 
-        // Configure the cell...
-
-        return cell
+        return(cell)
+        
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
 }
