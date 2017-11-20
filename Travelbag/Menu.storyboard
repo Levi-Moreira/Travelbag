@@ -656,7 +656,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DOV-b3-gO5">
-                                <rect key="frame" x="0.0" y="64" width="320" height="473"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="537"/>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.72334310846013861" green="0.91837280988693237" blue="0.50318733855336306" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -770,19 +770,19 @@
                                                             </constraints>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-People in Car Filled_100" translatesAutoresizingMaskIntoConstraints="NO" id="rwJ-Ys-YbT">
-                                                            <rect key="frame" x="108.5" y="312.5" width="31.5" height="31.5"/>
+                                                            <rect key="frame" x="105.5" y="312.5" width="31.5" height="31.5"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-User Groups Filled_100" translatesAutoresizingMaskIntoConstraints="NO" id="JNi-OQ-zdX">
-                                                            <rect key="frame" x="213.5" y="312.5" width="31.5" height="31.5"/>
+                                                            <rect key="frame" x="208" y="312.5" width="31.5" height="31.5"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hosting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMp-2t-XTS">
-                                                            <rect key="frame" x="51.5" y="319.5" width="48.5" height="20.5"/>
+                                                            <rect key="frame" x="51.5" y="319.5" width="45.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transport" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7U1-0X-Ja7">
-                                                            <rect key="frame" x="148" y="322.5" width="59.5" height="16.5"/>
+                                                            <rect key="frame" x="145" y="321" width="57" height="18"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -794,7 +794,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Interest in Sharing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dze-0o-4GE">
-                                                            <rect key="frame" x="12" y="289.5" width="113.5" height="25"/>
+                                                            <rect key="frame" x="12" y="291" width="107" height="23.5"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -898,7 +898,7 @@
                         <constraints>
                             <constraint firstItem="oyz-gz-pO1" firstAttribute="top" secondItem="DOV-b3-gO5" secondAttribute="bottom" constant="-18" id="FGH-ME-YiT"/>
                             <constraint firstItem="DOV-b3-gO5" firstAttribute="leading" secondItem="jsq-bH-bUu" secondAttribute="leading" id="NY7-kE-iL9"/>
-                            <constraint firstItem="DOV-b3-gO5" firstAttribute="top" secondItem="aqC-Rx-41V" secondAttribute="bottom" id="Xe2-3r-1sT"/>
+                            <constraint firstItem="DOV-b3-gO5" firstAttribute="top" secondItem="jsq-bH-bUu" secondAttribute="top" id="r3a-f6-WaP"/>
                             <constraint firstAttribute="trailing" secondItem="DOV-b3-gO5" secondAttribute="trailing" id="xhV-Be-of8"/>
                         </constraints>
                     </view>
@@ -1150,7 +1150,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travel Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5PT-7b-xqi">
-                                                    <rect key="frame" x="60" y="13" width="85" height="20"/>
+                                                    <rect key="frame" x="60" y="11.5" width="79.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1270,6 +1270,24 @@
             </objects>
             <point key="canvasLocation" x="3208.125" y="-415.14084507042253"/>
         </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="A85-KX-GtE">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Olf-in-CAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="qII-dy-a3j" customClass="ChatViewController" customModule="Travelbag" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f0Q-S1-MYD"/>
+                        <viewControllerLayoutGuide type="bottom" id="VoG-MJ-Qpt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PdG-jw-Ml3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-2004" y="965"/>
+        </scene>
         <!--Chat List Table View Controller-->
         <scene sceneID="ZFh-QB-ExN">
             <objects>
@@ -1293,7 +1311,13 @@
                             <outlet property="delegate" destination="7dE-Oo-qo1" id="G9M-YE-Uvm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="UvX-Mz-tZg"/>
+                    <navigationItem key="navigationItem" id="UvX-Mz-tZg">
+                        <barButtonItem key="leftBarButtonItem" title="Chat" id="fbI-DI-JlH">
+                            <connections>
+                                <segue destination="qII-dy-a3j" kind="show" id="yyt-Qa-Qa1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fao-4p-oMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
