@@ -9,10 +9,13 @@ target 'Travelbag' do
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
   pod 'ARSLineProgress', '~> 2.0'
-  pod 'ImagePicker'
+  pod 'ImagePicker', '~> 3.0'
   pod 'DatePickerDialog'
   pod 'LocationPicker'
   pod 'SwifterSwift', '~> 3.2.0'
+  pod 'Nuke', '~> 5.0'
+  pod 'RAMAnimatedTabBarController'
+  pod 'JSQMessagesViewController'
 
   use_frameworks!
 

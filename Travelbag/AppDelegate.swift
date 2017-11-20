@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			UserManager.shared.user = user
 		}
 		
-		
+    
         return true
     }
     

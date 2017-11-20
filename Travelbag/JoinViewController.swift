@@ -15,9 +15,7 @@ class JoinViewController: UIViewController {
 	@IBOutlet weak var inputEmail: UITextField!
 	@IBOutlet weak var inputPassword: UITextField!
 	@IBOutlet weak var inputConfirmPassword: UITextField!
-	
-	
-	
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -41,15 +39,12 @@ class JoinViewController: UIViewController {
         self.navigationController?.navigationItem.backBarButtonItem?.tintColor = UIColor.white
         self.navigationController?.navigationBar.backgroundColor = UIColor(red: 0.0, green: 0.3, blue: 0.5, alpha: 0.0)
         
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-	
-
 	
 	@IBAction func registerAccount(_ sender: Any) {
 		
@@ -85,8 +80,6 @@ class JoinViewController: UIViewController {
 				print("Login Created")
 			})
 		}
-		
-		
 		
 	}
 	
