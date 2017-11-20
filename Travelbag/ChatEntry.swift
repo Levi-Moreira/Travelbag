@@ -35,7 +35,7 @@ class ChatEntry: FirebaseBaseModel{
         self.firstUserName = json["first_user_name"] as? String
         self.secondUserName = json["second_user_name"] as? String
         self.lastMessage = json["last_message"] as? String
-        self.lastMessageDate = json["last_message_date"] as? String
+        self.lastMessageDate = json["last_message_date"] as? Double
         self.firstUserImage = json["first_user_image"] as? String
         self.secondUserImage = json["second_user_image"] as? String
         
@@ -50,9 +50,34 @@ class ChatEntry: FirebaseBaseModel{
     
     var lastMessage: String?
     
-    var lastMessageDate: String?
+    var lastMessageDate: Double?
     
     var firstUserImage: String?
     var secondUserImage: String?
-
+    
+    
 }
+
+extension ChatEntry {
+    var timeToNow : String? {
+        guard let timeStamp = self.lastMessageDate else { return nil }
+        
+        guard let createdInterval = TimeInterval(exactly: timeStamp/1000) else {return nil}
+        let interval = Date().timeIntervalSince(Date(timeIntervalSince1970: createdInterval)).int
+        let minutes = (interval/60)
+        
+        if minutes > 59{
+            let hours = (interval/60)/60
+            if hours < 24 {
+                return "\(hours) Hours Ago"
+            } else {
+                let date = Date(timeIntervalSince1970: createdInterval)
+                return date.dateString(ofStyle: .short)
+            }
+        }
+        
+        return "\(minutes) Min Ago"
+    }
+    
+}
+

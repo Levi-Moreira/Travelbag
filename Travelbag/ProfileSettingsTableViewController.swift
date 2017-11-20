@@ -110,7 +110,6 @@ class ProfileSettingsTableViewController: UITableViewController, ImagePickerDele
                 if url.isValidHttpsUrl {
                     Nuke.loadImage(with: URL(string: url)!, into: self.profileImage)
                 }
-                
             }
             
             if let url = profile?.cover_photo {

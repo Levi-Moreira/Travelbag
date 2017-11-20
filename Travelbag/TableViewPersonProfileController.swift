@@ -71,7 +71,7 @@ class TableViewPersonProfileController: UITableViewController {
             // Get user value
 			if let value = snapshot.value as? [String: Any]{
             
-                for child in value {
+            for child in value {
                     
                     let childValue = child.value as? [String: Any]
                     
@@ -90,6 +90,8 @@ class TableViewPersonProfileController: UITableViewController {
 //            ARSLineProgress.hide()
             
         }
+    
+    
     }
     
     func showUserInfo() {
@@ -135,7 +137,7 @@ class TableViewPersonProfileController: UITableViewController {
             
             // Status user
             cell.statusUserLabel.font = UIFont.boldSystemFont(ofSize: 15.0)
-            cell.statusUserLabel.text = "Imagine all the people living life in peace"
+            cell.statusUserLabel.text = profile?.bio 
             
             cell.followingLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
             cell.followingLabel.text = "Following"
