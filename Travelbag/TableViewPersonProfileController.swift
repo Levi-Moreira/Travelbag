@@ -50,7 +50,7 @@ class TableViewPersonProfileController: UITableViewController {
         ARSLineProgress.show()
 
         let userID = Auth.auth().currentUser?.uid
-        
+        	posts.removeAll()
     
         if let uid = userID {
             ref.child("users_profile").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -69,7 +69,7 @@ class TableViewPersonProfileController: UITableViewController {
         
         ref.child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let value = snapshot.value as! [String: Any]
+			if let value = snapshot.value as? [String: Any]{
             
                 for child in value {
                     
@@ -79,6 +79,7 @@ class TableViewPersonProfileController: UITableViewController {
                        self.posts.append(Post.init(with: cv))
                     }
                 }
+			}
             
             self.posts = self.posts.filter({ (post) -> Bool in
                 post.uid == Auth.auth().currentUser?.uid

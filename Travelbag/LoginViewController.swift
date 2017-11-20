@@ -113,10 +113,15 @@ class LoginViewController: UIViewController {
                 let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 alertController.addAction(okayAction)
                 self.present(alertController, animated: true, completion: nil)
+				
                 ARSLineProgress.hide()
                 return
             }
-            
+			
+			UserManager.getUser { user in
+				UserManager.shared.user = user
+			}
+			
             ARSLineProgress.hide()
             self.presentHome()
         }

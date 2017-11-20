@@ -15,6 +15,7 @@
 		A20A5D121FA3C3ED0022183B /* TableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20A5D101FA3C3ED0022183B /* TableViewCell1.xib */; };
 		A20A5D151FA3CC380022183B /* TableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20A5D131FA3CC380022183B /* TableViewCell2.swift */; };
 		A20A5D161FA3CC380022183B /* TableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20A5D141FA3CC380022183B /* TableViewCell2.xib */; };
+		A2115E501FBA522C0024650E /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2115E4F1FBA522B0024650E /* AnnotationView.swift */; };
 		A21FE0AC1F8815B2000359D7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0AB1F8815B2000359D7 /* Login.storyboard */; };
 		A21FE0B01F8817A0000359D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21FE0AF1F8817A0000359D7 /* LoginViewController.swift */; };
 		A21FE0B61F881AB8000359D7 /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0B21F881AB8000359D7 /* SourceSansPro-Bold.otf */; };
@@ -31,6 +32,9 @@
 		A2368D031F97E5160075D88B /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2368D021F97E5160075D88B /* CreatePostViewController.swift */; };
 		A2368D061F97F5260075D88B /* PostOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2368D051F97F5260075D88B /* PostOptionsTableViewCell.swift */; };
 		A2368D081F97F5400075D88B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2368D071F97F5400075D88B /* Post.swift */; };
+		A24401E61FB24B78008FD3A6 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24401E51FB24B78008FD3A6 /* ExploreViewController.swift */; };
+		A24401E81FB24BE0008FD3A6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24401E71FB24BE0008FD3A6 /* MapKit.framework */; };
+		A24401EA1FB262FE008FD3A6 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24401E91FB262FE008FD3A6 /* PostModel.swift */; };
 		A24FFA741FA7D94000F62D4E /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24FFA731FA7D94000F62D4E /* Profile.swift */; };
 		A24FFA761FAA719900F62D4E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24FFA751FAA719900F62D4E /* AboutViewController.swift */; };
 		A255C8E01F980A9B000F3EDC /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A255C8DF1F980A9B000F3EDC /* FeedTableViewCell.swift */; };
@@ -51,6 +55,9 @@
 		A2AC03F41F8EA587007E35AB /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2AC03F31F8EA587007E35AB /* Menu.storyboard */; };
 		A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC03F51F8EB905007E35AB /* MenuViewController.swift */; };
 		A2AC03F81F8EBD38007E35AB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */; };
+		A2C231071FB5121800838D8B /* PostAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C231061FB5121800838D8B /* PostAnnotation.swift */; };
+		A2C231121FBA49D200838D8B /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C231101FBA49D200838D8B /* CustomCalloutView.swift */; };
+		A2C231131FBA49D200838D8B /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2C231111FBA49D200838D8B /* CustomCalloutView.xib */; };
 		A2C99E4C1FA9328900FC1BF0 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C99E4B1FA9328900FC1BF0 /* UserManager.swift */; };
 		A2D7DF941FB110AF00D7F8F0 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2D7DF951FB110AF00D7F8F0 /* Nuke.framework */; };
 		A2D7DF9A1FB3747D00D7F8F0 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D7DF981FB3747C00D7F8F0 /* ChangePasswordViewController.swift */; };
@@ -84,6 +91,7 @@
 		A20A5D101FA3C3ED0022183B /* TableViewCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell1.xib; sourceTree = "<group>"; };
 		A20A5D131FA3CC380022183B /* TableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell2.swift; sourceTree = "<group>"; };
 		A20A5D141FA3CC380022183B /* TableViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell2.xib; sourceTree = "<group>"; };
+		A2115E4F1FBA522B0024650E /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnotationView.swift; path = "../../../../Downloads/CustomCalloutView-Starter project/CustomCalloutView/AnnotationView.swift"; sourceTree = "<group>"; };
 		A21FE0AB1F8815B2000359D7 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		A21FE0AF1F8817A0000359D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A21FE0B21F881AB8000359D7 /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
@@ -101,6 +109,9 @@
 		A2368D021F97E5160075D88B /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		A2368D051F97F5260075D88B /* PostOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostOptionsTableViewCell.swift; sourceTree = "<group>"; };
 		A2368D071F97F5400075D88B /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		A24401E51FB24B78008FD3A6 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		A24401E71FB24BE0008FD3A6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A24401E91FB262FE008FD3A6 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 		A24FFA731FA7D94000F62D4E /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		A24FFA751FAA719900F62D4E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A255C8DF1F980A9B000F3EDC /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
@@ -132,6 +143,11 @@
 		A2AC03F31F8EA587007E35AB /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		A2AC03F51F8EB905007E35AB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		A2C231061FB5121800838D8B /* PostAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAnnotation.swift; sourceTree = "<group>"; };
+		A2C231101FBA49D200838D8B /* CustomCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
+		A2C231111FBA49D200838D8B /* CustomCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
+		A2C879531FA3BE140097C052 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		A2C879551FA7D7780097C052 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		A2C99E4B1FA9328900FC1BF0 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		A2D7DF951FB110AF00D7F8F0 /* Nuke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Nuke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2D7DF981FB3747C00D7F8F0 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +173,7 @@
 				A2D7DF941FB110AF00D7F8F0 /* Nuke.framework in Frameworks */,
 				A26560C01F9E941900BDC06A /* LocationPicker.framework in Frameworks */,
 				A26F50B71F9952F700AC6FE5 /* DatePickerDialog.framework in Frameworks */,
+				A24401E81FB24BE0008FD3A6 /* MapKit.framework in Frameworks */,
 				A2368CFE1F9542B30075D88B /* ARSLineProgress.framework in Frameworks */,
 				EC0D87B037BB787520BC0DE6 /* Pods_Travelbag.framework in Frameworks */,
 				A21FE0C01F8C3346000359D7 /* FBSDKCoreKit.framework in Frameworks */,
@@ -179,6 +196,7 @@
 		07EED10C1975E7005ED1D2F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A24401E71FB24BE0008FD3A6 /* MapKit.framework */,
 				A2D7DFAB1FBA334200D7F8F0 /* RAMAnimatedTabBarController.framework */,
 				A2D7DF951FB110AF00D7F8F0 /* Nuke.framework */,
 				A26560CB1F9FCD1100BDC06A /* FireRecord.framework */,
@@ -233,6 +251,7 @@
 				A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */,
 				A2368D021F97E5160075D88B /* CreatePostViewController.swift */,
 				A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */,
+				A24401E51FB24B78008FD3A6 /* ExploreViewController.swift */,
 				A20A5D0B1FA14B8F0022183B /* TableViewPersonProfileController.swift */,
 				A20A5D0F1FA3C3ED0022183B /* TableViewCell1.swift */,
 				A20A5D101FA3C3ED0022183B /* TableViewCell1.xib */,
@@ -274,6 +293,10 @@
 				A2368D051F97F5260075D88B /* PostOptionsTableViewCell.swift */,
 				A255C8DF1F980A9B000F3EDC /* FeedTableViewCell.swift */,
 				A22A950D1FA3D24700B1BE1B /* PostCreationTableViewCell.swift */,
+				A2C231061FB5121800838D8B /* PostAnnotation.swift */,
+				A2C231101FBA49D200838D8B /* CustomCalloutView.swift */,
+				A2C231111FBA49D200838D8B /* CustomCalloutView.xib */,
+				A2115E4F1FBA522B0024650E /* AnnotationView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -285,6 +308,8 @@
 				A24FFA731FA7D94000F62D4E /* Profile.swift */,
 				A26560CC1F9FED4300BDC06A /* FirebaseModel.swift */,
 				A26560CE1F9FF01C00BDC06A /* FirebaseImage.swift */,
+				A2C879551FA7D7780097C052 /* Profile.swift */,
+				A24401E91FB262FE008FD3A6 /* PostModel.swift */,
 				A25EFD631FBA37BC004149AF /* ChatEntry.swift */,
 			);
 			name = Models;
@@ -312,6 +337,7 @@
 				A281FF711F86CBAB0098F9D3 /* Products */,
 				900AF75B4BB311A34CB29C56 /* Pods */,
 				07EED10C1975E7005ED1D2F1 /* Frameworks */,
+				A29679BD1FBE123700804DB1 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -347,6 +373,14 @@
 				A281FF8A1F86CBAB0098F9D3 /* Info.plist */,
 			);
 			path = TravelbagTests;
+			sourceTree = "<group>";
+		};
+		A29679BD1FBE123700804DB1 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				A2C879531FA3BE140097C052 /* Post.swift */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,11 +439,17 @@
 				TargetAttributes = {
 					A281FF6F1F86CBAA0098F9D3 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 6MNS953WHJ;
+						DevelopmentTeam = NM36QJ4P82;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					A281FF831F86CBAB0098F9D3 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = NM36QJ4P82;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A281FF6F1F86CBAA0098F9D3;
 					};
@@ -450,6 +490,7 @@
 				A21FE0B61F881AB8000359D7 /* SourceSansPro-Bold.otf in Resources */,
 				A20A5D161FA3CC380022183B /* TableViewCell2.xib in Resources */,
 				A21FE0B81F881AB8000359D7 /* SourceSansPro-Regular.otf in Resources */,
+				A2C231131FBA49D200838D8B /* CustomCalloutView.xib in Resources */,
 				A20A5D0E1FA27F730022183B /* John Lennon.jpg in Resources */,
 				A21FE0B91F881AB8000359D7 /* SourceSansPro-Semibold.otf in Resources */,
 				A20A5D121FA3C3ED0022183B /* TableViewCell1.xib in Resources */,
@@ -484,6 +525,7 @@
 				"${BUILT_PRODUCTS_DIR}/LocationPicker/LocationPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -505,6 +547,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -533,7 +576,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		62C268D4B07A8FE99001AFA8 /* [CP] Embed Pods Frameworks */ = {
@@ -566,7 +609,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E34C83470C58C7DF3FBF7F5D /* [CP] Copy Pods Resources */ = {
@@ -616,10 +659,13 @@
 				A2D7DFA91FB650C000D7F8F0 /* TableViewProfileUsers.swift in Sources */,
 				A20A5D151FA3CC380022183B /* TableViewCell2.swift in Sources */,
 				A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */,
-				A2D7DFA31FB4F86600D7F8F0 /* TableViewCellProfile.swift in Sources */,
+				A2C231071FB5121800838D8B /* PostAnnotation.swift in Sources */,
+				A2115E501FBA522C0024650E /* AnnotationView.swift in Sources */,
 				A2368D031F97E5160075D88B /* CreatePostViewController.swift in Sources */,
 				A22A950E1FA3D24700B1BE1B /* PostCreationTableViewCell.swift in Sources */,
 				A2C99E4C1FA9328900FC1BF0 /* UserManager.swift in Sources */,
+				A2C231121FBA49D200838D8B /* CustomCalloutView.swift in Sources */,
+				A2D7DFA31FB4F86600D7F8F0 /* TableViewCellProfile.swift in Sources */,
 				A2D7DF9A1FB3747D00D7F8F0 /* ChangePasswordViewController.swift in Sources */,
 				A261DCAD1F95658D00C45361 /* JoinContinuingViewController.swift in Sources */,
 				A277760E1FA26D3C00DA64DC /* SettingsTableViewController.swift in Sources */,
@@ -630,6 +676,8 @@
 				A2368D061F97F5260075D88B /* PostOptionsTableViewCell.swift in Sources */,
 				A281FF741F86CBAB0098F9D3 /* AppDelegate.swift in Sources */,
 				A21FE0BD1F8C1462000359D7 /* JoinViewController.swift in Sources */,
+				A24401EA1FB262FE008FD3A6 /* PostModel.swift in Sources */,
+				A24401E61FB24B78008FD3A6 /* ExploreViewController.swift in Sources */,
 				A2AC03F81F8EBD38007E35AB /* FeedViewController.swift in Sources */,
 				A21FE0BB1F8C144F000359D7 /* ForgotPasswordViewController.swift in Sources */,
 				A255C8E01F980A9B000F3EDC /* FeedTableViewCell.swift in Sources */,
@@ -769,15 +817,92 @@
 			baseConfigurationReference = E4D34368B183109F602F2036 /* Pods-Travelbag.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6MNS953WHJ;
+				DEVELOPMENT_TEAM = NM36QJ4P82;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Travelbag/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ada.bepid.Travelbag;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"ARSLineProgress\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"DatePickerDialog\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseFirestore\"",
+					"-framework",
+					"\"FirebaseInstanceID\"",
+					"-framework",
+					"\"FirebaseNanoPB\"",
+					"-framework",
+					"\"FirebaseStorage\"",
+					"-framework",
+					"\"GRPCClient\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleToolboxForMac\"",
+					"-framework",
+					"\"ImagePicker\"",
+					"-framework",
+					"\"JSQMessagesViewController\"",
+					"-framework",
+					"\"JSQSystemSoundPlayer\"",
+					"-framework",
+					"\"LocationPicker\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Nuke\"",
+					"-framework",
+					"\"ProtoRPC\"",
+					"-framework",
+					"\"Protobuf\"",
+					"-framework",
+					"\"RAMAnimatedTabBarController\"",
+					"-framework",
+					"\"RxLibrary\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwifterSwift\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"grpc\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl\"",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alor.bepid.Travelba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
@@ -789,15 +914,92 @@
 			baseConfigurationReference = EE36C95294F89478708AE67B /* Pods-Travelbag.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6MNS953WHJ;
+				DEVELOPMENT_TEAM = NM36QJ4P82;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Travelbag/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ada.bepid.Travelbag;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"c++\"",
+					"-l\"icucore\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"ARSLineProgress\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"DatePickerDialog\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseFirestore\"",
+					"-framework",
+					"\"FirebaseInstanceID\"",
+					"-framework",
+					"\"FirebaseNanoPB\"",
+					"-framework",
+					"\"FirebaseStorage\"",
+					"-framework",
+					"\"GRPCClient\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleToolboxForMac\"",
+					"-framework",
+					"\"ImagePicker\"",
+					"-framework",
+					"\"JSQMessagesViewController\"",
+					"-framework",
+					"\"JSQSystemSoundPlayer\"",
+					"-framework",
+					"\"LocationPicker\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Nuke\"",
+					"-framework",
+					"\"ProtoRPC\"",
+					"-framework",
+					"\"Protobuf\"",
+					"-framework",
+					"\"RAMAnimatedTabBarController\"",
+					"-framework",
+					"\"RxLibrary\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SwifterSwift\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"grpc\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-framework",
+					"\"openssl\"",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.alor.bepid.Travelba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
@@ -810,6 +1012,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = NM36QJ4P82;
 				INFOPLIST_FILE = TravelbagTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.levi.bepid.TravelbagTests;
@@ -825,6 +1028,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = NM36QJ4P82;
 				INFOPLIST_FILE = TravelbagTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.levi.bepid.TravelbagTests;

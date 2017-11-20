@@ -23,7 +23,11 @@ public class UserManager {
                 guard let lastName = json["last_name"] as? String else {
                     return print("Ultimo nome n existe")
                 }
-                let user = User(uid: uid, firstName: firstName, lastName: lastName)
+				guard let imageUser = json["user_image_profile"] as? String else {
+					return print("user sem image profile")
+				}
+				
+				let user = User(uid: uid, firstName: firstName, lastName: lastName, imageUser: imageUser)
                 completion(user)
             })
         }

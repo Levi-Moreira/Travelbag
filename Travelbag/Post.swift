@@ -29,9 +29,11 @@ class Post: FirebaseBaseModel{
     var share_gas: Bool = false
     var share_group: Bool = false
     var share_host: Bool = false
-    var userName: String?
+    var user_first_name: String?
+	var user_last_name: String?
     var post_date: Double?
     var uid: String?
+	var user_image_profile: String?
     
     init(with json: [String : Any]) {
         self.date = json["date"] as? String
@@ -44,7 +46,9 @@ class Post: FirebaseBaseModel{
         self.share_group = json["share_host"] as! Bool
         self.content = json["text"] as? String
         self.post_date = json["post_date"] as? Double
-        self.userName = json["userName"] as? String
+        self.user_first_name = json["user_first_name"] as? String
+		self.user_last_name = json["user_last_name"] as? String
+		self.user_image_profile = json["user_image_profile"] as? String
         
     }
     override init() {}
@@ -66,9 +70,11 @@ class Post: FirebaseBaseModel{
         dic["share_gas"] = self.share_gas
         dic["share_group"] = self.share_group
         dic["share_host"] = self.share_host
-        dic["userName"] = self.userName
+        dic["user_first_name"] = self.user_first_name
+		dic["user_last_name"] = self.user_last_name
         dic["image"] = ""
         dic["post_date"] = ServerValue.timestamp()
+		dic["user_image_profile"] = self.user_image_profile
 
         return dic
     }
@@ -85,8 +91,13 @@ extension Post {
         
         if minutes > 59{
             let hours = (interval/60)/60
-            return "\(hours) Hours Ago"
-            
+			
+			if hours < 24 {
+				 return "\(hours) Hours Ago"
+			}else{
+				let date = Date(timeIntervalSince1970: createdInterval)
+				return date.dateString(ofStyle: .short)
+			}
         }
         
         return "\(minutes) Min Ago"
@@ -97,12 +108,15 @@ public struct User {
     
     let uid: String
     var firstName: String?
-    let lastName: String?
+    var lastName: String?
+	var imageUser: String?
+	
     
-    init(uid: String, firstName: String? = nil, lastName: String? = nil) {
+	init(uid: String, firstName: String? = nil, lastName: String? = nil, imageUser: String? = nil) {
         self.uid = uid
         self.firstName = firstName
         self.lastName = lastName
+		self.imageUser = imageUser
     }
     
     func getNameProfile(completion: @escaping (_ name: String) -> Void) {
