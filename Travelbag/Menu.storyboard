@@ -257,15 +257,15 @@
                                                         <constraint firstAttribute="width" secondItem="rHg-TD-u95" secondAttribute="height" multiplier="1:1" id="jLy-sh-PaX"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ao6-Tm-Srl">
+                                                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ao6-Tm-Srl">
                                                     <rect key="frame" x="87" y="196" width="146" height="30"/>
                                                     <state key="normal" title="Change Profile Photo"/>
                                                     <connections>
                                                         <action selector="didTapChangeProfilePhoto:" destination="mzR-iB-sGM" eventType="touchUpInside" id="1fL-zj-gPY"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCn-2O-PS4">
-                                                    <rect key="frame" x="89" y="226" width="142" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCn-2O-PS4">
+                                                    <rect key="frame" x="89" y="226" width="142" height="27"/>
                                                     <state key="normal" title="Change Cover Photo"/>
                                                     <connections>
                                                         <action selector="didTapChangeCoverPhoto:" destination="mzR-iB-sGM" eventType="touchUpInside" id="O1g-mk-gCa"/>
@@ -474,7 +474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BnM-z2-S3l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4646.25" y="369.71830985915494"/>
+            <point key="canvasLocation" x="4380" y="300"/>
         </scene>
         <!--Change Email-->
         <scene sceneID="Mzl-Q6-04P">
@@ -1297,13 +1297,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8aj-TP-oxM">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="chat" rowHeight="82" id="8aj-TP-oxM" customClass="ChatListTableViewCell" customModule="Travelbag" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="82"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8aj-TP-oxM" id="5h5-XZ-rND">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="286" height="81.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fhf-aj-jUp">
+                                            <rect key="frame" x="16" y="10" width="57" height="57"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="57" id="5rc-9W-dFr"/>
+                                                <constraint firstAttribute="width" constant="57" id="biP-Cl-mwD"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ow2-io-eK2">
+                                            <rect key="frame" x="81" y="13" width="102" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" misplaced="YES" text="99/99/9999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbr-Zj-oc0">
+                                            <rect key="frame" x="211" y="7" width="85" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Goo-py-c58">
+                                            <rect key="frame" x="81" y="45" width="205" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ow2-io-eK2" firstAttribute="leading" secondItem="Fhf-aj-jUp" secondAttribute="trailing" constant="8" symbolic="YES" id="3Ju-F9-KDS"/>
+                                        <constraint firstAttribute="bottom" secondItem="Fhf-aj-jUp" secondAttribute="bottom" constant="20.5" id="43O-S1-Gvj" userLabel="bottom = Image User.bottom + 10"/>
+                                        <constraint firstItem="Goo-py-c58" firstAttribute="top" secondItem="ow2-io-eK2" secondAttribute="bottom" constant="11" id="Gax-4t-uT3"/>
+                                        <constraint firstItem="Goo-py-c58" firstAttribute="leading" secondItem="Fhf-aj-jUp" secondAttribute="trailing" constant="8" id="MEI-nd-Ftv"/>
+                                        <constraint firstAttribute="trailing" secondItem="Goo-py-c58" secondAttribute="trailing" id="Pyg-f9-44v"/>
+                                        <constraint firstItem="fbr-Zj-oc0" firstAttribute="top" secondItem="5h5-XZ-rND" secondAttribute="top" constant="7" id="QvH-BX-9fJ"/>
+                                        <constraint firstItem="Fhf-aj-jUp" firstAttribute="top" secondItem="5h5-XZ-rND" secondAttribute="top" constant="10" id="TKJ-dZ-vyv"/>
+                                        <constraint firstItem="fbr-Zj-oc0" firstAttribute="leading" secondItem="ow2-io-eK2" secondAttribute="trailing" constant="28" id="XDl-rg-ypV"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="fbr-Zj-oc0" secondAttribute="bottom" constant="43" id="aDN-39-pK0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="fbr-Zj-oc0" secondAttribute="trailing" constant="-18" id="fKm-ZU-J1y"/>
+                                        <constraint firstAttribute="bottom" secondItem="Goo-py-c58" secondAttribute="bottom" constant="18.5" id="mrG-Rs-qtI"/>
+                                        <constraint firstItem="ow2-io-eK2" firstAttribute="top" secondItem="5h5-XZ-rND" secondAttribute="top" constant="13" id="nsU-qa-v8s"/>
+                                        <constraint firstItem="Fhf-aj-jUp" firstAttribute="leading" secondItem="5h5-XZ-rND" secondAttribute="leadingMargin" id="v0T-oy-32Y"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imageUser" destination="Fhf-aj-jUp" id="PYY-va-82K"/>
+                                    <outlet property="lastMessageDateUser" destination="fbr-Zj-oc0" id="9fS-a4-Hpe"/>
+                                    <outlet property="lastMessageUser" destination="Goo-py-c58" id="A2l-4b-90w"/>
+                                    <outlet property="nameUser" destination="ow2-io-eK2" id="Nfr-xA-vgG"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1322,7 +1370,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fao-4p-oMt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-956" y="624"/>
+            <point key="canvasLocation" x="-802.5" y="752.11267605633805"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dYd-17-rbk">
@@ -1363,7 +1411,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EcI-Fl-pqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="440" y="-421.88905547226392"/>
+            <point key="canvasLocation" x="564" y="-423"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7yj-au-oOi">
@@ -1382,7 +1430,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mi2-mG-QdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2085" y="-415"/>
+            <point key="canvasLocation" x="2081" y="-424"/>
         </scene>
         <!--Profile-->
         <scene sceneID="rwU-If-2nh">
@@ -1420,7 +1468,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipa-3g-76i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-135" y="625"/>
+            <point key="canvasLocation" x="-114" y="742"/>
         </scene>
     </scenes>
     <resources>
