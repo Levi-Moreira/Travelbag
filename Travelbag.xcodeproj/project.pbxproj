@@ -15,7 +15,6 @@
 		A20A5D121FA3C3ED0022183B /* TableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20A5D101FA3C3ED0022183B /* TableViewCell1.xib */; };
 		A20A5D151FA3CC380022183B /* TableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20A5D131FA3CC380022183B /* TableViewCell2.swift */; };
 		A20A5D161FA3CC380022183B /* TableViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = A20A5D141FA3CC380022183B /* TableViewCell2.xib */; };
-		A2115E501FBA522C0024650E /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2115E4F1FBA522B0024650E /* AnnotationView.swift */; };
 		A21FE0AC1F8815B2000359D7 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0AB1F8815B2000359D7 /* Login.storyboard */; };
 		A21FE0B01F8817A0000359D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21FE0AF1F8817A0000359D7 /* LoginViewController.swift */; };
 		A21FE0B61F881AB8000359D7 /* SourceSansPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = A21FE0B21F881AB8000359D7 /* SourceSansPro-Bold.otf */; };
@@ -41,6 +40,7 @@
 		A25EFD641FBA37BC004149AF /* ChatEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EFD631FBA37BC004149AF /* ChatEntry.swift */; };
 		A25EFD661FBA3A8B004149AF /* ChatListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EFD651FBA3A8B004149AF /* ChatListTableViewController.swift */; };
 		A25EFD681FBB7A4F004149AF /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EFD671FBB7A4F004149AF /* ChatViewController.swift */; };
+		A25EFD6A1FC378B9004149AF /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25EFD691FC378B8004149AF /* AnnotationView.swift */; };
 		A261DCAD1F95658D00C45361 /* JoinContinuingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */; };
 		A26560C01F9E941900BDC06A /* LocationPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26560C11F9E941900BDC06A /* LocationPicker.framework */; };
 		A26560C31F9E9AE000BDC06A /* INterestOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */; };
@@ -56,6 +56,7 @@
 		A2AC03F41F8EA587007E35AB /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2AC03F31F8EA587007E35AB /* Menu.storyboard */; };
 		A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC03F51F8EB905007E35AB /* MenuViewController.swift */; };
 		A2AC03F81F8EBD38007E35AB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */; };
+		A2BB83E71FBA4A77004BC4E5 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB83E61FBA4A77004BC4E5 /* ChatListTableViewCell.swift */; };
 		A2C231071FB5121800838D8B /* PostAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C231061FB5121800838D8B /* PostAnnotation.swift */; };
 		A2C231121FBA49D200838D8B /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C231101FBA49D200838D8B /* CustomCalloutView.swift */; };
 		A2C231131FBA49D200838D8B /* CustomCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2C231111FBA49D200838D8B /* CustomCalloutView.xib */; };
@@ -92,7 +93,6 @@
 		A20A5D101FA3C3ED0022183B /* TableViewCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell1.xib; sourceTree = "<group>"; };
 		A20A5D131FA3CC380022183B /* TableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell2.swift; sourceTree = "<group>"; };
 		A20A5D141FA3CC380022183B /* TableViewCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell2.xib; sourceTree = "<group>"; };
-		A2115E4F1FBA522B0024650E /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnotationView.swift; path = "../../../../Downloads/CustomCalloutView-Starter project/CustomCalloutView/AnnotationView.swift"; sourceTree = "<group>"; };
 		A21FE0AB1F8815B2000359D7 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		A21FE0AF1F8817A0000359D7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A21FE0B21F881AB8000359D7 /* SourceSansPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.otf"; sourceTree = "<group>"; };
@@ -119,6 +119,7 @@
 		A25EFD631FBA37BC004149AF /* ChatEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatEntry.swift; sourceTree = "<group>"; };
 		A25EFD651FBA3A8B004149AF /* ChatListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewController.swift; sourceTree = "<group>"; };
 		A25EFD671FBB7A4F004149AF /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		A25EFD691FC378B8004149AF /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinContinuingViewController.swift; sourceTree = "<group>"; };
 		A26560C11F9E941900BDC06A /* LocationPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LocationPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = INterestOptionsTableViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +146,7 @@
 		A2AC03F31F8EA587007E35AB /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		A2AC03F51F8EB905007E35AB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		A2BB83E61FBA4A77004BC4E5 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		A2C231061FB5121800838D8B /* PostAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAnnotation.swift; sourceTree = "<group>"; };
 		A2C231101FBA49D200838D8B /* CustomCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
 		A2C231111FBA49D200838D8B /* CustomCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCalloutView.xib; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				A2D7DFA81FB650C000D7F8F0 /* TableViewProfileUsers.swift */,
 				A25EFD651FBA3A8B004149AF /* ChatListTableViewController.swift */,
 				A2DCAD9D1FBB82840093A0F4 /* MainTabBarController.swift */,
+				A25EFD671FBB7A4F004149AF /* ChatViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -299,7 +302,7 @@
 				A2C231061FB5121800838D8B /* PostAnnotation.swift */,
 				A2C231101FBA49D200838D8B /* CustomCalloutView.swift */,
 				A2C231111FBA49D200838D8B /* CustomCalloutView.xib */,
-				A2115E4F1FBA522B0024650E /* AnnotationView.swift */,
+				A25EFD691FC378B8004149AF /* AnnotationView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -663,10 +666,10 @@
 				A20A5D151FA3CC380022183B /* TableViewCell2.swift in Sources */,
 				A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */,
 				A2C231071FB5121800838D8B /* PostAnnotation.swift in Sources */,
-				A2115E501FBA522C0024650E /* AnnotationView.swift in Sources */,
 				A2368D031F97E5160075D88B /* CreatePostViewController.swift in Sources */,
 				A2BB83E71FBA4A77004BC4E5 /* ChatListTableViewCell.swift in Sources */,
 				A22A950E1FA3D24700B1BE1B /* PostCreationTableViewCell.swift in Sources */,
+				A25EFD6A1FC378B9004149AF /* AnnotationView.swift in Sources */,
 				A25EFD681FBB7A4F004149AF /* ChatViewController.swift in Sources */,
 				A2C99E4C1FA9328900FC1BF0 /* UserManager.swift in Sources */,
 				A2C231121FBA49D200838D8B /* CustomCalloutView.swift in Sources */,
