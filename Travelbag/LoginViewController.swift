@@ -12,15 +12,11 @@ import FBSDKLoginKit
 import Firebase
 import ARSLineProgress
 
-class ProfileViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet var inputUsername: UITextField!
-    
     @IBOutlet var inputPassword: UITextField!
-    
     @IBOutlet var loginFacebookButton: FBSDKLoginButton!
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
@@ -100,8 +96,6 @@ class ProfileViewController: UIViewController {
                 self.presentHome()
                 
             })
-
-
         }
     }
     
@@ -132,8 +126,5 @@ class ProfileViewController: UIViewController {
             self.presentHome()
         }
     }
-    
-
-
 
 }

@@ -16,6 +16,19 @@ class FeedTableViewCell: UITableViewCell {
 	@IBOutlet weak var textPost: UILabel!
 	@IBOutlet weak var imagePost: UIImageView!
 	@IBOutlet weak var constraintHeight: NSLayoutConstraint!
+    
+    @IBOutlet var firstInterestImage: UIImageView!
+    
+    @IBOutlet var secondINterestImage: UIImageView!
+    
+    @IBOutlet var thirdInterestImage: UIImageView!
+    
+    
+    @IBOutlet var firstInterestText: UILabel!
+    
+    @IBOutlet var secondInterestText: UILabel!
+    
+    @IBOutlet var thirdInterestText: UILabel!
 	
 	
 	override func awakeFromNib() {

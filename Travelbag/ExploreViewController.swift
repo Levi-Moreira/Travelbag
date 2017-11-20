@@ -22,7 +22,7 @@ class ExploreViewController: UIViewController {
 		
 		postModel = PostModel.shared
 		
-		self.mapView.mapType = MKMapType.standard
+		self.mapView.mapType = .standard
 		self.mapView.showsUserLocation = true
 		if postModel.posts.isEmpty {
 			postModel.getPosts(completion: { (postsResult) in
@@ -51,7 +51,7 @@ class ExploreViewController: UIViewController {
 		point.share_host = post.share_host
 		point.share_group = post.share_host
 		point.text = post.content
-		point.userName = post.userName
+		point.userName = "\(post.user_first_name) \(post.user_last_name)"
 		self.mapView.addAnnotation(point)
 	}
 
@@ -147,12 +147,12 @@ extension ExploreViewController: MKMapViewDelegate {
 			if let url = URL(string:urlString ){
 //				calloutView.imagePost.frame.size = CGSize.zero
 				calloutView.imagePost.isHidden = true
-				calloutView.layoutIfNeeded()
-				calloutView.layoutSubviews()
-//				if let data = try? Data(contentsOf: url){
-//					let imagepost = UIImage(data: data)
-//					calloutView.imagePost.image = imagepost
-//				}
+//				calloutView.layoutIfNeeded()
+//				calloutView.layoutSubviews()
+				if let data = try? Data(contentsOf: url){
+					let imagepost = UIImage(data: data)
+					calloutView.imagePost.image = imagepost
+				}
 			} else{
 				calloutView.imagePost.isHidden = true
 			}

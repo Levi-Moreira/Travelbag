@@ -79,7 +79,11 @@ struct FirebaseImage {
                     break
                 }
             }
+        }
     }
-}
     
+
 }
+
+
+
