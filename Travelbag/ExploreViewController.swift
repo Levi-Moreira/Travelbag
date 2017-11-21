@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Nuke
 
 class ExploreViewController: UIViewController {
 	
@@ -51,7 +52,8 @@ class ExploreViewController: UIViewController {
 		point.share_host = post.share_host
 		point.share_group = post.share_host
 		point.text = post.content
-		point.userName = "\(post.user_first_name) \(post.user_last_name)"
+		point.userName = "\(post.user_first_name!) \(post.user_last_name!)"
+		point.user_image_profile = post.user_image_profile
 		self.mapView.addAnnotation(point)
 	}
 
@@ -102,6 +104,7 @@ extension ExploreViewController: MKMapViewDelegate {
 		{
 			return nil
 		}
+		
 		var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
 		if annotationView == nil{
 			annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
@@ -135,7 +138,8 @@ extension ExploreViewController: MKMapViewDelegate {
 		if(postAnnotation.share_group){
 			calloutView.share2.image = #imageLiteral(resourceName: "icons8-Home Page Filled_100")
 		}else{
-			calloutView.share2.isHidden = true
+//			calloutView.share2.isHidden = true
+			calloutView.share2.image = #imageLiteral(resourceName: "icons8-Home Page Filled_100")
 		}
 
 		if(postAnnotation.share_host){
@@ -146,7 +150,7 @@ extension ExploreViewController: MKMapViewDelegate {
 		if let urlString = postAnnotation.imagePost{
 			if let url = URL(string:urlString ){
 //				calloutView.imagePost.frame.size = CGSize.zero
-				calloutView.imagePost.isHidden = true
+//				calloutView.imagePost.isHidden = true
 //				calloutView.layoutIfNeeded()
 //				calloutView.layoutSubviews()
 				if let data = try? Data(contentsOf: url){
@@ -154,9 +158,15 @@ extension ExploreViewController: MKMapViewDelegate {
 					calloutView.imagePost.image = imagepost
 				}
 			} else{
-				calloutView.imagePost.isHidden = true
+				if let url = postAnnotation.user_image_profile {
+					if url.isValidHttpsUrl {
+						Nuke.loadImage(with: URL(string: url)!, into: calloutView.imagePost)
+					}
+				}
 			}
 		}
+		
+		
 		
 		
 		// 3
@@ -174,44 +184,5 @@ extension ExploreViewController: MKMapViewDelegate {
 			}
 		}
 	}
-//		if !(annotation is MKPointAnnotation) {
-//			print("NOT REGISTERED AS MKPOINTANNOTATION")
-//			return nil
-//		}
-//
-//		var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "postIdentitfier")
-//		if annotationView == nil {
-//			annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "postIdentitfier")
-//			annotationView!.canShowCallout = true
-//		}
-//
-//		else {
-//			annotationView!.annotation = annotation
-//		}
-//
-////		let cpa = annotation as! CustomPointAnnotation
-//		annotationView!.image = #imageLiteral(resourceName: "icons8-Marker Filled-100")
-//
-//		return annotationView
-		
-//		// 2
-//		guard let annotation = annotation as? PostAnnotation else { return nil }
-//		// 3
-//		let identifier = MKMapViewDefaultAnnotationViewReuseIdentifier
-//		var view: MKMarkerAnnotationView
-//		// 4
-//		if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//			as? MKMarkerAnnotationView {
-//			dequeuedView.annotation = annotation
-//			view = dequeuedView
-//		} else {
-//			// 5
-//			view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-////			view.image = #imageLiteral(resourceName: "login-background")
-//			view.canShowCallout = true
-//			view.calloutOffset = CGPoint(x: -5, y: 5)
-//			view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-//		}
-//		return view
-//	}
+
 }

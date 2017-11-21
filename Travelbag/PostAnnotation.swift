@@ -15,6 +15,7 @@ class PostAnnotation: NSObject , MKAnnotation {
 	var text: String!
 	var userName: String!
 	var imagePost: String?
+	var user_image_profile: String?
 	var share_gas: Bool!
 	var share_group: Bool!
 	var share_host: Bool!
