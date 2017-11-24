@@ -12,11 +12,13 @@ class TableViewCell2: UITableViewCell {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameProfileLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var postDateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var textPostLabel: UITextView!
     
+    @IBOutlet weak var textPostLabel: UILabel!
+    
+    @IBOutlet weak var verbalTimeLabel: UILabel!
     @IBOutlet weak var imagePost: UIImageView!
-    @IBOutlet weak var imageConstraintHeight: NSLayoutConstraint!
+    @IBOutlet weak var dateLabel: UILabel!
     
 }

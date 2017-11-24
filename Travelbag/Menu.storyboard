@@ -210,6 +210,11 @@
                                 </cells>
                             </tableViewSection>
                         </sections>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.1529411765" green="0.23137254900000001" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                         <connections>
                             <outlet property="dataSource" destination="mta-LW-9Xk" id="ycQ-He-tms"/>
                             <outlet property="delegate" destination="mta-LW-9Xk" id="VQC-s5-N0n"/>
@@ -221,6 +226,7 @@
                         <segue destination="mzR-iB-sGM" kind="show" identifier="editProfileSegue" id="dzU-D4-YZI"/>
                         <segue destination="EbP-oG-oZb" kind="show" identifier="aboutSegue" id="btG-Oo-wA2"/>
                         <segue destination="N2F-2k-cwe" kind="show" identifier="editEmailSegue" id="sfz-aj-Bci"/>
+                        <segue destination="WOj-oW-bDE" kind="show" identifier="editPasswordSegue" id="rIw-Tc-5cj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oh0-qg-xpv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -480,7 +486,7 @@
         <scene sceneID="YPr-E3-dLk">
             <objects>
                 <tableViewController storyboardIdentifier="storyboardProfile" id="zUB-nm-4B4" customClass="TableViewProfileUsers" customModule="Travelbag" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8D5-W5-Mtf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8D5-W5-Mtf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -594,6 +600,24 @@
             </objects>
             <point key="canvasLocation" x="4477.5" y="1278.1690140845071"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="kL4-VX-pxw">
+            <objects>
+                <viewController id="WOj-oW-bDE" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PX8-C4-pDT"/>
+                        <viewControllerLayoutGuide type="bottom" id="zuU-OJ-vmW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="54d-5D-1Xf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ehb-Al-BnQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4318" y="1382"/>
+        </scene>
         <!--Explore-->
         <scene sceneID="YmZ-OA-2jx">
             <objects>
@@ -643,7 +667,7 @@
         <!--TravelBag-->
         <scene sceneID="bKG-kK-ZLJ">
             <objects>
-                <viewController id="Nh0-j7-7TE" customClass="FeedViewController" customModule="Travelbag" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="storyboardFeed" id="Nh0-j7-7TE" customClass="FeedViewController" customModule="Travelbag" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aqC-Rx-41V"/>
                         <viewControllerLayoutGuide type="bottom" id="oyz-gz-pO1"/>
@@ -696,7 +720,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="selfImage" destination="eN8-oJ-qKl" id="0SK-gK-iEe"/>
-                                            <segue destination="a9T-JT-luX" kind="modal" id="Dka-n0-iDx"/>
+                                            <segue destination="a9T-JT-luX" kind="modal" identifier="feedToCreate" id="Dka-n0-iDx"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="70" reuseIdentifier="post" rowHeight="364" id="5WT-tp-fav" customClass="FeedTableViewCell" customModule="Travelbag">
@@ -755,7 +779,7 @@
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2WI-7U-zHm">
                                                             <rect key="frame" x="0.0" y="92" width="320" height="191"/>
-                                                            <color key="backgroundColor" red="1" green="0.16841727275063256" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="191" id="2PD-fv-J90"/>
                                                             </constraints>
@@ -906,7 +930,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7v-Z2-6n5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1284" y="-387"/>
+            <point key="canvasLocation" x="1282.5" y="-387.67605633802816"/>
         </scene>
         <!--Nterest Options Table View Controller-->
         <scene sceneID="AAP-MF-wV2">
@@ -1022,17 +1046,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZsY-wm-Xp1">
-                                                    <rect key="frame" x="20" y="11" width="71" height="71"/>
+                                                    <rect key="frame" x="20" y="11" width="60" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="ZsY-wm-Xp1" secondAttribute="height" multiplier="1:1" id="DN4-br-lGd"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Where are you going?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7wI-pa-4yh">
-                                                    <rect key="frame" x="99" y="11" width="163" height="71"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOq-fO-NRA">
                                                     <rect key="frame" x="0.0" y="87" width="320" height="12"/>
                                                     <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1056,21 +1074,28 @@
                                                         <action selector="didTabCamera:" destination="ukP-Lj-Qed" eventType="touchUpInside" id="NBv-Iz-QRr"/>
                                                     </connections>
                                                 </button>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Where are you going?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bWn-C0-7bt">
+                                                    <rect key="frame" x="90" y="11" width="183" height="60"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="textColor" red="0.23064720812182737" green="0.23064720812182737" blue="0.23064720812182737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="7wI-pa-4yh" secondAttribute="bottom" constant="6" id="0We-jh-8eh"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ZsY-wm-Xp1" secondAttribute="bottom" constant="6" id="7q7-5n-tWz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ZsY-wm-Xp1" secondAttribute="bottom" constant="17" id="7q7-5n-tWz"/>
                                                 <constraint firstItem="ZsY-wm-Xp1" firstAttribute="leading" secondItem="9L4-xd-1Fk" secondAttribute="leadingMargin" constant="4" id="AI4-D7-7uJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="uOq-fO-NRA" secondAttribute="trailing" id="BN3-Wk-JKq"/>
-                                                <constraint firstItem="7wI-pa-4yh" firstAttribute="top" secondItem="9L4-xd-1Fk" secondAttribute="topMargin" id="BXZ-i5-CGH"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="7wI-pa-4yh" secondAttribute="trailing" constant="42" id="ELf-2z-Ad6"/>
+                                                <constraint firstAttribute="bottom" secondItem="bWn-C0-7bt" secondAttribute="bottom" constant="28" id="Dyv-HB-azg"/>
                                                 <constraint firstItem="ZsY-wm-Xp1" firstAttribute="top" secondItem="9L4-xd-1Fk" secondAttribute="topMargin" id="Fgz-Kc-VlX"/>
+                                                <constraint firstItem="Ibj-s2-9ZW" firstAttribute="leading" secondItem="bWn-C0-7bt" secondAttribute="trailing" constant="3" id="HdE-0i-n0n"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Ibj-s2-9ZW" secondAttribute="trailing" constant="4" id="MTi-Yw-NmO"/>
                                                 <constraint firstItem="Ibj-s2-9ZW" firstAttribute="top" secondItem="9L4-xd-1Fk" secondAttribute="topMargin" constant="41" id="aqA-TG-moz"/>
                                                 <constraint firstAttribute="bottom" secondItem="uOq-fO-NRA" secondAttribute="bottom" id="eXa-Hh-KGd"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Ibj-s2-9ZW" secondAttribute="bottom" constant="12" id="f91-2T-wYr"/>
-                                                <constraint firstItem="7wI-pa-4yh" firstAttribute="leading" secondItem="ZsY-wm-Xp1" secondAttribute="trailing" constant="8" id="igx-6c-461"/>
+                                                <constraint firstItem="bWn-C0-7bt" firstAttribute="leading" secondItem="ZsY-wm-Xp1" secondAttribute="trailing" constant="10" id="kiw-KU-k6N"/>
                                                 <constraint firstItem="uOq-fO-NRA" firstAttribute="leading" secondItem="9L4-xd-1Fk" secondAttribute="leading" id="oPW-fO-Htc"/>
+                                                <constraint firstItem="bWn-C0-7bt" firstAttribute="top" secondItem="9L4-xd-1Fk" secondAttribute="top" constant="11" id="yEd-Vc-FX9"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1081,7 +1106,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="197"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yXj-EW-Fgh">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yXj-EW-Fgh">
                                                     <rect key="frame" x="10" y="8" width="300" height="182"/>
                                                 </imageView>
                                             </subviews>
@@ -1255,10 +1280,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageCell" destination="LYN-EU-uOp" id="51e-9T-tWu"/>
+                        <outlet property="imageProfileUser" destination="ZsY-wm-Xp1" id="FBd-NU-ylC"/>
                         <outlet property="pickedDate" destination="Dg0-qO-hH9" id="vfZ-pF-dda"/>
                         <outlet property="pickedInterest" destination="2yF-Pb-SeW" id="cXu-Ps-kYK"/>
                         <outlet property="pickedLocation" destination="anC-EB-Kcg" id="fQn-ty-pSV"/>
-                        <outlet property="postContent" destination="7wI-pa-4yh" id="YaF-aZ-N9k"/>
+                        <outlet property="postContent" destination="bWn-C0-7bt" id="j52-Wb-eFV"/>
                         <outlet property="postImagePreview" destination="yXj-EW-Fgh" id="N1g-Sw-sSy"/>
                         <segue destination="544-g0-Wkh" kind="show" identifier="pickInterestSegue" id="ds0-ur-xF6"/>
                     </connections>

@@ -21,7 +21,9 @@ class ForgotPasswordViewController: UIViewController {
         emailInput.layer.borderWidth = 1.0
         emailInput.layer.borderColor = UIColor.white.cgColor
         
-        // Do any additional setup after loading the view.
+        self.navigationItem.title = "Forgot your password?"
+        self.navigationItem.titleView?.tintColor = UIColor.white
+        
     }
 
     override func didReceiveMemoryWarning() {

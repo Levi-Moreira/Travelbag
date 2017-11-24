@@ -58,6 +58,7 @@ class ChatListTableViewController: BaseTableViewController {
                 chat.firstUserUID == self.userID || chat.secondUserUID == self.userID
             })
             
+            self.chats.sort{ return $0.0.lastMessageDate ?? 0 > $0.1.lastMessageDate ?? 0}
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
