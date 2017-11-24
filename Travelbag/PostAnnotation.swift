@@ -19,8 +19,11 @@ class PostAnnotation: NSObject , MKAnnotation {
 	var share_gas: Bool!
 	var share_group: Bool!
 	var share_host: Bool!
+	var uid: String!
 	
 	init(coordinate: CLLocationCoordinate2D) {
 		self.coordinate = coordinate
 	}
+	
+	
 }

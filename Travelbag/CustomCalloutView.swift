@@ -8,14 +8,32 @@
 
 import UIKit
 
-class CustomCalloutView: UIView {
+class CustomCalloutView: UIView, UICollectionViewDataSource {
 	
 	@IBOutlet weak var imagePost: UIImageView!
-	@IBOutlet weak var share1: UIImageView!
-	@IBOutlet weak var share2: UIImageView!
-	@IBOutlet weak var share3: UIImageView!
 	@IBOutlet weak var nameUser: UILabel!
 	@IBOutlet weak var text: UILabel!
+	@IBOutlet weak var imageCollectionView: UICollectionView!
+	
+	var categoryImageArray = [UIImage]()
+	var uid : String?
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return categoryImageArray.count
+	}
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCollectionView", for: indexPath) as! ImageCollectionView
+		cell.categoryImage.image = categoryImageArray[indexPath.row]
+		return cell
+	}
+	
+	override func didMoveToWindow() {
+		let nibName = UINib(nibName: "ImageCollectionView", bundle: nil)
+		imageCollectionView.register(nibName, forCellWithReuseIdentifier: "imageCollectionView")
+		imageCollectionView.dataSource = self
+	}
+	
+	
+	
 
     /*
     // MARK: - Navigation
