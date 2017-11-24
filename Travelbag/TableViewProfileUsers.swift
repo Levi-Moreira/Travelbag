@@ -13,7 +13,51 @@ import ARSLineProgress
 import Nuke
 import CoreLocation
 
-class TableViewProfileUsers: UITableViewController {
+struct cellDataProfile {
+    let cell: Int!
+}
+
+class TableViewProfileUsers: UITableViewController,CustomProfileDelegate {
+    
+    func didTapChat() {
+        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+        let chatViewController = storyboard.instantiateViewController(withIdentifier: "chatNC") as! UINavigationController
+        
+        let finalViewController = chatViewController.viewControllers.first as? ChatViewController
+        
+        var entry = ChatEntry()
+        guard let otherUserUid =  profile?.uid else{
+            return
+        }
+        
+        if let comparison = Auth.auth().currentUser?.uid.compare(otherUserUid){
+            if(comparison == .orderedAscending){
+                
+                entry.firstUserName = LocalDataProvider().provideUserFirstName()
+                entry.firstUserUID = Auth.auth().currentUser?.uid
+                entry.firstUserImage = LocalDataProvider().provideUserImage()
+                entry.secondUserName = profile?.first_name
+                entry.secondUserUID = otherUserUid
+                entry.secondUserImage = profile?.profile_picture
+                
+            }else{
+                entry.firstUserName = profile?.first_name
+                entry.firstUserUID = otherUserUid
+                entry.firstUserImage = profile?.profile_picture
+                entry.secondUserName = LocalDataProvider().provideUserFirstName()
+                entry.secondUserUID = Auth.auth().currentUser?.uid
+                entry.secondUserImage = LocalDataProvider().provideUserImage()
+            }
+        }
+        
+        guard let firstUID = entry.firstUserUID, let secondUID = entry.secondUserUID else {
+            return
+        }
+        entry.id = "\(firstUID)\(secondUID)"
+        finalViewController?.chatEntry = entry
+        self.present(chatViewController, animated: true, completion: nil)
+    }
+    
     
     var ref: DatabaseReference!
     var uid: String?
@@ -96,7 +140,9 @@ class TableViewProfileUsers: UITableViewController {
         
         if indexPath.row == 0 {
             let cell = Bundle.main.loadNibNamed("TableViewCellProfile", owner: self, options: nil)?.first as! TableViewCellProfile
-           
+            
+            cell.delegate = self
+            
             if let profileImageUrl = profile?.profile_picture{
                 let url = URL(string: profileImageUrl)
                 if let url = url{
@@ -156,10 +202,36 @@ class TableViewProfileUsers: UITableViewController {
         else {
             let cell = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
             
-            if let timeGet = self.posts[indexPath.row - 1].post_date {
-                cell.timeLabel.text = self.posts[indexPath.row - 1].timeToNow
+
+//POSTS HERE!!!
+            
+            
+            cell.locationLabel.text = "is in New York"
+            cell.locationLabel.font = UIFont.systemFont(ofSize: 11.0)
+            
+            if posts[indexPath.row - 1].image == nil {
+               // cell.imageConstraintHeight.constant = 0
             } else {
-                cell.timeLabel.text = "cheguei"
+                if posts[indexPath.row - 1].image!.isEmpty {
+                   // cell.imageConstraintHeight.constant = 0
+                } else {
+                    if let postImage = posts[indexPath.row - 1].image{
+                        let url = URL(string: postImage)
+                        if let url = url{
+                            Nuke.loadImage(with: url, into: cell.imagePost)
+                        }
+                    }
+                }
+            }
+            
+            lookUpCurrentLocation(lat: self.posts[indexPath.row - 1].latitude!, long: self.posts[indexPath.row - 1].longitude!) { (placemark) in
+                cell.locationLabel.text = placemark?.locality ?? ""
+            }
+            
+            if let timeGet = self.posts[indexPath.row - 1].post_date {
+            //    cell.timeLabel.text = self.posts[indexPath.row - 1].timeToNow
+            } else {
+              //  cell.timeLabel.text = "cheguei"
             }
             
             return cell
@@ -177,6 +249,11 @@ class TableViewProfileUsers: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {

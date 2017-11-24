@@ -13,8 +13,7 @@ import FirebaseDatabase
 import CoreLocation
 import ARSLineProgress
 import Nuke
-
-class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     var ref:DatabaseReference!
     var databaseHandle:DatabaseHandle?
@@ -101,12 +100,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 }
             }
             
-            if let urlString = self.posts[indexPath.row-1].image {
-                if let url = URL(string:urlString ){
-                    if let data = try? Data(contentsOf: url){
-                        let imagepost = UIImage(data: data)
-                        cell.imagePost.image = imagepost
-                    }
+            if posts[indexPath.row - 1].image == nil {
+                    cell.constraintHeight.constant = 0
                 } else {
                     if posts[indexPath.row - 1].image!.isEmpty {
                         cell.constraintHeight.constant = 0
@@ -120,7 +115,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                         }
                     }
                 }
-            }
+                
             
             guard let latitude = post.latitude else {
                 return cell
@@ -208,11 +203,24 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 let storyboard = UIStoryboard(name: "Menu", bundle: nil)
                 let controller = storyboard.instantiateViewController(withIdentifier: "storyboardProfile") as!  TableViewProfileUsers
                 controller.uid = uid
+                
+                //self.present(controller, animated: true, completion: nil)
                 self.navigationController?.pushViewController(controller, animated: true)
             }
         }
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dest = segue.destination as? UINavigationController
+        
+        if let destionation = dest{
+            let dvc = destionation.viewControllers.first as! CreatePostViewController
+            
+            dvc.delegate = self as! CreatePostViewControllerDelegate
+            
+        }
+    }
     @IBAction func logout(_ sender: Any) {
         
         let firebaseAuth = Auth.auth()
@@ -254,39 +262,43 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 print(error)
             }
         }
-	}
-	
-	func getPosts() {
-		if postModel.posts.count > 0 {
-			posts = postModel.posts
+    }
+    
+    func getPosts() {
+        if postModel.posts.count > 0 {
+            posts = postModel.posts
             
             self.posts.sort(by: { (first, second) -> Bool in
                 return first.post_date ?? 0 < second.post_date ?? 0
             })
-		}else {
-			ARSLineProgress.show()
-			
+        }else {
+            ARSLineProgress.show()
+            
             postModel.getPosts(completion: { (postsResult) in
-				self.posts = postsResult
+                self.posts = postsResult
                 self.posts.sort(by: { (first, second) -> Bool in
                     return first.post_date ?? 0 < second.post_date ?? 0
                 })
                 
-				DispatchQueue.main.async {
-					self.tableView.reloadData()
-					ARSLineProgress.hide()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    ARSLineProgress.hide()
                     
-				}
-			})
-		}
-	}
-	
-	func lookUpCurrentLocation(lat: Double, long: Double, completionHandler: @escaping (CLPlacemark?) -> Void ){
-		
-		let localizacao = CLLocation(latitude: lat as CLLocationDegrees, longitude: long as CLLocationDegrees)
-		let geocoder = CLGeocoder()
-		
-		geocoder.reverseGeocodeLocation(localizacao, completionHandler: { (placemarks, error) in
+                }
+            })
+        }
+
+        
+        
+        
+    }
+    
+    func lookUpCurrentLocation(lat: Double, long: Double, completionHandler: @escaping (CLPlacemark?) -> Void ){
+        
+        let localizacao = CLLocation(latitude: lat as CLLocationDegrees, longitude: long as CLLocationDegrees)
+        let geocoder = CLGeocoder()
+        
+        geocoder.reverseGeocodeLocation(localizacao, completionHandler: { (placemarks, error) in
             if error == nil {
                 let firstLocation = placemarks?[0]
                 completionHandler(firstLocation)
@@ -295,10 +307,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                 // An error occurred during geocoding.
                 completionHandler(nil)
             }
-		})
-	}
-	
-	
+        })
+    }
+    
+    
 }
 
 

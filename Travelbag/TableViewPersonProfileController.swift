@@ -127,8 +127,12 @@ class TableViewPersonProfileController: UITableViewController {
             }
             cell.userNameLabel.text = "\(firstname) \(lastname)"
             
-            cell.followingLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
-            cell.followingLabel.text = "Following"
+            // Status user
+           // cell.statusUserLabel.font = UIFont.boldSystemFont(ofSize: 15.0)
+           // cell.statusUserLabel.text = profile?.bio
+            
+           // cell.followingLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
+           // cell.followingLabel.text = "Following"
             cell.settingsLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
             cell.settingsLabel.text = "Settings"
             
@@ -199,10 +203,26 @@ class TableViewPersonProfileController: UITableViewController {
             }
             
             if let timeGet = self.posts[indexPath.row - 1].post_date {
-                cell.timeLabel.text = self.posts[indexPath.row - 1].timeToNow
-            } else {
-                cell.timeLabel.text = "cheguei"
+                //cell.timeLabel.text = self.posts[indexPath.row - 1].timeToNow
             }
+                //cell.timeLabel.text = "cheguei"
+            guard let longitude = self.posts[indexPath.row - 1].longitude else {
+                return cell
+            }
+            lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
+                //cell.locationLabel.text = placemark?.locality ?? ""
+            }
+            
+            //Post Verbal Time
+        
+    
+            //Post Interval Date
+        
+                
+                
+            //Post Interesses Collection
+                
+        
             
             return cell
         }
@@ -247,3 +267,4 @@ class TableViewPersonProfileController: UITableViewController {
     }
 
 }
+

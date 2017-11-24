@@ -26,7 +26,17 @@ class ChatViewController: JSQMessagesViewController {
     
     private var newMessageRefHandle: DatabaseHandle?
     override func viewDidLoad() {
-    super.viewDidLoad()
+        super.viewDidLoad()
+    
+        self.inputToolbar.contentView.leftBarButtonItem = nil
+    self.roomID = chatEntry?.id ?? "roomID"
+        
+        if( chatEntry?.firstUserName == LocalDataProvider().provideUserFirstName()){
+            self.navigationItem.title = self.chatEntry?.secondUserName
+        }else{
+            self.navigationItem.title = self.chatEntry?.firstUserName
+        }
+        createChatEntry()
     self.senderId = Auth.auth().currentUser?.uid
     self.senderDisplayName = "Sender"
         

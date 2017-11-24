@@ -29,5 +29,13 @@ class TableViewCellProfile: UITableViewCell {
     @IBAction func toFeed(_ sender: UIButton) {
         viewController?.navigationController?.popToRootViewController(animated: true)
     }
+    @IBAction func didTapChat(_ sender: Any) {
+    self.delegate?.didTapChat()
+    }
     
+
+}
+
+protocol CustomProfileDelegate{
+    func didTapChat()
 }
