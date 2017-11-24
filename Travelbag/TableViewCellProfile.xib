@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -138,6 +139,9 @@
                             <constraint firstAttribute="width" constant="46" id="WNS-DD-RYu"/>
                             <constraint firstAttribute="height" constant="30" id="tBd-O8-Z0M"/>
                         </constraints>
+                        <connections>
+                            <action selector="didTapChat:" destination="j2J-cd-8bL" eventType="touchUpInside" id="HTH-EW-BPG"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

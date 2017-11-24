@@ -17,7 +17,47 @@ struct cellDataProfile {
     let cell: Int!
 }
 
-class TableViewProfileUsers: UITableViewController {
+class TableViewProfileUsers: UITableViewController,CustomProfileDelegate {
+    
+    func didTapChat() {
+        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+        let chatViewController = storyboard.instantiateViewController(withIdentifier: "chatNC") as! UINavigationController
+        
+        let finalViewController = chatViewController.viewControllers.first as? ChatViewController
+        
+        var entry = ChatEntry()
+        guard let otherUserUid =  profile?.uid else{
+            return
+        }
+        
+        if let comparison = Auth.auth().currentUser?.uid.compare(otherUserUid){
+            if(comparison == .orderedAscending){
+                
+                entry.firstUserName = LocalDataProvider().provideUserFirstName()
+                entry.firstUserUID = Auth.auth().currentUser?.uid
+                entry.firstUserImage = LocalDataProvider().provideUserImage()
+                entry.secondUserName = profile?.first_name
+                entry.secondUserUID = otherUserUid
+                entry.secondUserImage = profile?.profile_picture
+                
+            }else{
+                entry.firstUserName = profile?.first_name
+                entry.firstUserUID = otherUserUid
+                entry.firstUserImage = profile?.profile_picture
+                entry.secondUserName = LocalDataProvider().provideUserFirstName()
+                entry.secondUserUID = Auth.auth().currentUser?.uid
+                entry.secondUserImage = LocalDataProvider().provideUserImage()
+            }
+        }
+        
+        guard let firstUID = entry.firstUserUID, let secondUID = entry.secondUserUID else {
+            return
+        }
+        entry.id = "\(firstUID)\(secondUID)"
+        finalViewController?.chatEntry = entry
+        self.present(chatViewController, animated: true, completion: nil)
+    }
+    
     
     var ref: DatabaseReference!
     var uid: String?
@@ -57,6 +97,7 @@ class TableViewProfileUsers: UITableViewController {
                 let value = snapshot.value as? [String: Any]
                 if let val = value{
                     self.profile = Profile.init(with: val)
+                    self.profile?.uid = snapshot.key
                     self.showUserInfo()
                 }
             }) { (error) in
@@ -102,7 +143,9 @@ class TableViewProfileUsers: UITableViewController {
         
         if indexPath.row == 0 {
             let cell = Bundle.main.loadNibNamed("TableViewCellProfile", owner: self, options: nil)?.first as! TableViewCellProfile
-            //cell.controller = self
+            
+            cell.delegate = self
+            
             if let profileImageUrl = profile?.profile_picture{
                 let url = URL(string: profileImageUrl)
                 if let url = url{
@@ -233,6 +276,7 @@ class TableViewProfileUsers: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -243,6 +287,8 @@ class TableViewProfileUsers: UITableViewController {
         }
         
     }
+    
+    
     
     func lookUpCurrentLocation(lat: Double, long: Double, completionHandler: @escaping (CLPlacemark?) -> Void ){
         

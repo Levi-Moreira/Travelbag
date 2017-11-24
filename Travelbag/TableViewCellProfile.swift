@@ -10,6 +10,8 @@ import UIKit
 
 class TableViewCellProfile: UITableViewCell {
 
+    var delegate:CustomProfileDelegate?
+    
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
@@ -23,5 +25,13 @@ class TableViewCellProfile: UITableViewCell {
     @IBOutlet weak var countFollowing: UILabel!
     @IBOutlet weak var countFollowers: UILabel!
     
+    @IBAction func didTapChat(_ sender: Any) {
+    self.delegate?.didTapChat()
+    }
+    
 
+}
+
+protocol CustomProfileDelegate{
+    func didTapChat()
 }

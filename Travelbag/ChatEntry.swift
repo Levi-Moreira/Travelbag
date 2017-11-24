@@ -55,6 +55,8 @@ class ChatEntry: FirebaseBaseModel{
     var firstUserImage: String?
     var secondUserImage: String?
     
+    var id:String?
+    
     
 }
 

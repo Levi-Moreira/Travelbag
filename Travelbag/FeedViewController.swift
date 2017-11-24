@@ -13,7 +13,7 @@ import FirebaseDatabase
 import CoreLocation
 import ARSLineProgress
 import Nuke
-class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     
@@ -29,7 +29,7 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad()  {
         super.viewDidLoad()
-        
+    
         postModel = PostModel.shared
         
         ref = Database.database().reference()

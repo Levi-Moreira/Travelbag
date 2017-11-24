@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ExploreViewController: UIViewController {
+class ExploreViewController: BaseViewController {
 	
 	@IBOutlet weak var mapView: MKMapView!
 	var postModel : PostModel!
