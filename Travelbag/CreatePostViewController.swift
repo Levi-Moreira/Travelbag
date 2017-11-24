@@ -164,7 +164,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 	}
 	
 	func showLocation(){
-	    self.pickedLocation.text = self.currentPlacemark.locality ?? "Pick One"
+//        self.pickedLocation.text = self.currentPlacemark.locality ?? "Pick One"
 		//self.pickedLocation.text = ""
         self.post.latitude = self.currentLocation?.coordinate.latitude
 		self.post.longitude = self.currentLocation?.coordinate.longitude
@@ -231,8 +231,12 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 				completionHandler(nil)
 			}
 			
-			if((placemark?.count)! > 0){
-				completionHandler((placemark?.first)!)
+            guard let chosenPlacemark = placemark else{
+                completionHandler(nil)
+                return
+            }
+			if(chosenPlacemark.count > 0){
+				completionHandler(chosenPlacemark.first)
 			}else{
 				completionHandler(nil)
 			}

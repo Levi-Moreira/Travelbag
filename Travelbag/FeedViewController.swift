@@ -13,7 +13,16 @@ import FirebaseDatabase
 import CoreLocation
 import ARSLineProgress
 import Nuke
-class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
+class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource, CreatePostViewControllerDelegate{
+    
+    
+    func didFishedCreate() {
+    refreshControl.beginRefreshing()
+    updatePost()
+
+    
+    }
+    
     
     
     
@@ -272,57 +281,57 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
         }
         
 
-	}
-	
-	func getPosts(){
-		if postModel.posts.count > 0 {
-			posts = postModel.posts
+    }
+    
+    func getPosts(){
+        if postModel.posts.count > 0 {
+            posts = postModel.posts
             
             self.posts.sort(by: { (first, second) -> Bool in
                 return first.post_date ?? 0 < second.post_date ?? 0
             })
-		}else {
-			ARSLineProgress.show()
-			
+        }else {
+            ARSLineProgress.show()
+            
             postModel.getPosts(completion: { (postsResult) in
-				self.posts = postsResult
+                self.posts = postsResult
                 self.posts.sort(by: { (first, second) -> Bool in
                     return first.post_date ?? 0 < second.post_date ?? 0
                 })
                 
-				DispatchQueue.main.async {
-					self.tableView.reloadData()
-					ARSLineProgress.hide()
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    ARSLineProgress.hide()
                     
-				}
-			})
-		}
+                }
+            })
+        }
 
         
         
         
-	}
-	
-	func lookUpCurrentLocation(lat: Double, long: Double, completionHandler: @escaping (CLPlacemark?) -> Void ){
-		
-		let localizacao = CLLocation(latitude: lat as CLLocationDegrees, longitude: long as CLLocationDegrees)
-		
-		let geocoder = CLGeocoder()
-		
-		geocoder.reverseGeocodeLocation(localizacao,
-										completionHandler: { (placemarks, error) in
-											if error == nil {
-												let firstLocation = placemarks?[0]
-												completionHandler(firstLocation)
-											}
-											else {
-												// An error occurred during geocoding.
-												completionHandler(nil)
-											}
-		})
-	}
-	
-	
+    }
+    
+    func lookUpCurrentLocation(lat: Double, long: Double, completionHandler: @escaping (CLPlacemark?) -> Void ){
+        
+        let localizacao = CLLocation(latitude: lat as CLLocationDegrees, longitude: long as CLLocationDegrees)
+        
+        let geocoder = CLGeocoder()
+        
+        geocoder.reverseGeocodeLocation(localizacao,
+                                        completionHandler: { (placemarks, error) in
+                                            if error == nil {
+                                                let firstLocation = placemarks?[0]
+                                                completionHandler(firstLocation)
+                                            }
+                                            else {
+                                                // An error occurred during geocoding.
+                                                completionHandler(nil)
+                                            }
+        })
+    }
+    
+    
 }
 
 
