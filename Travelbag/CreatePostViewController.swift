@@ -175,14 +175,16 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     func showDate() {
         
         let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-        let formatterLocal = DateFormatter()
-        formatterLocal.dateFormat = "MM-dd-yyyy"
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+//        let formatterLocal = DateFormatter()
+//        formatterLocal.dateFormat = "MM-dd-yyyy"
         self.pickedDate.text = date.dateString(ofStyle: .medium)
-        self.post.date = formatter.string(from: date)
-        
+        self.post.date = date.timeIntervalSince1970
+      
+    
     }
+    
 	
 	func pickDate(){
 		
@@ -196,7 +198,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 				
 				self.pickedDate.text = dt.dateString(ofStyle: .medium)
 				
-				self.post.date = dt.dateString(ofStyle: .medium)
+				self.post.date = dt.timeIntervalSince1970
                 
 			}
 		}

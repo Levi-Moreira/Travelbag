@@ -20,7 +20,7 @@ var ref: DatabaseReference  {
 class Post: FirebaseBaseModel{
     var latitude: Double?
     var longitude: Double?
-    var date: String?
+    var date: Double?
     var interest: String?
     var image_holder: FirebaseImage?
     var image: String?
@@ -36,7 +36,7 @@ class Post: FirebaseBaseModel{
 	var user_image_profile: String?
     
     init(with json: [String : Any]) {
-        self.date = json["date"] as? String
+        self.date = json["date"] as? Double
         self.image = json["image"] as? String
         self.uid = json["uid"] as? String
         self.latitude = json["latitude"] as? Double

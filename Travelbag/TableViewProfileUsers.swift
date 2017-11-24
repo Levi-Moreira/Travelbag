@@ -164,55 +164,11 @@ class TableViewProfileUsers: UITableViewController {
             
             
             
-            
         else {
             let cell = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
             
-            if let profileImageUrl = profile?.profile_picture{
-                let url = URL(string: profileImageUrl)
-                if let url = url{
-                    Nuke.loadImage(with: url, into: cell.profileImageView)
-                }
-            }
-            
-            // Image Profile with radius
-            cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.height/2
-            cell.profileImageView.clipsToBounds = true
-            
-            // Username
-            guard let firstname = profile?.first_name , let lastname = profile?.last_name else {
-                return cell
-            }
-            cell.nameProfileLabel.text = "\(firstname) \(lastname)"
-            
-            cell.textPostLabel.text = posts[indexPath.row - 1].content
-            
-            
-            if posts[indexPath.row - 1].image == nil {
-                //cell.imageConstraintHeight.constant = 0
-            } else {
-                if posts[indexPath.row - 1].image!.isEmpty {
-                   // cell.imageConstraintHeight.constant = 0
-                } else {
-                    if let postImage = posts[indexPath.row - 1].image{
-                        let url = URL(string: postImage)
-                        if let url = url{
-                            Nuke.loadImage(with: url, into: cell.imagePost)
-                          //  cell.imageConstraintHeight.constant = 133
-                        }
-                    }
-                }
-            }
-            
-            lookUpCurrentLocation(lat: self.posts[indexPath.row - 1].latitude!, long: self.posts[indexPath.row - 1].longitude!) { (placemark) in
-                cell.locationLabel.text = placemark?.locality ?? ""
-            }
-            
-//            if let timeGet = self.posts[indexPath.row - 1].post_date {
-//                cell.timeLabel.text = self.posts[indexPath.row - 1].timeToNow
-//            }else{
-//                cell.timeLabel.text = "cheguei"
-//            }
+
+//POSTS HERE!!!
             
             
             return cell

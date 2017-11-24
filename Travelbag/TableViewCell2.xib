@@ -29,6 +29,8 @@
                         <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="8" id="HUd-KH-HPL"/>
+                            <constraint firstAttribute="width" constant="320" id="S7s-1X-Yyd"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="8" id="zqj-95-fbE"/>
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="67l-RP-Y6r">
@@ -92,7 +94,6 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="tlV-hg-qdH">
                                 <rect key="frame" x="0.0" y="94" width="320" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.49522836030985617" green="0.47196626182334089" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nRV-VA-l3l">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -132,7 +133,7 @@
                 <outlet property="textPostLabel" destination="esr-8D-eHG" id="a2L-9v-dcS"/>
                 <outlet property="verbalTimeLabel" destination="hBl-HR-H1n" id="dRZ-pL-WJF"/>
             </connections>
-            <point key="canvasLocation" x="10" y="79.5"/>
+            <point key="canvasLocation" x="-74" y="-67"/>
         </tableViewCell>
         <view contentMode="scaleToFill" id="lQC-sn-vjL">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>

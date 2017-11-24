@@ -172,6 +172,7 @@ class TableViewPersonProfileController: UITableViewController {
             
             let dateNow = Date()
             
+            
             let cell = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
  
             if let profileImageUrl = profile?.profile_picture{
@@ -221,9 +222,7 @@ class TableViewPersonProfileController: UITableViewController {
             
             //Post Verbal Time
         
-            if self.posts[indexPath.row - 1].date == dateNow.dateString(ofStyle: .medium) {
-            
-            }
+    
             //Post Interval Date
         
                 
