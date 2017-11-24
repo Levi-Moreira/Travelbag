@@ -55,6 +55,8 @@ class ChatEntry: FirebaseBaseModel{
     var firstUserImage: String?
     var secondUserImage: String?
     
+    var id:String?
+    
     
 }
 
@@ -72,7 +74,7 @@ extension ChatEntry {
                 return "\(hours) Hours Ago"
             } else {
                 let date = Date(timeIntervalSince1970: createdInterval)
-                return date.dateString(ofStyle: .short)
+                return date.dateString(ofStyle: .medium)
             }
         }
         

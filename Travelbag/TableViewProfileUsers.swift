@@ -47,6 +47,7 @@ class TableViewProfileUsers: UITableViewController {
                 let value = snapshot.value as? [String: Any]
                 if let val = value{
                     self.profile = Profile.init(with: val)
+                    self.profile?.uid = snapshot.key
                     self.showUserInfo()
                 }
             }) { (error) in
@@ -71,6 +72,9 @@ class TableViewProfileUsers: UITableViewController {
             self.posts = self.posts.filter({ (post) -> Bool in
                 post.uid == self.self.uid
             })
+            
+            self.posts.sort{ return $0.0.post_date ?? 0 > $0.1.post_date ?? 0}
+            
             self.tableView.reloadData()
             self.tableView.isHidden = false 
         }) { (error) in
@@ -146,53 +150,11 @@ class TableViewProfileUsers: UITableViewController {
             
             return cell
         }
+            
+            
+            
         else {
             let cell = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
-            
-            if let profileImageUrl = profile?.profile_picture{
-                let url = URL(string: profileImageUrl)
-                if let url = url{
-                    Nuke.loadImage(with: url, into: cell.profileImageView)
-                }
-            }
-            
-            // Image Profile with radius
-            cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.height/2
-            cell.profileImageView.clipsToBounds = true
-            
-            // Username
-            guard let firstname = profile?.first_name , let lastname = profile?.last_name else {
-                return cell
-            }
-            cell.nameProfileLabel.text = "\(firstname) \(lastname)"
-            cell.nameProfileLabel.font = UIFont.systemFont(ofSize: 13.0)
-            
-            cell.textPostLabel.text = posts[indexPath.row - 1].content
-            
-            cell.timeLabel.text = "10 min ago"
-            cell.timeLabel.font = UIFont.systemFont(ofSize: 13.0)
-            
-            cell.locationLabel.text = "is in New York"
-            cell.locationLabel.font = UIFont.systemFont(ofSize: 11.0)
-            
-            if posts[indexPath.row - 1].image == nil {
-                cell.imageConstraintHeight.constant = 0
-            } else {
-                if posts[indexPath.row - 1].image!.isEmpty {
-                    cell.imageConstraintHeight.constant = 0
-                } else {
-                    if let postImage = posts[indexPath.row - 1].image{
-                        let url = URL(string: postImage)
-                        if let url = url{
-                            Nuke.loadImage(with: url, into: cell.imagePost)
-                        }
-                    }
-                }
-            }
-            
-            lookUpCurrentLocation(lat: self.posts[indexPath.row - 1].latitude!, long: self.posts[indexPath.row - 1].longitude!) { (placemark) in
-                cell.locationLabel.text = placemark?.locality ?? ""
-            }
             
             if let timeGet = self.posts[indexPath.row - 1].post_date {
                 cell.timeLabel.text = self.posts[indexPath.row - 1].timeToNow
@@ -224,6 +186,8 @@ class TableViewProfileUsers: UITableViewController {
             self.view.layoutIfNeeded()
         }
     }
+    
+    
     
     func lookUpCurrentLocation(lat: Double, long: Double, completionHandler: @escaping (CLPlacemark?) -> Void ){
         

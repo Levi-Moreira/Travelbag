@@ -16,10 +16,13 @@ class ChatViewController: JSQMessagesViewController {
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
     lazy var incomingBubbleImageView: JSQMessagesBubbleImage = self.setupIncomingBubble()
     var roomID : String = "room1"
+    var chatEntry : ChatEntry?
     var ref: DatabaseReference  {
         return Database.database().reference()
         
     }
+    
+  
     
     private var newMessageRefHandle: DatabaseHandle?
     override func viewDidLoad() {
@@ -29,12 +32,7 @@ class ChatViewController: JSQMessagesViewController {
         
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
-        // messages from someone else
-        addMessage(withId: "foo", name: "Mr.Bolt", text: "I am so fast!")
-        // messages sent from local sender
-        addMessage(withId: senderId, name: "Me", text: "I bet I can run faster than you!")
-        addMessage(withId: senderId, name: "Me", text: "I like to run!")
-        // animates the receiving of a new message on the view
+
         finishReceivingMessage()
         
         observeMessages()
@@ -107,9 +105,19 @@ class ChatViewController: JSQMessagesViewController {
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound() // 4
         
+        ref.child("chats").child((chatEntry?.id)!).child("last_message").setValue(text)
+        
         finishSendingMessage() // 5
     }
+    @IBAction func didTapCloseChat(_ sender: Any) {
+        
+        self.dismiss(animated: true, completion: nil)
+    }
     
+    
+    func createChatEntry(){
+        ref.child("chats").child(roomID).setValue(chatEntry?.toDic())
+    }
     private func observeMessages() {
         
         // 1.
@@ -132,14 +140,6 @@ class ChatViewController: JSQMessagesViewController {
             }
         })
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

@@ -15,6 +15,9 @@ class INterestOptionsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationItem.title = "Pick your interests"
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -12,15 +12,19 @@ import FirebaseAuth
 import Nuke
 import ARSLineProgress
 
-class ChatListTableViewController: UITableViewController {
+class ChatListTableViewController: BaseTableViewController {
 
     var chats = [ChatEntry]()
     let userID = Auth.auth().currentUser?.uid
+    var selectedChat: ChatEntry?
     
     override func viewWillAppear(_ animated: Bool) {
+       
         ARSLineProgress.show()
         getChats()
     }
+    
+    
 
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,14 +48,17 @@ class ChatListTableViewController: UITableViewController {
                 let childValue = child.value as? [String: Any]
                 
                 if let json = childValue {
-                    self.chats.append(ChatEntry.init(with: json))
+                    var newChat = ChatEntry.init(with: json)
+                    newChat.id = child.key
+                self.chats.append(newChat)
                 }
             }
             
-            self.chats = self.chats.filter({ (chats) -> Bool in
-                chats.firstUserUID == self.userID || chats.secondUserUID == self.userID
+            self.chats = self.chats.filter({ (chat) -> Bool in
+                chat.firstUserUID == self.userID || chat.secondUserUID == self.userID
             })
             
+            self.chats.sort{ return $0.0.lastMessageDate ?? 0 > $0.1.lastMessageDate ?? 0}
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -62,13 +69,36 @@ class ChatListTableViewController: UITableViewController {
             print(error)
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedChat = chats[indexPath.row]
+        
+        performSegue(withIdentifier: "showChat", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showChat"{
+       
+            let destVC = segue.destination as! UINavigationController
+            let finalDest = destVC.viewControllers.first as? ChatViewController
+            
+            if let chat = selectedChat{
+                finalDest?.chatEntry = chat
+            }
+            
+        }
+        
+    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chat", for: indexPath) as! ChatListTableViewCell
         
             if chats[indexPath.row].firstUserUID == self.userID {
             
             cell.nameUser.text = chats[indexPath.row].secondUserName ?? ""
+            
             cell.lastMessageUser.text = chats[indexPath.row].lastMessage ?? ""
+            
             cell.lastMessageDateUser.text = chats[indexPath.row].timeToNow ?? "nil"
             
             if let url = chats[indexPath.row].secondUserImage {
@@ -99,6 +129,6 @@ class ChatListTableViewController: UITableViewController {
         return(cell)
         
     }
-    
+  
     
 }

@@ -158,6 +158,9 @@
                             <constraint firstAttribute="width" constant="46" id="WNS-DD-RYu"/>
                             <constraint firstAttribute="height" constant="30" id="tBd-O8-Z0M"/>
                         </constraints>
+                        <connections>
+                            <action selector="didTapChat:" destination="j2J-cd-8bL" eventType="touchUpInside" id="HTH-EW-BPG"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

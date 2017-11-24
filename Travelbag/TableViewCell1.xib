@@ -162,7 +162,6 @@
                     <constraint firstItem="8Ei-Fh-mO4" firstAttribute="centerX" secondItem="zL3-IZ-hE5" secondAttribute="centerX" id="AtT-vW-kFh"/>
                     <constraint firstItem="d2W-gU-dIL" firstAttribute="width" secondItem="taY-VB-1Pt" secondAttribute="width" multiplier="0.33" id="DLj-qx-AEA"/>
                     <constraint firstItem="taY-VB-1Pt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="DjY-UP-wro"/>
-                    <constraint firstItem="zxd-gU-fSS" firstAttribute="top" secondItem="cpZ-aE-IDb" secondAttribute="bottom" id="HJd-yU-nHB"/>
                     <constraint firstItem="8Ei-Fh-mO4" firstAttribute="centerY" secondItem="zL3-IZ-hE5" secondAttribute="centerY" id="J9Y-xM-hgw"/>
                     <constraint firstItem="xZh-Yb-QTT" firstAttribute="centerX" secondItem="zL3-IZ-hE5" secondAttribute="centerX" id="Jfq-sD-sVH"/>
                     <constraint firstItem="aCY-Fe-f4R" firstAttribute="centerX" secondItem="san-Sb-8TP" secondAttribute="centerX" id="Lcl-Rg-Nig"/>
@@ -183,7 +182,6 @@
                     <constraint firstItem="san-Sb-8TP" firstAttribute="centerX" secondItem="d2W-gU-dIL" secondAttribute="centerX" id="t1S-1m-a4A"/>
                     <constraint firstItem="8Ei-Fh-mO4" firstAttribute="width" secondItem="zL3-IZ-hE5" secondAttribute="width" id="t8m-ck-vfE"/>
                     <constraint firstItem="xZh-Yb-QTT" firstAttribute="top" secondItem="zL3-IZ-hE5" secondAttribute="bottom" constant="-50" id="tEL-EG-fbE"/>
-                    <constraint firstItem="cpZ-aE-IDb" firstAttribute="leading" secondItem="taY-VB-1Pt" secondAttribute="leading" id="vob-gx-LRh"/>
                     <constraint firstItem="PzM-E7-5VD" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.1" id="zaX-us-NHA"/>
                 </constraints>
             </tableViewCellContentView>
@@ -209,6 +207,5 @@
     <resources>
         <image name="Back icon" width="32" height="32"/>
         <image name="settings" width="32" height="32"/>
-        <image name="userFollowing" width="32" height="32"/>
     </resources>
 </document>

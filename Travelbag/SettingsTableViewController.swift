@@ -15,6 +15,9 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var pushNotificationsSwitch: UISwitch!
     
     override func viewDidLoad() {
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.darkGray
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         super.viewDidLoad()
     }
 

@@ -10,6 +10,8 @@ import UIKit
 
 class TableViewCellProfile: UITableViewCell {
 
+    var delegate:CustomProfileDelegate?
+    
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userName: UILabel!

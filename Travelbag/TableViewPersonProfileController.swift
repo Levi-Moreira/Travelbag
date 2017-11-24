@@ -71,6 +71,9 @@ class TableViewPersonProfileController: UITableViewController {
             self.posts = self.posts.filter({ (post) -> Bool in
                 post.uid == Auth.auth().currentUser?.uid
             })
+            
+            self.posts.sort{ return $0.0.post_date ?? 0 > $0.1.post_date ?? 0}
+            
                 self.tableView.reloadData()
         }) { (error) in
             print(error)
@@ -136,7 +139,7 @@ class TableViewPersonProfileController: UITableViewController {
             cell.lbFollowers.font = UIFont.boldSystemFont(ofSize: 12.0)
             cell.lbFollowers.text = "Followers"
             
-            cell.lbCountPlaces.text = String(posts.count) ?? "0"
+            cell.lbCountPlaces.text = String(posts.count)
             cell.lbCountPlaces.font = UIFont.systemFont(ofSize: 13.0)
             cell.lbCountFollowing.text = "678"
             cell.lbCountFollowing.font = UIFont.systemFont(ofSize: 13.0)
@@ -151,6 +154,10 @@ class TableViewPersonProfileController: UITableViewController {
             return cell
         }
         else {
+            
+            let dateNow = Date()
+            
+            
             let cell = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
  
             if let profileImageUrl = profile?.profile_picture{
@@ -169,33 +176,26 @@ class TableViewPersonProfileController: UITableViewController {
                 return cell
             }
             cell.nameProfileLabel.text = "\(firstname) \(lastname)"
-            cell.nameProfileLabel.font = UIFont.systemFont(ofSize: 13.0)
             
-            cell.textPostLabel.text = posts[indexPath.row - 1].content
+            //Post Date
+            cell.postDateLabel.text = self.posts[indexPath.row - 1].timeToNow
             
-            cell.timeLabel.text = ""
-            cell.timeLabel.font = UIFont.systemFont(ofSize: 13.0)
             
-            cell.locationLabel.text = ""
-            cell.locationLabel.font = UIFont.systemFont(ofSize: 11.0)
+            //Post Text
+            cell.textPostLabel.text = self.posts[indexPath.row - 1].content
             
-            if posts[indexPath.row - 1].image == nil {
-                cell.imageConstraintHeight.constant = 0
-            } else {
-                if posts[indexPath.row - 1].image!.isEmpty {
-                    cell.imageConstraintHeight.constant = 0
-                } else {
-                    if let postImage = posts[indexPath.row - 1].image{
-                        let url = URL(string: postImage)
-                        if let url = url{
-                            Nuke.loadImage(with: url, into: cell.imagePost)
-                        }
-                    }
+            //Post Image
+            if let imagePost = self.posts[indexPath.row - 1].image {
+                let url = URL(string: imagePost)
+                if let url = url{
+                    Nuke.loadImage(with: url, into: cell.imagePost)
                 }
             }
             
-            lookUpCurrentLocation(lat: self.posts[indexPath.row - 1].latitude!, long: self.posts[indexPath.row - 1].longitude!) { (placemark) in
-                cell.locationLabel.text = placemark?.locality ?? ""
+            //Post Location
+            
+            guard let latitude = self.posts[indexPath.row - 1].latitude else{
+                return cell
             }
             
             if let timeGet = self.posts[indexPath.row - 1].post_date {

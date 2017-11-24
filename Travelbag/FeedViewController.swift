@@ -39,6 +39,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         updatePost()
         getUserProfile()
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +55,13 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     func updatePost() {
         postModel.getPosts { (result) in
             self.posts = result
+            
+//            self.posts.sort(by: { (first, second) -> Bool in
+//                return first.post_date ?? 0 > second.post_date ?? 0
+//            })
+            
+            self.posts.sort{ return $0.0.post_date ?? 0 > $0.1.post_date ?? 0}
+            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
@@ -99,7 +108,17 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                         cell.imagePost.image = imagepost
                     }
                 } else {
-                    cell.constraintHeight.constant = 0.0
+                    if posts[indexPath.row - 1].image!.isEmpty {
+                        cell.constraintHeight.constant = 0
+                    } else {
+                        if let postImage = posts[indexPath.row - 1].image{
+                            let url = URL(string: postImage)
+                            if let url = url{
+                                Nuke.loadImage(with: url, into: cell.imagePost)
+                            cell.constraintHeight.constant = 191
+                            }
+                        }
+                    }
                 }
             }
             
@@ -240,13 +259,23 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 	func getPosts() {
 		if postModel.posts.count > 0 {
 			posts = postModel.posts
+            
+            self.posts.sort(by: { (first, second) -> Bool in
+                return first.post_date ?? 0 < second.post_date ?? 0
+            })
 		}else {
 			ARSLineProgress.show()
-			postModel.getPosts(completion: { (postsResult) in
+			
+            postModel.getPosts(completion: { (postsResult) in
 				self.posts = postsResult
+                self.posts.sort(by: { (first, second) -> Bool in
+                    return first.post_date ?? 0 < second.post_date ?? 0
+                })
+                
 				DispatchQueue.main.async {
 					self.tableView.reloadData()
 					ARSLineProgress.hide()
+                    
 				}
 			})
 		}
