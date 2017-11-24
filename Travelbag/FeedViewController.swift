@@ -13,7 +13,16 @@ import FirebaseDatabase
 import CoreLocation
 import ARSLineProgress
 import Nuke
-class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, CreatePostViewControllerDelegate {
+    
+    
+    func didFishedCreate() {
+    refreshControl.beginRefreshing()
+    updatePost()
+
+    
+    }
+    
     
     
     
@@ -42,6 +51,8 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         updatePost()
         
         getUserProfile()
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,6 +71,13 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func updatePost() {
         postModel.getPosts { (result) in
             self.posts = result
+            
+//            self.posts.sort(by: { (first, second) -> Bool in
+//                return first.post_date ?? 0 > second.post_date ?? 0
+//            })
+            
+            self.posts.sort{ return $0.0.post_date ?? 0 > $0.1.post_date ?? 0}
+            
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
@@ -99,17 +117,25 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 
             }
             
-            if let urlString = self.posts[indexPath.row-1].image{
-                if let url = URL(string:urlString ){
-                    if let data = try? Data(contentsOf: url){
-                        let imagepost = UIImage(data: data)
-                        cell.imagePost.image = imagepost
-                    }
+            if posts[indexPath.row - 1].image == nil {
+                    cell.constraintHeight.constant = 0
                 } else {
-                    cell.constraintHeight.constant = 0.0
+                    if posts[indexPath.row - 1].image!.isEmpty {
+                        cell.constraintHeight.constant = 0
+                    } else {
+                        if let postImage = posts[indexPath.row - 1].image{
+                            let url = URL(string: postImage)
+                            if let url = url{
+                                Nuke.loadImage(with: url, into: cell.imagePost)
+                            cell.constraintHeight.constant = 191
+                            }
+                        }
+                    }
                 }
                 
-            }
+            
+
+        
             guard let latitude = post.latitude else{
                 return cell
             }
@@ -193,6 +219,7 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 let controller = storyboard.instantiateViewController(withIdentifier: "storyboardProfile") as!  TableViewProfileUsers
                 
                 controller.uid = uid
+                
                 //self.present(controller, animated: true, completion: nil)
                 self.navigationController?.pushViewController(controller, animated: true)
             }
@@ -200,7 +227,16 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dest = segue.destination as? UINavigationController
+        
+        if let destionation = dest{
+            let dvc = destionation.viewControllers.first as! CreatePostViewController
+            
+            dvc.delegate = self
+            
+        }
+    }
     @IBAction func logout(_ sender: Any) {
         
         let firebaseAuth = Auth.auth()
@@ -250,38 +286,30 @@ class FeedViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 	func getPosts(){
 		if postModel.posts.count > 0 {
 			posts = postModel.posts
+            
+            self.posts.sort(by: { (first, second) -> Bool in
+                return first.post_date ?? 0 < second.post_date ?? 0
+            })
 		}else {
 			ARSLineProgress.show()
-			postModel.getPosts(completion: { (postsResult) in
+			
+            postModel.getPosts(completion: { (postsResult) in
 				self.posts = postsResult
+                self.posts.sort(by: { (first, second) -> Bool in
+                    return first.post_date ?? 0 < second.post_date ?? 0
+                })
+                
 				DispatchQueue.main.async {
 					self.tableView.reloadData()
 					ARSLineProgress.hide()
+                    
 				}
 			})
 		}
-		//		ref.child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
-		//			self.posts.removeAll()
-		//
-		//			guard let arrayDataSnapshot = snapshot.children.allObjects as? [DataSnapshot] else {
-		//				return
-		//			}
-		//			for snap in arrayDataSnapshot {
-		//				guard let json = snap.value as? [String: Any] else {
-		//					return
-		//				}
-		//				self.posts.append(Post(with: json))
-		//			}
-		//
-		//			ARSLineProgress.hide()
-		//			DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
-		//				self.tableView.reloadData()
-		//				self.refreshControl.endRefreshing()
-		//			})
-		//
-		//		}) { (error) in
-		//			print(error.localizedDescription)
-		//		}
+
+        
+        
+        
 	}
 	
 	func lookUpCurrentLocation(lat: Double, long: Double, completionHandler: @escaping (CLPlacemark?) -> Void ){

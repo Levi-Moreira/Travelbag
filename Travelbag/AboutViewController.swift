@@ -22,7 +22,7 @@ class AboutViewController: UIViewController {
         } else {
             
         aboutText.text = "Privacy Policy"
-            self.navigationController?.topViewController?.title = "Privacy"
+            self.navigationController?.topViewController?.title = "Privacy Policy"
 
             
         }

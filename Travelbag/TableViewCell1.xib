@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -50,13 +51,6 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userFollowing" translatesAutoresizingMaskIntoConstraints="NO" id="zxd-gU-fSS">
-                        <rect key="frame" x="53" y="165.5" width="23" height="23"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="23" id="FQt-w2-Rop"/>
-                            <constraint firstAttribute="width" constant="23" id="wZt-NC-0mL"/>
-                        </constraints>
-                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settings" translatesAutoresizingMaskIntoConstraints="NO" id="san-Sb-8TP">
                         <rect key="frame" x="243.5" y="165.5" width="23" height="23"/>
                         <constraints>
@@ -64,12 +58,6 @@
                             <constraint firstAttribute="width" constant="23" id="uwj-G4-Swo"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpZ-aE-IDb">
-                        <rect key="frame" x="18" y="145.5" width="93" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.45882352939999999" green="0.49803921569999998" blue="0.53333333329999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="taY-VB-1Pt">
                         <rect key="frame" x="18" y="209" width="284" height="41"/>
                         <subviews>
@@ -152,17 +140,13 @@
                     <constraint firstItem="8Ei-Fh-mO4" firstAttribute="centerX" secondItem="zL3-IZ-hE5" secondAttribute="centerX" id="AtT-vW-kFh"/>
                     <constraint firstItem="d2W-gU-dIL" firstAttribute="width" secondItem="taY-VB-1Pt" secondAttribute="width" multiplier="0.33" id="DLj-qx-AEA"/>
                     <constraint firstItem="taY-VB-1Pt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="DjY-UP-wro"/>
-                    <constraint firstItem="zxd-gU-fSS" firstAttribute="top" secondItem="cpZ-aE-IDb" secondAttribute="bottom" id="HJd-yU-nHB"/>
                     <constraint firstItem="8Ei-Fh-mO4" firstAttribute="centerY" secondItem="zL3-IZ-hE5" secondAttribute="centerY" id="J9Y-xM-hgw"/>
                     <constraint firstItem="xZh-Yb-QTT" firstAttribute="centerX" secondItem="zL3-IZ-hE5" secondAttribute="centerX" id="Jfq-sD-sVH"/>
                     <constraint firstItem="aCY-Fe-f4R" firstAttribute="centerX" secondItem="san-Sb-8TP" secondAttribute="centerX" id="Lcl-Rg-Nig"/>
                     <constraint firstItem="zL3-IZ-hE5" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="MYt-4y-Crv"/>
                     <constraint firstAttribute="bottomMargin" secondItem="taY-VB-1Pt" secondAttribute="bottom" constant="2" id="PeI-Mc-4Pr"/>
-                    <constraint firstItem="zxd-gU-fSS" firstAttribute="centerX" secondItem="cpZ-aE-IDb" secondAttribute="centerX" id="UPn-4T-KR9"/>
                     <constraint firstAttribute="trailing" secondItem="9aO-AZ-yo2" secondAttribute="trailing" constant="8" id="Vjb-H9-c1Z"/>
-                    <constraint firstItem="taY-VB-1Pt" firstAttribute="top" secondItem="zxd-gU-fSS" secondAttribute="bottom" constant="20.5" id="WHW-7c-SU4"/>
                     <constraint firstItem="san-Sb-8TP" firstAttribute="top" secondItem="d2W-gU-dIL" secondAttribute="bottom" id="YYd-yy-Kcf"/>
-                    <constraint firstItem="cpZ-aE-IDb" firstAttribute="width" secondItem="d2W-gU-dIL" secondAttribute="width" id="aRX-pD-BFn"/>
                     <constraint firstItem="9aO-AZ-yo2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="biX-3z-UDO"/>
                     <constraint firstItem="d2W-gU-dIL" firstAttribute="trailing" secondItem="taY-VB-1Pt" secondAttribute="trailing" id="f9I-H2-EHy"/>
                     <constraint firstItem="PzM-E7-5VD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="kov-aa-lgG"/>
@@ -174,14 +158,12 @@
                     <constraint firstItem="san-Sb-8TP" firstAttribute="centerX" secondItem="d2W-gU-dIL" secondAttribute="centerX" id="t1S-1m-a4A"/>
                     <constraint firstItem="8Ei-Fh-mO4" firstAttribute="width" secondItem="zL3-IZ-hE5" secondAttribute="width" id="t8m-ck-vfE"/>
                     <constraint firstItem="xZh-Yb-QTT" firstAttribute="top" secondItem="zL3-IZ-hE5" secondAttribute="bottom" constant="-50" id="tEL-EG-fbE"/>
-                    <constraint firstItem="cpZ-aE-IDb" firstAttribute="leading" secondItem="taY-VB-1Pt" secondAttribute="leading" id="vob-gx-LRh"/>
                     <constraint firstItem="PzM-E7-5VD" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.1" id="zaX-us-NHA"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="backgroundImageView" destination="zL3-IZ-hE5" id="vNd-KC-x1D"/>
-                <outlet property="followingLabel" destination="cpZ-aE-IDb" id="hHO-dt-cTi"/>
                 <outlet property="lbCountFollowers" destination="1JB-mj-WT4" id="fgj-L1-xgu"/>
                 <outlet property="lbCountFollowing" destination="3nF-Qb-8E9" id="fgA-BT-ogK"/>
                 <outlet property="lbCountPlaces" destination="mEl-82-iKl" id="cgr-Jt-Olz"/>
@@ -199,6 +181,5 @@
     </objects>
     <resources>
         <image name="settings" width="32" height="32"/>
-        <image name="userFollowing" width="32" height="32"/>
     </resources>
 </document>

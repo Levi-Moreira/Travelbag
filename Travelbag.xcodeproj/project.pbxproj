@@ -246,23 +246,14 @@
 		A21FE0AD1F881746000359D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A2BB83E81FC3832C004BC4E5 /* Login */,
 				A24FFA6C1FA3EDBC00F62D4E /* Settings */,
-				A21FE0AF1F8817A0000359D7 /* LoginViewController.swift */,
-				A21FE0BA1F8C144F000359D7 /* ForgotPasswordViewController.swift */,
-				A21FE0BC1F8C1462000359D7 /* JoinViewController.swift */,
 				A2AC03F51F8EB905007E35AB /* MenuViewController.swift */,
 				A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */,
-				A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */,
 				A2368D021F97E5160075D88B /* CreatePostViewController.swift */,
 				A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */,
 				A24401E51FB24B78008FD3A6 /* ExploreViewController.swift */,
 				A20A5D0B1FA14B8F0022183B /* TableViewPersonProfileController.swift */,
-				A20A5D0F1FA3C3ED0022183B /* TableViewCell1.swift */,
-				A20A5D101FA3C3ED0022183B /* TableViewCell1.xib */,
-				A20A5D131FA3CC380022183B /* TableViewCell2.swift */,
-				A20A5D141FA3CC380022183B /* TableViewCell2.xib */,
-				A2D7DF9E1FB4F74500D7F8F0 /* TableViewCellProfile.xib */,
-				A2D7DFA21FB4F86600D7F8F0 /* TableViewCellProfile.swift */,
 				A2D7DFA81FB650C000D7F8F0 /* TableViewProfileUsers.swift */,
 				A25EFD651FBA3A8B004149AF /* ChatListTableViewController.swift */,
 				A2DCAD9D1FBB82840093A0F4 /* MainTabBarController.swift */,
@@ -277,6 +268,9 @@
 				A281FF7C1F86CBAB0098F9D3 /* LaunchScreen.storyboard */,
 				A21FE0AB1F8815B2000359D7 /* Login.storyboard */,
 				A2AC03F31F8EA587007E35AB /* Menu.storyboard */,
+				A20A5D101FA3C3ED0022183B /* TableViewCell1.xib */,
+				A20A5D141FA3CC380022183B /* TableViewCell2.xib */,
+				A2D7DF9E1FB4F74500D7F8F0 /* TableViewCellProfile.xib */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -303,6 +297,9 @@
 				A2C231101FBA49D200838D8B /* CustomCalloutView.swift */,
 				A2C231111FBA49D200838D8B /* CustomCalloutView.xib */,
 				A25EFD691FC378B8004149AF /* AnnotationView.swift */,
+				A20A5D0F1FA3C3ED0022183B /* TableViewCell1.swift */,
+				A2D7DFA21FB4F86600D7F8F0 /* TableViewCellProfile.swift */,
+				A20A5D131FA3CC380022183B /* TableViewCell2.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -387,6 +384,17 @@
 				A2C879531FA3BE140097C052 /* Post.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		A2BB83E81FC3832C004BC4E5 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A21FE0AF1F8817A0000359D7 /* LoginViewController.swift */,
+				A21FE0BA1F8C144F000359D7 /* ForgotPasswordViewController.swift */,
+				A21FE0BC1F8C1462000359D7 /* JoinViewController.swift */,
+				A261DCAC1F95658D00C45361 /* JoinContinuingViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

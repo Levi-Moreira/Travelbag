@@ -79,8 +79,11 @@ class TableViewProfileUsers: UITableViewController {
             }
             
             self.posts = self.posts.filter({ (post) -> Bool in
-                post.uid == Auth.auth().currentUser?.uid
+                post.uid == self.self.uid
             })
+            
+            self.posts.sort{ return $0.0.post_date ?? 0 > $0.1.post_date ?? 0}
+            
             self.tableView.reloadData()
         }) { (error) in
             print(error)
@@ -158,6 +161,10 @@ class TableViewProfileUsers: UITableViewController {
             
             return cell
         }
+            
+            
+            
+            
         else {
             let cell = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
             
@@ -177,26 +184,21 @@ class TableViewProfileUsers: UITableViewController {
                 return cell
             }
             cell.nameProfileLabel.text = "\(firstname) \(lastname)"
-            cell.nameProfileLabel.font = UIFont.systemFont(ofSize: 13.0)
             
             cell.textPostLabel.text = posts[indexPath.row - 1].content
             
-            cell.timeLabel.text = "10 min ago"
-            cell.timeLabel.font = UIFont.systemFont(ofSize: 13.0)
-            
-            cell.locationLabel.text = "is in New York"
-            cell.locationLabel.font = UIFont.systemFont(ofSize: 11.0)
             
             if posts[indexPath.row - 1].image == nil {
-                cell.imageConstraintHeight.constant = 0
+                //cell.imageConstraintHeight.constant = 0
             } else {
                 if posts[indexPath.row - 1].image!.isEmpty {
-                    cell.imageConstraintHeight.constant = 0
+                   // cell.imageConstraintHeight.constant = 0
                 } else {
                     if let postImage = posts[indexPath.row - 1].image{
                         let url = URL(string: postImage)
                         if let url = url{
                             Nuke.loadImage(with: url, into: cell.imagePost)
+                          //  cell.imageConstraintHeight.constant = 133
                         }
                     }
                 }
@@ -206,11 +208,11 @@ class TableViewProfileUsers: UITableViewController {
                 cell.locationLabel.text = placemark?.locality ?? ""
             }
             
-            if let timeGet = self.posts[indexPath.row - 1].post_date {
-                cell.timeLabel.text = self.posts[indexPath.row - 1].timeToNow
-            }else{
-                cell.timeLabel.text = "cheguei"
-            }
+//            if let timeGet = self.posts[indexPath.row - 1].post_date {
+//                cell.timeLabel.text = self.posts[indexPath.row - 1].timeToNow
+//            }else{
+//                cell.timeLabel.text = "cheguei"
+//            }
             
             
             return cell

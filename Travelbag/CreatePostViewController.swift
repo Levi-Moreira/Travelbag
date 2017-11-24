@@ -15,17 +15,20 @@ import SwifterSwift
 import FirebaseAuth
 import FirebaseDatabase
 import ARSLineProgress
+import Nuke
 
 
-class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLocationManagerDelegate, InterestOptionsDelegate {
+class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLocationManagerDelegate, InterestOptionsDelegate, UITextViewDelegate {
 	
 	let imagePickerController = ImagePickerController()
 	var post =  Post()
 	let defaults = UserDefaults.standard
+    var delegate: CreatePostViewControllerDelegate?
 	
 	@IBOutlet var postImagePreview: UIImageView!
 	
-	
+    @IBOutlet weak var imageProfileUser: UIImageView!
+    
 	@IBOutlet var pickedDate: UILabel!
 	
 	@IBOutlet var pickedInterest: UILabel!
@@ -43,27 +46,51 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 	
 	
 	
-	@IBOutlet var postContent: UITextField!
-	
-	
-	
+    @IBOutlet weak var postContent: UITextView!
+    
+
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		imagePickerController.delegate = self
 		imagePickerController.imageLimit = 1
+        
+        postContent.delegate = self
 		
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		//        locationManager.requestWhenInUseAuthorization()
 		locationManager.startUpdatingLocation()
+        
+        self.navigationItem.title = "Your post"
 		
-		
+        
+        if let url = defaults.string(forKey: "imageProfile"){
+            if url.isValidHttpsUrl {
+                Nuke.loadImage(with: URL(string: url)!, into: imageProfileUser)
+            }
+        }
+        imageProfileUser.layer.cornerRadius = imageProfileUser.frame.size.width/2
+        imageProfileUser.layer.masksToBounds = true
+        
+        showDate()
 		
 	}
 	
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.text = ""
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Where are you going?"
+            
+        }
+    }
+    
+
+    
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		
-		
 		
 		if indexPath.row == 1 && noImage{
 			return 0
@@ -137,27 +164,40 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 	}
 	
 	func showLocation(){
-		self.pickedLocation.text = self.currentPlacemark.locality
-		
-		self.post.latitude = self.currentLocation?.coordinate.latitude
+	    self.pickedLocation.text = self.currentPlacemark.locality ?? "Pick One"
+		//self.pickedLocation.text = ""
+        self.post.latitude = self.currentLocation?.coordinate.latitude
 		self.post.longitude = self.currentLocation?.coordinate.longitude
 		
 		
 	}
+    
+    func showDate() {
+        
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        let formatterLocal = DateFormatter()
+        formatterLocal.dateFormat = "MM-dd-yyyy"
+        self.pickedDate.text = date.dateString(ofStyle: .medium)
+        self.post.date = formatter.string(from: date)
+        
+    }
 	
 	func pickDate(){
 		
 		DatePickerDialog().show("DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
 			(date) -> Void in
 			if let dt = date {
-				let formatter = DateFormatter()
-				formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-				let formatterLocal = DateFormatter()
-				formatterLocal.dateFormat = "MM-dd-yyyy"
+//                let formatter = DateFormatter()
+//                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+//                let formatterLocal = DateFormatter()
+//                formatterLocal.dateFormat = "MM-dd-yyyy"
 				
-				self.pickedDate.text = formatterLocal.string(from: dt)
+				self.pickedDate.text = dt.dateString(ofStyle: .medium)
 				
-				self.post.date = formatter.string(from: dt)
+				self.post.date = dt.dateString(ofStyle: .medium)
+                
 			}
 		}
 		
@@ -256,6 +296,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "pickInterestSegue"{
+            self.view.endEditing(true)
 			let destination = segue.destination as? INterestOptionsTableViewController
 			
 			destination?.interestOptionDelegate = self
@@ -305,8 +346,11 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 	}
 	
 	@IBAction func didTapSavePost(_ sender: UIBarButtonItem) {
-		self.post.content = postContent.text
-		
+        if postContent.text == "Where are you going?" {
+            self.post.content = ""
+        } else{
+        self.post.content = postContent.text
+        }
 		
 		if (self.post.content?.isEmpty)!{
 			showMissingTextDialog()
@@ -332,9 +376,12 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 		self.post.user_image_profile = defaults.string(forKey: "imageProfile")
 		let postid = self.post.saveTo()
 		
+        
 		
 		guard let image = self.post.image_holder else{
 			ARSLineProgress.hide()
+
+            self.delegate?.didFishedCreate()
 			self.dismiss(animated: true, completion: nil)
 			return
 		}
@@ -347,9 +394,13 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 				return
 			}
 			ARSLineProgress.hide()
+            
+            self.delegate?.didFishedCreate()
 			self.dismiss(animated: true, completion: nil)
 			
 		})
+        
+
 		
 	}
 	
@@ -360,3 +411,7 @@ enum InterestOptions: String {
 	case transport = "Share Transport"
 	case group = "Share moments"
 }
+protocol CreatePostViewControllerDelegate {
+    func didFishedCreate()
+}
+
