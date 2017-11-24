@@ -13,7 +13,6 @@ class TableViewCell1: UITableViewCell {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var statusUserLabel: UILabel!
     @IBOutlet weak var followingLabel: UILabel!
     @IBOutlet weak var settingsLabel: UILabel!
     @IBOutlet weak var lbFollowers: UILabel!
@@ -22,6 +21,7 @@ class TableViewCell1: UITableViewCell {
     @IBOutlet weak var lbCountPlaces: UILabel!
     @IBOutlet weak var lbCountFollowing: UILabel!
     @IBOutlet weak var lbCountFollowers: UILabel!
+    @IBOutlet weak var btnBack: UIButton!
     
     @IBOutlet weak var topSpaceConstraint: NSLayoutConstraint!
     
@@ -31,4 +31,10 @@ class TableViewCell1: UITableViewCell {
         controller?.navigationController?.navigationBar.isHidden = false
         controller?.performSegue(withIdentifier: "settingsProfile", sender: controller)
     }
+    
+    @IBAction func backToTheFeed(_ sender: UIButton) {
+        controller?.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
 }

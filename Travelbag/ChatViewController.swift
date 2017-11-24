@@ -23,7 +23,7 @@ class ChatViewController: JSQMessagesViewController {
     
     private var newMessageRefHandle: DatabaseHandle?
     override func viewDidLoad() {
-        super.viewDidLoad()
+    super.viewDidLoad()
     self.senderId = Auth.auth().currentUser?.uid
     self.senderDisplayName = "Sender"
         

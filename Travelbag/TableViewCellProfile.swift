@@ -13,7 +13,6 @@ class TableViewCellProfile: UITableViewCell {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var statusUser: UILabel!
     @IBOutlet weak var follow: UILabel!
     @IBOutlet weak var chat: UILabel!
     @IBOutlet weak var places: UILabel!
@@ -23,5 +22,10 @@ class TableViewCellProfile: UITableViewCell {
     @IBOutlet weak var countFollowing: UILabel!
     @IBOutlet weak var countFollowers: UILabel!
     
-
+    var viewController: TableViewProfileUsers?
+    
+    @IBAction func toFeed(_ sender: UIButton) {
+        viewController?.navigationController?.popToRootViewController(animated: true)
+    }
+    
 }
