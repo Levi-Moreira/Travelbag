@@ -205,7 +205,6 @@ extension ExploreViewController: MKMapViewDelegate {
 //		calloutView.addSubview(button1)
 		
 		calloutView.nameUser.text = postAnnotation.userName
-		calloutView.text.text = postAnnotation.text
 		calloutView.uid = postAnnotation.uid
 		if(postAnnotation.share_gas){
 			calloutView.categoryImageArray.append(#imageLiteral(resourceName: "icons8-People in Car Filled_100"))
@@ -229,14 +228,14 @@ extension ExploreViewController: MKMapViewDelegate {
 					let imagepost = UIImage(data: data)
 					calloutView.imagePost.image = imagepost
 					calloutView.imagePost.layer.masksToBounds = true
-					calloutView.imagePost.layer.cornerRadius = 62
+					calloutView.imagePost.layer.cornerRadius = 25
 				}
 			} else{
 				if let url = postAnnotation.user_image_profile {
 					if url.isValidHttpsUrl {
 						Nuke.loadImage(with: URL(string: url)!, into: calloutView.imagePost)
 						calloutView.imagePost.layer.masksToBounds = true
-						calloutView.imagePost.layer.cornerRadius = 62
+						calloutView.imagePost.layer.cornerRadius = 25
 					}
 				}
 			}
