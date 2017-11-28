@@ -13,7 +13,16 @@ import FirebaseDatabase
 import CoreLocation
 import ARSLineProgress
 import Nuke
-class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
+class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource, CreatePostViewControllerDelegate{
+    
+    
+    func didFishedCreate() {
+    refreshControl.beginRefreshing()
+    updatePost()
+
+    
+    }
+    
     
     var ref:DatabaseReference!
     var databaseHandle:DatabaseHandle?
@@ -125,9 +134,9 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
                 return cell
             }
             
-            lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
-                cell.locationUser.text = placemark?.locality ?? ""
-            }
+//            lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
+//                cell.locationUser.text = placemark?.locality ?? ""
+//            }
             cell.textPost.text = post.content
             
             if let timeGet = post.post_date {
@@ -150,9 +159,9 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
                 interests.append(.group)
             }
             
-            lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
-                cell.locationUser.text = placemark?.locality ?? ""
-            }
+//            lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
+//                cell.locationUser.text = placemark?.locality ?? ""
+//            }
             cell.textPost.text = post.content
             
             if let timeGet = post.post_date {
@@ -262,9 +271,15 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
                 print(error)
             }
         }
+
+        
+
     }
     
+
+    
     func getPosts() {
+
         if postModel.posts.count > 0 {
             posts = postModel.posts
             
@@ -296,17 +311,20 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
     func lookUpCurrentLocation(lat: Double, long: Double, completionHandler: @escaping (CLPlacemark?) -> Void ){
         
         let localizacao = CLLocation(latitude: lat as CLLocationDegrees, longitude: long as CLLocationDegrees)
+
         let geocoder = CLGeocoder()
         
-        geocoder.reverseGeocodeLocation(localizacao, completionHandler: { (placemarks, error) in
-            if error == nil {
-                let firstLocation = placemarks?[0]
-                completionHandler(firstLocation)
-            }
-            else {
-                // An error occurred during geocoding.
-                completionHandler(nil)
-            }
+        geocoder.reverseGeocodeLocation(localizacao,
+                                        completionHandler: { (placemarks, error) in
+                                            if error == nil {
+                                                let firstLocation = placemarks?[0]
+                                                completionHandler(firstLocation)
+                                            }
+                                            else {
+                                                // An error occurred during geocoding.
+                                                completionHandler(nil)
+                                            }
+
         })
     }
     

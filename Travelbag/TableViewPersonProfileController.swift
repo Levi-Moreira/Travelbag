@@ -121,7 +121,7 @@ class TableViewPersonProfileController: UITableViewController {
             cell.profileImageView.clipsToBounds = true
             
             // Username
-            cell.userNameLabel.font = UIFont.boldSystemFont(ofSize: 25.0)
+            cell.userNameLabel.font = UIFont(name: "Raleway-Bold", size: 25)
             guard let firstname = profile?.first_name , let lastname = profile?.last_name else {
                 return cell
             }
@@ -133,22 +133,22 @@ class TableViewPersonProfileController: UITableViewController {
             
            // cell.followingLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
            // cell.followingLabel.text = "Following"
-            cell.settingsLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.settingsLabel.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.settingsLabel.text = "Settings"
             
-            cell.lbPlaces.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.lbPlaces.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.lbPlaces.text = "Places"
-            cell.lbFollowing.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.lbFollowing.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.lbFollowing.text = "Following"
-            cell.lbFollowers.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.lbFollowers.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.lbFollowers.text = "Followers"
             
             cell.lbCountPlaces.text = String(posts.count)
-            cell.lbCountPlaces.font = UIFont.systemFont(ofSize: 13.0)
+            cell.lbCountPlaces.font = UIFont(name: "Raleway-Medium", size: 13)
             cell.lbCountFollowing.text = "678"
-            cell.lbCountFollowing.font = UIFont.systemFont(ofSize: 13.0)
+            cell.lbCountFollowing.font = UIFont(name: "Raleway-Medium", size: 13)
             cell.lbCountFollowers.text = "764"
-            cell.lbCountFollowers.font = UIFont.systemFont(ofSize: 13.0)
+            cell.lbCountFollowers.font = UIFont(name: "Raleway-Medium", size: 13)
             
             UIView.animate(withDuration: 0.5) {
                 cell.topSpaceConstraint.constant -= self.lastContentOffset
