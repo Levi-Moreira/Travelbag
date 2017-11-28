@@ -200,39 +200,93 @@ class TableViewProfileUsers: UITableViewController,CustomProfileDelegate {
             
             
         else {
-            let cell = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
-            
 
-//POSTS HERE!!!
             
             
-            cell.locationLabel.text = "is in New York"
-            cell.locationLabel.font = UIFont.systemFont(ofSize: 11.0)
+            let cell = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
+            //Image Profile
             
-            if posts[indexPath.row - 1].image == nil {
-               // cell.imageConstraintHeight.constant = 0
-            } else {
-                if posts[indexPath.row - 1].image!.isEmpty {
-                   // cell.imageConstraintHeight.constant = 0
-                } else {
-                    if let postImage = posts[indexPath.row - 1].image{
-                        let url = URL(string: postImage)
-                        if let url = url{
-                            Nuke.loadImage(with: url, into: cell.imagePost)
-                        }
-                    }
+            if let profileImageUrl =  self.posts[indexPath.row - 1].user_image_profile {
+                let url = URL(string: profileImageUrl)
+                if let url = url{
+                    Nuke.loadImage(with: url, into: cell.profileImageView)
+                    
                 }
             }
             
-            lookUpCurrentLocation(lat: self.posts[indexPath.row - 1].latitude!, long: self.posts[indexPath.row - 1].longitude!) { (placemark) in
-                cell.locationLabel.text = placemark?.locality ?? ""
+            // Image Profile with radius
+            cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.height/2
+            cell.profileImageView.clipsToBounds = true
+            
+            // Username
+            guard let firstname =  self.posts[indexPath.row - 1].user_first_name, let lastname =  self.posts[indexPath.row - 1].user_last_name else {
+                return cell
+            }
+            cell.nameButton.setTitle("\(firstname) \(lastname)", for: UIControlState.normal)
+            
+            //Post Date
+            if let postDate = self.posts[indexPath.row - 1].timeToNow {
+                cell.postDateLabel.text = "Posted \(postDate)"
             }
             
-            if let timeGet = self.posts[indexPath.row - 1].post_date {
-            //    cell.timeLabel.text = self.posts[indexPath.row - 1].timeToNow
-            } else {
-              //  cell.timeLabel.text = "cheguei"
+            //Post Text
+            cell.textPostLabel.text = self.posts[indexPath.row - 1].content
+            
+            //Post Image
+            if let imagePost = self.posts[indexPath.row - 1].image {
+                let url = URL(string: imagePost)
+                if let url = url{
+                    Nuke.loadImage(with: url, into: cell.imagePost)
+                    cell.imagePostHeightConstraint.constant = 174
+                }else{
+                    
+                    cell.imagePostHeightConstraint.constant = 0
+                }
             }
+            
+            //Post Location
+            
+            guard let latitude = self.posts[indexPath.row - 1].latitude else{
+                return cell
+            }
+            
+            guard let longitude = self.posts[indexPath.row - 1].longitude else {
+                return cell
+            }
+            
+            lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
+                if let location =  placemark?.locality {
+                    cell.locationButton.setTitle(location, for: UIControlState.normal)
+                }
+            }
+            
+            
+            
+            //Post  Date
+            
+            if let date = self.posts[indexPath.row - 1].date {
+                let dateTravel = Date.init(timeIntervalSince1970: date)
+                
+                if dateTravel.isInFuture{
+                    cell.dateLabel.text = "\(dateTravel.dateString(ofStyle: .short)), at"
+                    cell.postIcon.image = #imageLiteral(resourceName: "icons8-airplane-landing-filled-100")
+                }
+                
+                if dateTravel.isInToday {
+                    cell.dateLabel.text = "At"
+                    cell.postIcon.image = #imageLiteral(resourceName: "icons8-marker-100")
+                    
+                }
+                
+                if dateTravel.isInPast {
+                    cell.dateLabel.text = "Was in"
+                    cell.postIcon.image = #imageLiteral(resourceName: "icons8-marker-100")
+                }
+            }
+            
+            //Post Interesses Collection
+            
+            
             
             return cell
         }

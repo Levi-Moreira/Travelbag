@@ -217,7 +217,7 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
         if let destionation = dest{
             let dvc = destionation.viewControllers.first as! CreatePostViewController
             
-            dvc.delegate = self as! CreatePostViewControllerDelegate
+            dvc.delegate = self as? CreatePostViewControllerDelegate
             
         }
     }
