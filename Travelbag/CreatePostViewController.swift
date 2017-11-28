@@ -164,8 +164,8 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 	}
 	
 	func showLocation(){
-//        self.pickedLocation.text = self.currentPlacemark.locality ?? "Pick One"
-		//self.pickedLocation.text = ""
+        self.pickedLocation.text = self.currentPlacemark.locality ?? "Pick One"
+        
         self.post.latitude = self.currentLocation?.coordinate.latitude
 		self.post.longitude = self.currentLocation?.coordinate.longitude
 		

@@ -13,31 +13,21 @@ import ARSLineProgress
 import Nuke
 import CoreLocation
 
-struct cellData {
-    let cell: Int!
-}
-
 class TableViewPersonProfileController: UITableViewController {
     
     var ref: DatabaseReference!
-    
+    var uid: String?
     var profile: Profile?
     var posts = [Post]()
-    
-    var arrayOfCellData = [cellData]()
-    
     var lastContentOffset: CGFloat = 0
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         ref = Database.database().reference()
+    }
     
-        arrayOfCellData = [cellData(cell: 1),
-                           cellData(cell: 2),
-                           cellData(cell: 2)
-        ]
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,6 +35,7 @@ class TableViewPersonProfileController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //self.navigationItem.backBarButtonItem?.isEnabled = false
         navigationController?.navigationBar.isHidden = true
         
         ARSLineProgress.show()
@@ -54,7 +45,6 @@ class TableViewPersonProfileController: UITableViewController {
     
         if let uid = userID {
             ref.child("users_profile").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                // Get user value
                 let value = snapshot.value as? [String: Any]
                 if let val = value{
                     self.profile = Profile.init(with: val)
@@ -62,19 +52,16 @@ class TableViewPersonProfileController: UITableViewController {
                 }
             }) { (error) in
                 print(error)
-//                ARSLineProgress.hide()
-                
+                ARSLineProgress.hide()
             }
         }
         
         ref.child("posts").observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
-            if let value = snapshot.value as? [String: Any]{
+            if let value = snapshot.value as? [String: Any] {
             
             for child in value {
                     
                     let childValue = child.value as? [String: Any]
-                    
                     if let cv = childValue {
                        self.posts.append(Post.init(with: cv))
                     }
@@ -90,18 +77,13 @@ class TableViewPersonProfileController: UITableViewController {
                 self.tableView.reloadData()
         }) { (error) in
             print(error)
-//            ARSLineProgress.hide()
-            
+            ARSLineProgress.hide()
         }
-    
-    
     }
     
     func showUserInfo() {
-        
         self.tableView.reloadData()
         ARSLineProgress.hide()
-       
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -120,9 +102,16 @@ class TableViewPersonProfileController: UITableViewController {
                 }
             }
             
-            if let bgImageUrl = profile?.cover_photo{
+//            navigationController?.navigationItem.
+            if tabBarController!.selectedIndex == 2 {
+                cell.btnBack.isHidden = true
+            }
+            else {
+                cell.btnBack.isHidden = false
+            }
+            if let bgImageUrl = profile?.cover_photo {
                 let url = URL(string: bgImageUrl)
-                if let url = url{
+                if let url = url {
                     Nuke.loadImage(with: url, into: cell.backgroundImageView)
                 }
             }
@@ -132,34 +121,34 @@ class TableViewPersonProfileController: UITableViewController {
             cell.profileImageView.clipsToBounds = true
             
             // Username
-            cell.userNameLabel.font = UIFont.boldSystemFont(ofSize: 25.0)
+            cell.userNameLabel.font = UIFont(name: "Raleway-Bold", size: 25)
             guard let firstname = profile?.first_name , let lastname = profile?.last_name else {
                 return cell
             }
             cell.userNameLabel.text = "\(firstname) \(lastname)"
             
             // Status user
-            cell.statusUserLabel.font = UIFont.boldSystemFont(ofSize: 15.0)
-            cell.statusUserLabel.text = profile?.bio 
+           // cell.statusUserLabel.font = UIFont.boldSystemFont(ofSize: 15.0)
+           // cell.statusUserLabel.text = profile?.bio
             
            // cell.followingLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
            // cell.followingLabel.text = "Following"
-            cell.settingsLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.settingsLabel.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.settingsLabel.text = "Settings"
             
-            cell.lbPlaces.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.lbPlaces.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.lbPlaces.text = "Places"
-            cell.lbFollowing.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.lbFollowing.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.lbFollowing.text = "Following"
-            cell.lbFollowers.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.lbFollowers.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.lbFollowers.text = "Followers"
             
             cell.lbCountPlaces.text = String(posts.count)
-            cell.lbCountPlaces.font = UIFont.systemFont(ofSize: 13.0)
+            cell.lbCountPlaces.font = UIFont(name: "Raleway-Medium", size: 13)
             cell.lbCountFollowing.text = "678"
-            cell.lbCountFollowing.font = UIFont.systemFont(ofSize: 13.0)
+            cell.lbCountFollowing.font = UIFont(name: "Raleway-Medium", size: 13)
             cell.lbCountFollowers.text = "764"
-            cell.lbCountFollowers.font = UIFont.systemFont(ofSize: 13.0)
+            cell.lbCountFollowers.font = UIFont(name: "Raleway-Medium", size: 13)
             
             UIView.animate(withDuration: 0.5) {
                 cell.topSpaceConstraint.constant -= self.lastContentOffset
@@ -213,11 +202,15 @@ class TableViewPersonProfileController: UITableViewController {
                 return cell
             }
             
+            if let timeGet = self.posts[indexPath.row - 1].post_date {
+                //cell.timeLabel.text = self.posts[indexPath.row - 1].timeToNow
+            }
+                //cell.timeLabel.text = "cheguei"
             guard let longitude = self.posts[indexPath.row - 1].longitude else {
                 return cell
             }
             lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
-                cell.locationLabel.text = placemark?.locality ?? ""
+                //cell.locationLabel.text = placemark?.locality ?? ""
             }
             
             //Post Verbal Time
@@ -235,7 +228,6 @@ class TableViewPersonProfileController: UITableViewController {
         }
     }
     
-
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return 250
@@ -249,17 +241,12 @@ class TableViewPersonProfileController: UITableViewController {
         return UIView()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
-    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         lastContentOffset = lastContentOffset - scrollView.contentOffset.y
         
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
         }
-        
     }
     
     func lookUpCurrentLocation(lat: Double, long: Double, completionHandler: @escaping (CLPlacemark?) -> Void ){
@@ -280,3 +267,4 @@ class TableViewPersonProfileController: UITableViewController {
     }
 
 }
+

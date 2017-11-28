@@ -63,21 +63,15 @@ class TableViewProfileUsers: UITableViewController,CustomProfileDelegate {
     var uid: String?
     var profile: Profile?
     var posts = [Post]()
-    
-    var arrayOfCellData = [cellDataProfile]()
-    
     var lastContentOffset: CGFloat = 0
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         ref = Database.database().reference()
-        
-        arrayOfCellData = [cellDataProfile(cell: 1),
-                           cellDataProfile(cell: 2),
-                           cellDataProfile(cell: 2)
-        ]
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,11 +79,11 @@ class TableViewProfileUsers: UITableViewController,CustomProfileDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //self.navigationItem.backBarButtonItem?.isEnabled = false
         navigationController?.navigationBar.isHidden = true
+        self.tableView.isHidden = true
         
         ARSLineProgress.show()
-        
-        
         
         if let uid = uid {
             ref.child("users_profile").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -126,14 +120,14 @@ class TableViewProfileUsers: UITableViewController,CustomProfileDelegate {
             self.posts.sort{ return $0.0.post_date ?? 0 > $0.1.post_date ?? 0}
             
             self.tableView.reloadData()
+            self.tableView.isHidden = false 
         }) { (error) in
             print(error)
-            ARSLineProgress.hide()
+            //ARSLineProgress.hide()
         }
     }
     
     func showUserInfo() {
-        
         self.tableView.reloadData()
         ARSLineProgress.hide()
     }
@@ -156,12 +150,14 @@ class TableViewProfileUsers: UITableViewController,CustomProfileDelegate {
                 }
             }
             
-            if let bgImageUrl = profile?.cover_photo{
+            if let bgImageUrl = profile?.cover_photo {
                 let url = URL(string: bgImageUrl)
-                if let url = url{
+                if let url = url {
                     Nuke.loadImage(with: url, into: cell.backgroundImage)
                 }
             }
+            
+            cell.viewController = self
             
             // Image Profile with radius
             cell.profileImage.layer.cornerRadius = cell.profileImage.frame.size.height/2
@@ -174,12 +170,8 @@ class TableViewProfileUsers: UITableViewController,CustomProfileDelegate {
             }
             cell.userName.text = "\(firstname) \(lastname)"
             
-            // Status user
-            cell.statusUser.font = UIFont.boldSystemFont(ofSize: 15.0)
-            cell.statusUser.text = "Imagine all the people living life in peace"
-            
-            cell.following.font = UIFont.boldSystemFont(ofSize: 12.0)
-            cell.following.text = "Following"
+            cell.follow.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.follow.text = "Following"
             cell.chat.font = UIFont.boldSystemFont(ofSize: 12.0)
             cell.chat.text = "Message"
             
@@ -214,10 +206,37 @@ class TableViewProfileUsers: UITableViewController,CustomProfileDelegate {
 //POSTS HERE!!!
             
             
+            cell.locationLabel.text = "is in New York"
+            cell.locationLabel.font = UIFont.systemFont(ofSize: 11.0)
+            
+            if posts[indexPath.row - 1].image == nil {
+               // cell.imageConstraintHeight.constant = 0
+            } else {
+                if posts[indexPath.row - 1].image!.isEmpty {
+                   // cell.imageConstraintHeight.constant = 0
+                } else {
+                    if let postImage = posts[indexPath.row - 1].image{
+                        let url = URL(string: postImage)
+                        if let url = url{
+                            Nuke.loadImage(with: url, into: cell.imagePost)
+                        }
+                    }
+                }
+            }
+            
+            lookUpCurrentLocation(lat: self.posts[indexPath.row - 1].latitude!, long: self.posts[indexPath.row - 1].longitude!) { (placemark) in
+                cell.locationLabel.text = placemark?.locality ?? ""
+            }
+            
+            if let timeGet = self.posts[indexPath.row - 1].post_date {
+            //    cell.timeLabel.text = self.posts[indexPath.row - 1].timeToNow
+            } else {
+              //  cell.timeLabel.text = "cheguei"
+            }
+            
             return cell
         }
     }
-    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
@@ -243,7 +262,6 @@ class TableViewProfileUsers: UITableViewController,CustomProfileDelegate {
         UIView.animate(withDuration: 0.5) {
             self.view.layoutIfNeeded()
         }
-        
     }
     
     

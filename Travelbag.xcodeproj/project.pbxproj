@@ -29,6 +29,7 @@
 		A22A950E1FA3D24700B1BE1B /* PostCreationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22A950D1FA3D24700B1BE1B /* PostCreationTableViewCell.swift */; };
 		A22B2D7B1FC8B89C00809268 /* bauserif.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A22B2D7A1FC8B89C00809268 /* bauserif.ttf */; };
 		A22B2D7D1FC8BAF100809268 /* KoolBean.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A22B2D7C1FC8BAF100809268 /* KoolBean.ttf */; };
+		A22B2D7E1FCDEAD200809268 /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A22B2D7F1FCDEAD200809268 /* ImagePicker.framework */; };
 		A2368CFE1F9542B30075D88B /* ARSLineProgress.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2368CFF1F9542B30075D88B /* ARSLineProgress.framework */; };
 		A2368D031F97E5160075D88B /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2368D021F97E5160075D88B /* CreatePostViewController.swift */; };
 		A2368D061F97F5260075D88B /* PostOptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2368D051F97F5260075D88B /* PostOptionsTableViewCell.swift */; };
@@ -71,6 +72,7 @@
 		A2AC03F41F8EA587007E35AB /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2AC03F31F8EA587007E35AB /* Menu.storyboard */; };
 		A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC03F51F8EB905007E35AB /* MenuViewController.swift */; };
 		A2AC03F81F8EBD38007E35AB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */; };
+		A2B09B0F1FC7895500458251 /* ControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B09B0E1FC7895500458251 /* ControllerManager.swift */; };
 		A2BB83E71FBA4A77004BC4E5 /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB83E61FBA4A77004BC4E5 /* ChatListTableViewCell.swift */; };
 		A2C231071FB5121800838D8B /* PostAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C231061FB5121800838D8B /* PostAnnotation.swift */; };
 		A2C231121FBA49D200838D8B /* CustomCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C231101FBA49D200838D8B /* CustomCalloutView.swift */; };
@@ -122,6 +124,7 @@
 		A22A950D1FA3D24700B1BE1B /* PostCreationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCreationTableViewCell.swift; sourceTree = "<group>"; };
 		A22B2D7A1FC8B89C00809268 /* bauserif.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bauserif.ttf; sourceTree = "<group>"; };
 		A22B2D7C1FC8BAF100809268 /* KoolBean.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = KoolBean.ttf; sourceTree = "<group>"; };
+		A22B2D7F1FCDEAD200809268 /* ImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2368CFF1F9542B30075D88B /* ARSLineProgress.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ARSLineProgress.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2368D011F9564030075D88B /* SDCAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SDCAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2368D021F97E5160075D88B /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +179,7 @@
 		A2AC03F31F8EA587007E35AB /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		A2AC03F51F8EB905007E35AB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		A2B09B0E1FC7895500458251 /* ControllerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
 		A2BB83E61FBA4A77004BC4E5 /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
 		A2C231061FB5121800838D8B /* PostAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAnnotation.swift; sourceTree = "<group>"; };
 		A2C231101FBA49D200838D8B /* CustomCalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalloutView.swift; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A22B2D7E1FCDEAD200809268 /* ImagePicker.framework in Frameworks */,
 				A2D7DFAA1FBA334200D7F8F0 /* RAMAnimatedTabBarController.framework in Frameworks */,
 				A2D7DF941FB110AF00D7F8F0 /* Nuke.framework in Frameworks */,
 				A26560C01F9E941900BDC06A /* LocationPicker.framework in Frameworks */,
@@ -230,6 +235,7 @@
 		07EED10C1975E7005ED1D2F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A22B2D7F1FCDEAD200809268 /* ImagePicker.framework */,
 				A24401E71FB24BE0008FD3A6 /* MapKit.framework */,
 				A2D7DFAB1FBA334200D7F8F0 /* RAMAnimatedTabBarController.framework */,
 				A2D7DF951FB110AF00D7F8F0 /* Nuke.framework */,
@@ -288,6 +294,7 @@
 				A25EFD651FBA3A8B004149AF /* ChatListTableViewController.swift */,
 				A2DCAD9D1FBB82840093A0F4 /* MainTabBarController.swift */,
 				A25EFD671FBB7A4F004149AF /* ChatViewController.swift */,
+				A2B09B0E1FC7895500458251 /* ControllerManager.swift */,
 				A26105ED1FC78795001F536B /* BaseViewController.swift */,
 				A26105EF1FC78841001F536B /* BaseTableViewController.swift */,
 			);
@@ -732,6 +739,7 @@
 				A20A5D151FA3CC380022183B /* TableViewCell2.swift in Sources */,
 				A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */,
 				A2C231071FB5121800838D8B /* PostAnnotation.swift in Sources */,
+				A2B09B0F1FC7895500458251 /* ControllerManager.swift in Sources */,
 				A2368D031F97E5160075D88B /* CreatePostViewController.swift in Sources */,
 				A2BB83E71FBA4A77004BC4E5 /* ChatListTableViewCell.swift in Sources */,
 				A22A950E1FA3D24700B1BE1B /* PostCreationTableViewCell.swift in Sources */,

@@ -31,11 +31,7 @@ class ExploreViewController: BaseViewController {
 			addPinToMapView()
 		} else{
 			addPinToMapView()
-			
 		}
-
-
-//         Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -95,6 +91,7 @@ extension ExploreViewController: MKMapViewDelegate {
 			self.centerUserPosition = false
 		}
 	}
+    
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 		
 		

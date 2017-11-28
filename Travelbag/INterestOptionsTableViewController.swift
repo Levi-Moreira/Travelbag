@@ -53,7 +53,6 @@ class INterestOptionsTableViewController: UITableViewController {
     
     @IBAction func didTapSave(_ sender: UIBarButtonItem) {
 
-        
         if options.count == 0{
             presentErrorDialog()
         }else{

@@ -24,7 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 		Database.database().isPersistenceEnabled = true
 		Database.database().reference().keepSynced(true)
-//
+
+        if let _ = Auth.auth().currentUser {
+            ControllerManager.sharedInstance.setupRootViewController(withIdentifier: "Menu", storyboardIdentifier: "Menu", typeTransition: .allowAnimatedContent)
+        }
 		UserManager.getUser { user in
 			UserManager.shared.user = user
 		}
