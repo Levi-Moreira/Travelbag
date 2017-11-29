@@ -13,7 +13,48 @@ import FirebaseDatabase
 import CoreLocation
 import ARSLineProgress
 import Nuke
-class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource {
+class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource, CreatePostViewControllerDelegate, FeedViewControllerDelegate{
+    func didTapName(at indexPath: IndexPath) {
+        if indexPath.row != 0 {
+            let uid = posts[indexPath.row - 1].uid
+            if uid == Auth.auth().currentUser?.uid {
+                
+                let menuStoryboard = UIStoryboard(name: "Menu", bundle: nil)
+                let myProfileController = menuStoryboard.instantiateViewController(withIdentifier: "myProfileStoryboard") as! TableViewPersonProfileController
+                myProfileController.uid = uid
+                self.navigationController?.pushViewController(myProfileController, animated: true)
+                
+            } else {
+                
+                let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "storyboardProfile") as!  TableViewProfileUsers
+                controller.uid = uid
+                
+                //self.present(controller, animated: true, completion: nil)
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+        }
+    }
+    
+    func didTapLocation(at indexPath: IndexPath) {
+        if indexPath.row != 0 {
+            let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "storyboardMap") as!  ExploreViewController
+            //controller.place =
+            print("tap location")
+            
+        }
+    }
+    
+    
+    
+    func didFishedCreate() {
+    refreshControl.beginRefreshing()
+    updatePost()
+
+    
+    }
+    
     
     var ref:DatabaseReference!
     var databaseHandle:DatabaseHandle?
@@ -22,6 +63,7 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
     var userProfile: Profile!
     let defaults = UserDefaults.standard
     let userID = Auth.auth().currentUser?.uid
+    
     
     let refreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: UITableView!
@@ -73,8 +115,7 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "post", for: indexPath) as! FeedTableViewCell
+
         let createPost = tableView.dequeueReusableCell(withIdentifier: "createPost", for: indexPath) as! PostCreationTableViewCell
         
         if indexPath.row == 0 {
@@ -86,33 +127,23 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
                 
             }
             return createPost
-        } else {
-            let post = self.posts[indexPath.row-1]
-            if let firstname = post.user_first_name {
-                if let lastname = post.user_last_name {
-                cell.nameUser.text = "\(firstname) \(lastname)"
-                } }
-
+        }
+            else {
+                
+                
+                
+                
+                var cell = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
+                //Image Profile
             
-            if let url = post.user_image_profile {
-                if url.isValidHttpsUrl {
-                    Nuke.loadImage(with: URL(string: url)!, into: cell.profilePhoto)
-                }
-            }
+            cell.delegate = self
+            cell.indexPath = indexPath
             
-            if posts[indexPath.row - 1].image == nil {
-                    cell.constraintHeight.constant = 0
-                } else {
-                    if posts[indexPath.row - 1].image!.isEmpty {
-                        cell.constraintHeight.constant = 0
-                    } else {
-                        if let postImage = posts[indexPath.row - 1].image{
-                            let url = URL(string: postImage)
-                            if let url = url{
-                                Nuke.loadImage(with: url, into: cell.imagePost)
-                            cell.constraintHeight.constant = 191
-                            }
-                        }
+                if let profileImageUrl =  self.posts[indexPath.row - 1].user_image_profile {
+                    let url = URL(string: profileImageUrl)
+                    if let url = url{
+                        Nuke.loadImage(with: url, into: cell.profileImageView)
+                        
                     }
                 }
                 
@@ -181,34 +212,87 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
                 default:
                     return cell
                 }
+                cell.nameButton.setTitle("\(firstname) \(lastname)", for: UIControlState.normal)
+                
+                //Post Date
+                if let postDate = self.posts[indexPath.row - 1].timeToNow {
+                    cell.postDateLabel.text = "Posted \(postDate)"
+                }
+                
+                //Post Text
+                cell.textPostLabel.text = self.posts[indexPath.row - 1].content
+                
+                //Post Image
+                if let imagePost = self.posts[indexPath.row - 1].image {
+                    let url = URL(string: imagePost)
+                    if let url = url{
+                        Nuke.loadImage(with: url, into: cell.imagePost)
+                        cell.imagePostHeightConstraint.constant = 174
+                    }else{
+                        
+                        cell.imagePostHeightConstraint.constant = 0
+                    }
+                }
+                
+                //Post Location
+                
+                guard let latitude = self.posts[indexPath.row - 1].latitude else{
+                    return cell
+                }
+                
+                guard let longitude = self.posts[indexPath.row - 1].longitude else {
+                    return cell
+                }
+                
+                lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
+                    if let location =  placemark?.locality {
+                        cell.locationButton.setTitle(location, for: UIControlState.normal)
+                    }
+                }
+                
+                
+                
+                //Post  Date
+                
+                if let date = self.posts[indexPath.row - 1].date {
+                    let dateTravel = Date.init(timeIntervalSince1970: date)
+                    
+                    if dateTravel.isInFuture{
+                        cell.dateLabel.text = "\(dateTravel.dateString(ofStyle: .long)), at"
+                        cell.postIcon.image = #imageLiteral(resourceName: "icons8-airplane-landing-filled-100")
+                    }
+                    
+                    if dateTravel.isInToday {
+                        cell.dateLabel.text = "At"
+                        cell.postIcon.image = #imageLiteral(resourceName: "icons8-marker-100")
+                        
+                    }
+                    
+                    if dateTravel.isInPast {
+                        cell.dateLabel.text = "Was in"
+                        cell.postIcon.image = #imageLiteral(resourceName: "icons8-marker-100")
+                    }
+                }
+                
+                //Post Interesses Collection
+            if self.posts[indexPath.row - 1].share_host {
+            cell.categoryImageArray.append(#imageLiteral(resourceName: "food"))
+            cell.categoryNameArray.append("Meal")
             }
-            return cell
-            
-        }
+            if self.posts[indexPath.row - 1].share_gas {
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "transport"))
+                cell.categoryNameArray.append("Transport")
+            }
+            if self.posts[indexPath.row - 1].share_group {
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "group"))
+                cell.categoryNameArray.append("Moment")
+            }
+                return cell
+            }
         
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row != 0 {
-            let uid = posts[indexPath.row - 1].uid
-            if uid == Auth.auth().currentUser?.uid {
-                
-                let menuStoryboard = UIStoryboard(name: "Menu", bundle: nil)
-                let myProfileController = menuStoryboard.instantiateViewController(withIdentifier: "myProfileStoryboard") as! TableViewPersonProfileController
-                myProfileController.uid = uid
-                self.navigationController?.pushViewController(myProfileController, animated: true)
-                
-            } else {
-                
-                let storyboard = UIStoryboard(name: "Menu", bundle: nil)
-                let controller = storyboard.instantiateViewController(withIdentifier: "storyboardProfile") as!  TableViewProfileUsers
-                controller.uid = uid
-                
-                //self.present(controller, animated: true, completion: nil)
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
-        }
-    }
+
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -217,7 +301,7 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
         if let destionation = dest{
             let dvc = destionation.viewControllers.first as! CreatePostViewController
             
-            dvc.delegate = self as! CreatePostViewControllerDelegate
+            dvc.delegate = self as? CreatePostViewControllerDelegate
             
         }
     }
@@ -262,9 +346,15 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
                 print(error)
             }
         }
+
+        
+
     }
     
+
+    
     func getPosts() {
+
         if postModel.posts.count > 0 {
             posts = postModel.posts
             
@@ -296,21 +386,25 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
     func lookUpCurrentLocation(lat: Double, long: Double, completionHandler: @escaping (CLPlacemark?) -> Void ){
         
         let localizacao = CLLocation(latitude: lat as CLLocationDegrees, longitude: long as CLLocationDegrees)
+
         let geocoder = CLGeocoder()
         
-        geocoder.reverseGeocodeLocation(localizacao, completionHandler: { (placemarks, error) in
-            if error == nil {
-                let firstLocation = placemarks?[0]
-                completionHandler(firstLocation)
-            }
-            else {
-                // An error occurred during geocoding.
-                completionHandler(nil)
-            }
+        geocoder.reverseGeocodeLocation(localizacao,
+                                        completionHandler: { (placemarks, error) in
+                                            if error == nil {
+                                                let firstLocation = placemarks?[0]
+                                                completionHandler(firstLocation)
+                                            }
+                                            else {
+                                                // An error occurred during geocoding.
+                                                completionHandler(nil)
+                                            }
+
         })
     }
     
     
 }
+
 
 

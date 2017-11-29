@@ -43,9 +43,14 @@ class ChatViewController: JSQMessagesViewController {
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
 
+        self.collectionView?.collectionViewLayout.messageBubbleFont = UIFont (name: "Raleway-Regular", size: 16)!
+        
+        self.inputToolbar.contentView?.textView?.font = UIFont (name: "Raleway-SemiBold", size: 16)!
         finishReceivingMessage()
         
         observeMessages()
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Raleway-Bold", size: 24)!, NSForegroundColorAttributeName: UIColor.white]
     }
 
     override func didReceiveMemoryWarning() {

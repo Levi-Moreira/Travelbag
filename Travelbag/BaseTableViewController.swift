@@ -13,7 +13,7 @@ class BaseTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-                self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "bauserif", size: 24)!, NSForegroundColorAttributeName: UIColor.white]
+                self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Raleway-Bold", size: 24)!, NSForegroundColorAttributeName: UIColor.white]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

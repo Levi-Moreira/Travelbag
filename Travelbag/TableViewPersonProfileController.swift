@@ -15,6 +15,7 @@ import CoreLocation
 
 class TableViewPersonProfileController: UITableViewController {
     
+    
     var ref: DatabaseReference!
     var uid: String?
     var profile: Profile?
@@ -121,7 +122,7 @@ class TableViewPersonProfileController: UITableViewController {
             cell.profileImageView.clipsToBounds = true
             
             // Username
-            cell.userNameLabel.font = UIFont.boldSystemFont(ofSize: 25.0)
+            cell.userNameLabel.font = UIFont(name: "Raleway-Bold", size: 25)
             guard let firstname = profile?.first_name , let lastname = profile?.last_name else {
                 return cell
             }
@@ -133,22 +134,22 @@ class TableViewPersonProfileController: UITableViewController {
             
            // cell.followingLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
            // cell.followingLabel.text = "Following"
-            cell.settingsLabel.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.settingsLabel.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.settingsLabel.text = "Settings"
             
-            cell.lbPlaces.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.lbPlaces.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.lbPlaces.text = "Places"
-            cell.lbFollowing.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.lbFollowing.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.lbFollowing.text = "Following"
-            cell.lbFollowers.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.lbFollowers.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.lbFollowers.text = "Followers"
             
             cell.lbCountPlaces.text = String(posts.count)
-            cell.lbCountPlaces.font = UIFont.systemFont(ofSize: 13.0)
+            cell.lbCountPlaces.font = UIFont(name: "Raleway-Medium", size: 13)
             cell.lbCountFollowing.text = "678"
-            cell.lbCountFollowing.font = UIFont.systemFont(ofSize: 13.0)
+            cell.lbCountFollowing.font = UIFont(name: "Raleway-Medium", size: 13)
             cell.lbCountFollowers.text = "764"
-            cell.lbCountFollowers.font = UIFont.systemFont(ofSize: 13.0)
+            cell.lbCountFollowers.font = UIFont(name: "Raleway-Medium", size: 13)
             
             UIView.animate(withDuration: 0.5) {
                 cell.topSpaceConstraint.constant -= self.lastContentOffset
@@ -159,31 +160,34 @@ class TableViewPersonProfileController: UITableViewController {
         }
         else {
             
-            let dateNow = Date()
+
             
             
             let cell = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
- 
-            if let profileImageUrl = profile?.profile_picture{
+            //Image Profile
+            
+            if let profileImageUrl =  self.posts[indexPath.row - 1].user_image_profile {
                 let url = URL(string: profileImageUrl)
                 if let url = url{
                     Nuke.loadImage(with: url, into: cell.profileImageView)
+                   
                 }
-            }
+            } 
             
             // Image Profile with radius
             cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.height/2
             cell.profileImageView.clipsToBounds = true
             
             // Username
-            guard let firstname = profile?.first_name , let lastname = profile?.last_name else {
+            guard let firstname =  self.posts[indexPath.row - 1].user_first_name, let lastname =  self.posts[indexPath.row - 1].user_last_name else {
                 return cell
             }
-            cell.nameProfileLabel.text = "\(firstname) \(lastname)"
+            cell.nameButton.setTitle("\(firstname) \(lastname)", for: UIControlState.normal)
             
             //Post Date
-            cell.postDateLabel.text = self.posts[indexPath.row - 1].timeToNow
-            
+            if let postDate = self.posts[indexPath.row - 1].timeToNow {
+            cell.postDateLabel.text = "Posted \(postDate)"
+            }
             
             //Post Text
             cell.textPostLabel.text = self.posts[indexPath.row - 1].content
@@ -193,36 +197,66 @@ class TableViewPersonProfileController: UITableViewController {
                 let url = URL(string: imagePost)
                 if let url = url{
                     Nuke.loadImage(with: url, into: cell.imagePost)
+                    cell.imagePostHeightConstraint.constant = 174
+                }else{
+                    
+                   cell.imagePostHeightConstraint.constant = 0
                 }
             }
             
             //Post Location
-            
+
             guard let latitude = self.posts[indexPath.row - 1].latitude else{
                 return cell
             }
-            
-            if let timeGet = self.posts[indexPath.row - 1].post_date {
-                //cell.timeLabel.text = self.posts[indexPath.row - 1].timeToNow
-            }
-                //cell.timeLabel.text = "cheguei"
+
             guard let longitude = self.posts[indexPath.row - 1].longitude else {
                 return cell
             }
+
             lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
-                //cell.locationLabel.text = placemark?.locality ?? ""
+                if let location =  placemark?.locality {
+                    cell.locationButton.setTitle(location, for: UIControlState.normal)
+                }
             }
+
+
+
+            //Post  Date
             
-            //Post Verbal Time
-        
-    
-            //Post Interval Date
-        
+            if let date = self.posts[indexPath.row - 1].date {
+            let dateTravel = Date.init(timeIntervalSince1970: date)
                 
+                if dateTravel.isInFuture{
+                cell.dateLabel.text = "\(dateTravel.dateString(ofStyle: .medium)), at"
+                cell.postIcon.image = #imageLiteral(resourceName: "icons8-airplane-landing-filled-100")
+                }
                 
+                if dateTravel.isInToday {
+                cell.dateLabel.text = "At"
+                cell.postIcon.image = #imageLiteral(resourceName: "icons8-marker-100")
+
+                }
+                
+                if dateTravel.isInPast {
+                cell.dateLabel.text = "Was in"
+                cell.postIcon.image = #imageLiteral(resourceName: "icons8-marker-100")
+                }
+            }
+
             //Post Interesses Collection
-                
-        
+            if self.posts[indexPath.row - 1].share_host {
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "icons8-Home Page Filled_100"))
+                cell.categoryNameArray.append("Hosting")
+            }
+            if self.posts[indexPath.row - 1].share_gas {
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "icons8-People in Car Filled_100"))
+                cell.categoryNameArray.append("Transport")
+            }
+            if self.posts[indexPath.row - 1].share_group {
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "icons8-User Groups Filled_100"))
+                cell.categoryNameArray.append("Moment")
+            }
             
             return cell
         }
