@@ -147,69 +147,12 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
                     }
                 }
                 
-            
-            guard let latitude = post.latitude else {
-                return cell
-            }
-            
-            guard let longitude = post.longitude else {
-                return cell
-            }
-            
-            lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
-                cell.locationUser.text = placemark?.locality ?? ""
-            }
-            cell.textPost.text = post.content
-            
-            if let timeGet = post.post_date {
-                cell.timeAgo.text = post.timeToNow
-            } else {
-                cell.timeAgo.text = "cheguei"
-            }
-            
-            var interests = [InterestOptions]()
-            
-            if post.share_gas {
-                interests.append(.transport)
-            }
-            
-            if post.share_host {
-                interests.append(.hosting)
-            }
-            
-            if post.share_group {
-                interests.append(.group)
-            }
-            
-            lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
-                cell.locationUser.text = placemark?.locality ?? ""
-            }
-            cell.textPost.text = post.content
-            
-            if let timeGet = post.post_date {
-                cell.timeAgo.text = post.timeToNow
-            } else {
-                cell.timeAgo.text = "cheguei"
-                switch (interests.count) {
-                case 1:
-                    cell.secondINterestImage.isHidden = true
-                    cell.secondInterestText.isHidden = true
-                    cell.thirdInterestText.isHidden = true
-                    cell.thirdInterestImage.isHidden = true
-                    break;
-                case 2:
-                    cell.thirdInterestText.isHidden = true
-                    cell.thirdInterestImage.isHidden = true
-                    break;
-                case 3:
-                    cell.firstInterestImage.isHidden = false
-                    cell.firstInterestText.isHidden = false
-                    cell.secondINterestImage.isHidden = false
-                    cell.secondInterestText.isHidden = false
-                    cell.thirdInterestText.isHidden = false
-                    cell.thirdInterestImage.isHidden = false
-                    break;
-                default:
+                // Image Profile with radius
+                cell.profileImageView.layer.cornerRadius = cell.profileImageView.frame.size.height/2
+                cell.profileImageView.clipsToBounds = true
+                
+                // Username
+                guard let firstname =  self.posts[indexPath.row - 1].user_first_name, let lastname =  self.posts[indexPath.row - 1].user_last_name else {
                     return cell
                 }
                 cell.nameButton.setTitle("\(firstname) \(lastname)", for: UIControlState.normal)

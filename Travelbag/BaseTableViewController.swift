@@ -2,7 +2,7 @@
 //  BaseTableViewController.swift
 //  Travelbag
 //
-//  Created by ifce on 23/11/17.
+//  Created by ifce on 29/11/17.
 //  Copyright © 2017 ifce. All rights reserved.
 //
 
@@ -12,8 +12,8 @@ class BaseTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Raleway-Bold", size: 24)!, NSForegroundColorAttributeName: UIColor.white]
 
-                self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Raleway-Bold", size: 24)!, NSForegroundColorAttributeName: UIColor.white]
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
