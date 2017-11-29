@@ -18,7 +18,7 @@ import ARSLineProgress
 import Nuke
 
 
-class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLocationManagerDelegate, InterestOptionsDelegate, UITextViewDelegate {
+class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLocationManagerDelegate, InterestOptionsDelegate, UITextViewDelegate{
 	
 	let imagePickerController = ImagePickerController()
 	var post =  Post()
@@ -74,6 +74,8 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
         imageProfileUser.layer.masksToBounds = true
         
         showDate()
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Raleway-Bold", size: 24)!, NSForegroundColorAttributeName: UIColor.white]
 		
 	}
 	

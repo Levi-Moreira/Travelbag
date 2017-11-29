@@ -170,24 +170,24 @@ class TableViewProfileUsers: UITableViewController, CustomProfileDelegate {
             }
             cell.userName.text = "\(firstname) \(lastname)"
             
-            cell.follow.font = UIFont.boldSystemFont(ofSize: 12.0)
-            cell.follow.text = "Following"
-            cell.chat.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.follow.font = UIFont(name: "Raleway-Medium", size: 12)
+            cell.follow.text = "Follow"
+            cell.chat.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.chat.text = "Message"
             
-            cell.places.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.places.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.places.text = "Places"
-            cell.following.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.following.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.following.text = "Following"
-            cell.followers.font = UIFont.boldSystemFont(ofSize: 12.0)
+            cell.followers.font = UIFont(name: "Raleway-Medium", size: 12)
             cell.followers.text = "Followers"
             
             cell.countPlaces.text = String(posts.count) ?? "0"
-            cell.countPlaces.font = UIFont.systemFont(ofSize: 13.0)
+            cell.countPlaces.font = UIFont(name: "Raleway-Medium", size: 13)
             cell.countFollowing.text = "678"
-            cell.countFollowing.font = UIFont.systemFont(ofSize: 13.0)
+            cell.countFollowing.font = UIFont(name: "Raleway-Medium", size: 13)
             cell.countFollowers.text = "764"
-            cell.countFollowers.font = UIFont.systemFont(ofSize: 13.0)
+            cell.countFollowers.font = UIFont(name: "Raleway-Medium", size: 13)
             
 //            UIView.animate(withDuration: 0.5) {
 //                cell.topSpaceConstraint.constant -= self.lastContentOffset
