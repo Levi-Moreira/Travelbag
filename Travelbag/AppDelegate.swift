@@ -34,7 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		self.locationManager = CLLocationManager()
 		self.locationManager?.requestWhenInUseAuthorization()
-		
+        
+        let newFont = UIFont(name: "Raleway-Regular", size: 18.0)!
+        let color = UIColor.white
+        
+        UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.classForCoder() as! UIAppearanceContainer.Type]).setTitleTextAttributes([NSForegroundColorAttributeName: color, NSFontAttributeName: newFont], for: .normal)
+        
         return true
     }
     

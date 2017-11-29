@@ -134,9 +134,9 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
                 return cell
             }
             
-//            lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
-//                cell.locationUser.text = placemark?.locality ?? ""
-//            }
+            lookUpCurrentLocation(lat: latitude, long: longitude) { (placemark) in
+                cell.locationUser.text = placemark?.locality ?? ""
+            }
             cell.textPost.text = post.content
             
             if let timeGet = post.post_date {
@@ -198,6 +198,8 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        
         if indexPath.row != 0 {
             let uid = posts[indexPath.row - 1].uid
             if uid == Auth.auth().currentUser?.uid {
