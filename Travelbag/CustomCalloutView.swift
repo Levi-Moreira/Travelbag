@@ -10,10 +10,11 @@ import UIKit
 
 class CustomCalloutView: UIView, UICollectionViewDataSource {
 	
+	@IBOutlet weak var viewHeight: NSLayoutConstraint!
 	@IBOutlet weak var imagePost: UIImageView!
 	@IBOutlet weak var nameUser: UILabel!
-	@IBOutlet weak var text: UILabel!
 	@IBOutlet weak var imageCollectionView: UICollectionView!
+	@IBOutlet weak var location: UILabel!
 	
 	var categoryImageArray = [UIImage]()
 	var uid : String?

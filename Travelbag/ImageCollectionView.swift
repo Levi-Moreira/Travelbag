@@ -11,8 +11,6 @@ import UIKit
 class ImageCollectionView: UICollectionViewCell {
 
 	@IBOutlet weak var categoryImage: UIImageView!
-	
-	
 	override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -25,6 +25,7 @@ class ExploreViewController: UIViewController {
 	var pinoTest = CustomPointAnnotation()
 	let locationManager = CLLocationManager()
 	var resultSearchController:UISearchController? = nil
+	var annotationRef = [MKAnnotation]()
 	
 	@IBOutlet weak var viewSearch: UIView!
 	
@@ -73,6 +74,7 @@ class ExploreViewController: UIViewController {
     }
 	
 	func addPin(post: Post){
+		
 		let location = CLLocationCoordinate2D(latitude: post.latitude!, longitude: post.longitude!)
 		let point = PostAnnotation(coordinate: location)
 		point.imagePost = post.image
@@ -83,7 +85,30 @@ class ExploreViewController: UIViewController {
 		point.userName = "\(post.user_first_name!) \(post.user_last_name!)"
 		point.user_image_profile = post.user_image_profile
 		point.uid = post.uid
+		if(post.share_gas){
+			point.type = PostType.t
+		}
+		if(post.share_group){
+			point.type = PostType.g
+		}
+		if(post.share_host){
+			point.type = PostType.f
+		}
+		if(post.share_group && post.share_host){
+			point.type = PostType.fg
+		}
+		if(post.share_group && post.share_gas){
+			point.type = PostType.tg
+		}
+		if(post.share_gas && post.share_host){
+			point.type = PostType.ft
+		}
+		if(post.share_group && post.share_host && post.share_host){
+			point.type = PostType.fgt
+		}
+		
 		self.mapView.addAnnotation(point)
+		self.annotationRef.append(point)
 	}
 
 	func addPinToMapView(){
@@ -98,10 +123,34 @@ class ExploreViewController: UIViewController {
 		}
 		
 		addPinToMapView()
+		
 	
+	}
+	override func viewDidDisappear(_ animated: Bool) {
+		self.mapView.removeAnnotations(self.annotationRef)
+		self.annotationRef.removeAll()
+		print("Estou aqui")
 	}
 	
 	
+	func lookUpCurrentLocation(lat: Double, long: Double, completionHandler: @escaping (CLPlacemark?) -> Void ){
+		
+		let localizacao = CLLocation(latitude: lat as CLLocationDegrees, longitude: long as CLLocationDegrees)
+		
+		let geocoder = CLGeocoder()
+		
+		geocoder.reverseGeocodeLocation(localizacao,
+										completionHandler: { (placemarks, error) in
+											if error == nil {
+												let firstLocation = placemarks?[0]
+												completionHandler(firstLocation)
+											}
+											else {
+												// An error occurred during geocoding.
+												completionHandler(nil)
+											}
+		})
+	}
 	
     /*
     // MARK: - Navigation
@@ -123,18 +172,19 @@ extension ExploreViewController: MKMapViewDelegate {
 	
 	func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
 		if centerUserPosition{
-			let region: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
+			let region: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 15000, 15000)
 			self.mapView.setRegion(region, animated: true)
 			self.centerUserPosition = false
 		}
 	}
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-		
+		guard let postAnnotation = annotation as? PostAnnotation else { return nil}
 		
 		if annotation is MKUserLocation
 		{
 			return nil
 		}
+		
 		
 		var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
 		if annotationView == nil{
@@ -143,7 +193,7 @@ extension ExploreViewController: MKMapViewDelegate {
 		}else{
 			annotationView?.annotation = annotation
 		}
-		annotationView?.image = #imageLiteral(resourceName: "icons8-Marker Filled-100")
+		annotationView?.image = postAnnotation.type?.returnImage()
 		return annotationView
 	}
 	
@@ -157,7 +207,7 @@ extension ExploreViewController: MKMapViewDelegate {
 			
 		} else {
 			let storyboard = UIStoryboard(name: "Menu", bundle: nil)
-			let controller = storyboard.instantiateViewController(withIdentifier: "storyboardProfile") as!  TableViewProfileUsers
+			let controller = storyboard.instantiateViewController(withIdentifier: "storyboardProfile") as! TableViewProfileUsers
 			
 			controller.uid = uid
 			//self.present(controller, animated: true, completion: nil)
@@ -200,44 +250,35 @@ extension ExploreViewController: MKMapViewDelegate {
 		let views = Bundle.main.loadNibNamed("CustomCalloutView", owner: nil, options: nil)
 		let calloutView = views?[0] as! CustomCalloutView
 		
-//		let button1 = UIButton(frame: calloutView.nameUser.frame)
-//		button1.addTarget(self, action: #selector(ExploreViewController.goToProfile(sender:)), for: .touchUpInside)
-//		calloutView.addSubview(button1)
+		lookUpCurrentLocation(lat: postAnnotation.coordinate.latitude, long: postAnnotation.coordinate.longitude) { (placemark) in
+					let location = "\(placemark?.locality ?? "") - \(placemark?.administrativeArea ?? "")"
+			
+			if location.length <= 21{
+				calloutView.viewHeight.constant -= 50
+			}
+			calloutView.location.text = location
+		}
+//		if postAnnotation.user
 		
 		calloutView.nameUser.text = postAnnotation.userName
 		calloutView.uid = postAnnotation.uid
 		if(postAnnotation.share_gas){
-			calloutView.categoryImageArray.append(#imageLiteral(resourceName: "icons8-People in Car Filled_100"))
+			calloutView.categoryImageArray.append(#imageLiteral(resourceName: "transport"))
 		}
 
 		if(postAnnotation.share_group){
-			calloutView.categoryImageArray.append(#imageLiteral(resourceName: "icons8-User Groups Filled_100"))
+			calloutView.categoryImageArray.append(#imageLiteral(resourceName: "group"))
 		}
 
 		if(postAnnotation.share_host){
-			calloutView.categoryImageArray.append(#imageLiteral(resourceName: "icons8-Home Page Filled_100"))
+			calloutView.categoryImageArray.append(#imageLiteral(resourceName: "food"))
 		}
 		
-		if let urlString = postAnnotation.imagePost{
-			if let url = URL(string:urlString ){
-//				calloutView.imagePost.frame.size = CGSize.zero
-//				calloutView.imagePost.isHidden = true
-//				calloutView.layoutIfNeeded()
-//				calloutView.layoutSubviews()
-				if let data = try? Data(contentsOf: url){
-					let imagepost = UIImage(data: data)
-					calloutView.imagePost.image = imagepost
-					calloutView.imagePost.layer.masksToBounds = true
-					calloutView.imagePost.layer.cornerRadius = 25
-				}
-			} else{
-				if let url = postAnnotation.user_image_profile {
-					if url.isValidHttpsUrl {
-						Nuke.loadImage(with: URL(string: url)!, into: calloutView.imagePost)
-						calloutView.imagePost.layer.masksToBounds = true
-						calloutView.imagePost.layer.cornerRadius = 25
-					}
-				}
+		if let url = postAnnotation.user_image_profile {
+			if url.isValidHttpsUrl {
+				Nuke.loadImage(with: URL(string: url)!, into: calloutView.imagePost)
+				calloutView.imagePost.layer.masksToBounds = true
+				calloutView.imagePost.layer.cornerRadius = 25
 			}
 		}
 		
@@ -245,9 +286,11 @@ extension ExploreViewController: MKMapViewDelegate {
 		
 		
 		// 3
+		calloutView.viewHeight.constant = 150
 		calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
 		view.addSubview(calloutView)
-		mapView.setCenter((view.annotation?.coordinate)!, animated: true)
+		let coordinateCenter = CLLocationCoordinate2D(latitude: (view.annotation?.coordinate.latitude)! + 0.07, longitude: (view.annotation?.coordinate.longitude)!)
+		mapView.setCenter(coordinateCenter, animated: true)
 		
 		let tap = UITapGestureRecognizer(target: self, action: #selector(ExploreViewController.goToProfile(sender:)))
 		calloutView.addGestureRecognizer(tap)
@@ -263,6 +306,7 @@ extension ExploreViewController: MKMapViewDelegate {
 			}
 		}
 	}
+	
 	
 	
 
@@ -283,9 +327,12 @@ extension ExploreViewController : CLLocationManagerDelegate {
 extension ExploreViewController: HandleMapSearch{
 	func zoomInMap(placemark: MKPlacemark) {
 //		let span = MKCoordinateSpanMake(1000, 1000)
-		let region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, 100000, 100000)
+		let region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, 50000, 50000)
 		mapView.setRegion(region, animated: true)
 	}
 	
 	
 }
+
+
+
