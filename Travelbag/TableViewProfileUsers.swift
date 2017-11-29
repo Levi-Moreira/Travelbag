@@ -30,8 +30,8 @@ class TableViewProfileUsers: UITableViewController,CustomProfileDelegate {
             return
         }
         
-        if let comparison = Auth.auth().currentUser?.uid.compare(otherUserUid){
-            if(comparison == .orderedAscending){
+        if let comparison = Auth.auth().currentUser?.uid.compare(otherUserUid) {
+            if (comparison == .orderedAscending) {
                 
                 entry.firstUserName = LocalDataProvider().provideUserFirstName()
                 entry.firstUserUID = Auth.auth().currentUser?.uid
@@ -40,7 +40,7 @@ class TableViewProfileUsers: UITableViewController,CustomProfileDelegate {
                 entry.secondUserUID = otherUserUid
                 entry.secondUserImage = profile?.profile_picture
                 
-            }else{
+            } else {
                 entry.firstUserName = profile?.first_name
                 entry.firstUserUID = otherUserUid
                 entry.firstUserImage = profile?.profile_picture

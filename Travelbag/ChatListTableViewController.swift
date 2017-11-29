@@ -19,14 +19,10 @@ class ChatListTableViewController: BaseTableViewController {
     var selectedChat: ChatEntry?
     
     override func viewWillAppear(_ animated: Bool) {
-       
         ARSLineProgress.show()
         getChats()
     }
     
-    
-
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -58,7 +54,7 @@ class ChatListTableViewController: BaseTableViewController {
                 chat.firstUserUID == self.userID || chat.secondUserUID == self.userID
             })
             
-            self.chats.sort{ return $0.0.lastMessageDate ?? 0 > $0.1.lastMessageDate ?? 0}
+            self.chats.sort { return $0.0.lastMessageDate ?? 0 > $0.1.lastMessageDate ?? 0}
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()

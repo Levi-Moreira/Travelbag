@@ -159,7 +159,7 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
                 cell.timeAgo.text = post.timeToNow
             } else {
                 cell.timeAgo.text = "cheguei"
-                switch (interests.count){
+                switch (interests.count) {
                 case 1:
                     cell.secondINterestImage.isHidden = true
                     cell.secondInterestText.isHidden = true

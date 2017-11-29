@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginFacebookButton: FBSDKLoginButton!
     
     override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .lightContent
         if Auth.auth().currentUser != nil {
             presentHome()
         }
