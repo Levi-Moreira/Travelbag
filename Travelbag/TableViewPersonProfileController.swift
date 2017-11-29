@@ -15,6 +15,7 @@ import CoreLocation
 
 class TableViewPersonProfileController: UITableViewController {
     
+    
     var ref: DatabaseReference!
     var uid: String?
     var profile: Profile?
@@ -227,7 +228,7 @@ class TableViewPersonProfileController: UITableViewController {
             let dateTravel = Date.init(timeIntervalSince1970: date)
                 
                 if dateTravel.isInFuture{
-                cell.dateLabel.text = "\(dateTravel.dateString(ofStyle: .short)), at"
+                cell.dateLabel.text = "\(dateTravel.dateString(ofStyle: .medium)), at"
                 cell.postIcon.image = #imageLiteral(resourceName: "icons8-airplane-landing-filled-100")
                 }
                 
@@ -244,8 +245,18 @@ class TableViewPersonProfileController: UITableViewController {
             }
 
             //Post Interesses Collection
-            
-        
+            if self.posts[indexPath.row - 1].share_host {
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "icons8-Home Page Filled_100"))
+                cell.categoryNameArray.append("Hosting")
+            }
+            if self.posts[indexPath.row - 1].share_gas {
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "icons8-People in Car Filled_100"))
+                cell.categoryNameArray.append("Transport")
+            }
+            if self.posts[indexPath.row - 1].share_group {
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "icons8-User Groups Filled_100"))
+                cell.categoryNameArray.append("Moment")
+            }
             
             return cell
         }

@@ -43,7 +43,7 @@ class Post: FirebaseBaseModel{
         self.longitude = json["longitude"] as? Double
         self.share_gas = json["share_gas"] as! Bool
         self.share_host = json["share_host"] as! Bool
-        self.share_group = json["share_host"] as! Bool
+        self.share_group = json["share_group"] as! Bool
         self.content = json["text"] as? String
         self.post_date = json["post_date"] as? Double
         self.user_first_name = json["user_first_name"] as? String

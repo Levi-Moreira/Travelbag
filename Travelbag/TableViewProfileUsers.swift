@@ -17,7 +17,7 @@ struct cellDataProfile {
     let cell: Int!
 }
 
-class TableViewProfileUsers: UITableViewController,CustomProfileDelegate {
+class TableViewProfileUsers: UITableViewController, CustomProfileDelegate {
     
     func didTapChat() {
         let storyboard = UIStoryboard(name: "Menu", bundle: nil)
@@ -268,7 +268,7 @@ class TableViewProfileUsers: UITableViewController,CustomProfileDelegate {
                 let dateTravel = Date.init(timeIntervalSince1970: date)
                 
                 if dateTravel.isInFuture{
-                    cell.dateLabel.text = "\(dateTravel.dateString(ofStyle: .short)), at"
+                    cell.dateLabel.text = "\(dateTravel.dateString(ofStyle: .medium)), at"
                     cell.postIcon.image = #imageLiteral(resourceName: "icons8-airplane-landing-filled-100")
                 }
                 
@@ -285,8 +285,18 @@ class TableViewProfileUsers: UITableViewController,CustomProfileDelegate {
             }
             
             //Post Interesses Collection
-            
-            
+            if self.posts[indexPath.row - 1].share_host {
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "food"))
+                cell.categoryNameArray.append("Meal")
+            }
+            if self.posts[indexPath.row - 1].share_gas {
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "transport"))
+                cell.categoryNameArray.append("Transport")
+            }
+            if self.posts[indexPath.row - 1].share_group {
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "group"))
+                cell.categoryNameArray.append("Moment")
+            }
             
             return cell
         }
