@@ -71,8 +71,8 @@ class ExploreViewController: BaseViewController {
     }
 	
 	func addPin(post: Post){
-		
-		let location = CLLocationCoordinate2D(latitude: post.latitude!, longitude: post.longitude!)
+        if let latitude = post.latitude, let longitude = post.longitude {
+            let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
 		let point = PostAnnotation(coordinate: location)
 		point.imagePost = post.image
 		point.share_gas = post.share_gas
@@ -106,7 +106,7 @@ class ExploreViewController: BaseViewController {
 		
 		self.mapView.addAnnotation(point)
 		self.annotationRef.append(point)
-	}
+        }}
 
 	func addPinToMapView(){
 		for placeUser in self.postModel.posts {

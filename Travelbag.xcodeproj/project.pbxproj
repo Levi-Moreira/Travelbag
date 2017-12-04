@@ -61,6 +61,7 @@
 		A26560C31F9E9AE000BDC06A /* INterestOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */; };
 		A26560CD1F9FED4300BDC06A /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560CC1F9FED4300BDC06A /* FirebaseModel.swift */; };
 		A26560CF1F9FF01C00BDC06A /* FirebaseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560CE1F9FF01C00BDC06A /* FirebaseImage.swift */; };
+		A26939091FD1EE3B0086A56D /* SimpleImageViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A269390A1FD1EE3B0086A56D /* SimpleImageViewer.framework */; };
 		A26F50B71F9952F700AC6FE5 /* DatePickerDialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26F50B81F9952F700AC6FE5 /* DatePickerDialog.framework */; };
 		A277760E1FA26D3C00DA64DC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A277760D1FA26D3C00DA64DC /* SettingsTableViewController.swift */; };
 		A278B51D1FCDFA5900FB590F /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A278B51C1FCDFA5900FB590F /* NotificationTableViewController.swift */; };
@@ -169,6 +170,7 @@
 		A26560CB1F9FCD1100BDC06A /* FireRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FireRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26560CC1F9FED4300BDC06A /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
 		A26560CE1F9FF01C00BDC06A /* FirebaseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImage.swift; sourceTree = "<group>"; };
+		A269390A1FD1EE3B0086A56D /* SimpleImageViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SimpleImageViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26F50B81F9952F700AC6FE5 /* DatePickerDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DatePickerDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A277760D1FA26D3C00DA64DC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		A278B51C1FCDFA5900FB590F /* NotificationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A26939091FD1EE3B0086A56D /* SimpleImageViewer.framework in Frameworks */,
 				A22B2D7E1FCDEAD200809268 /* ImagePicker.framework in Frameworks */,
 				A2D7DFAA1FBA334200D7F8F0 /* RAMAnimatedTabBarController.framework in Frameworks */,
 				A2D7DF941FB110AF00D7F8F0 /* Nuke.framework in Frameworks */,
@@ -251,6 +254,7 @@
 		07EED10C1975E7005ED1D2F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A269390A1FD1EE3B0086A56D /* SimpleImageViewer.framework */,
 				A22B2D7F1FCDEAD200809268 /* ImagePicker.framework */,
 				A24401E71FB24BE0008FD3A6 /* MapKit.framework */,
 				A2D7DFAB1FBA334200D7F8F0 /* RAMAnimatedTabBarController.framework */,
@@ -305,7 +309,6 @@
 				A2368D021F97E5160075D88B /* CreatePostViewController.swift */,
 				A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */,
 				A29F09401FC4BE4200D0351B /* ImageCollectionView.swift */,
-				A29F09411FC4BE4200D0351B /* ImageCollectionView.xib */,
 				A20A5D0B1FA14B8F0022183B /* TableViewPersonProfileController.swift */,
 				A2D7DFA81FB650C000D7F8F0 /* TableViewProfileUsers.swift */,
 				A25EFD651FBA3A8B004149AF /* ChatListTableViewController.swift */,
@@ -314,7 +317,6 @@
 				A2B09B0E1FC7895500458251 /* ControllerManager.swift */,
 				A26105ED1FC78795001F536B /* BaseViewController.swift */,
 				A278B51C1FCDFA5900FB590F /* NotificationTableViewController.swift */,
-				A278B51F1FCDFA8600FB590F /* CNotification.xib */,
 				A2BA7FDD1FCF54E6008CCFA0 /* BaseTableViewController.swift */,
 				A24401E51FB24B78008FD3A6 /* ExploreViewController.swift */,
 				A29F09441FC4DAD400D0351B /* LocationSearchTable.swift */,
@@ -333,6 +335,8 @@
 				A2D6C9291FCDFB6500F0CC76 /* InterestCollectionViewCell.xib */,
 				A2D6C9281FCDFB6500F0CC76 /* InterestCollectionViewCell.swift */,
 				A2D7DF9E1FB4F74500D7F8F0 /* TableViewCellProfile.xib */,
+				A29F09411FC4BE4200D0351B /* ImageCollectionView.xib */,
+				A278B51F1FCDFA8600FB590F /* CNotification.xib */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -631,6 +635,7 @@
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
+				"${BUILT_PRODUCTS_DIR}/SimpleImageViewer/SimpleImageViewer.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -653,6 +658,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimpleImageViewer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",

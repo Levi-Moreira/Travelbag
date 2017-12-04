@@ -109,7 +109,7 @@ class TableViewPersonProfileController: UITableViewController {
                 }
             }
             
-            if tabBarController!.selectedIndex == 2 {
+            if tabBarController!.selectedIndex == 4 {
                 cell.btnBack.isHidden = true
             }
             else {
@@ -251,15 +251,15 @@ class TableViewPersonProfileController: UITableViewController {
 
             //Post Interesses Collection
             if self.posts[indexPath.row - 1].share_host {
-                cell.categoryImageArray.append(#imageLiteral(resourceName: "icons8-Home Page Filled_100"))
-                cell.categoryNameArray.append("Hosting")
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "food"))
+                cell.categoryNameArray.append("Meal")
             }
             if self.posts[indexPath.row - 1].share_gas {
-                cell.categoryImageArray.append(#imageLiteral(resourceName: "icons8-People in Car Filled_100"))
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "transport"))
                 cell.categoryNameArray.append("Transport")
             }
             if self.posts[indexPath.row - 1].share_group {
-                cell.categoryImageArray.append(#imageLiteral(resourceName: "icons8-User Groups Filled_100"))
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "group"))
                 cell.categoryNameArray.append("Moment")
             }
             

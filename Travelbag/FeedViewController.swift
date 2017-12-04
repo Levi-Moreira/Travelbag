@@ -13,7 +13,24 @@ import FirebaseDatabase
 import CoreLocation
 import ARSLineProgress
 import Nuke
+import SimpleImageViewer
+
+
 class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource, CreatePostViewControllerDelegate, FeedViewControllerDelegate{
+    func didTapImage(at: IndexPath) {
+        print(at.row)
+        let cell = self.tableView.cellForRow(at: at) as! TableViewCell2
+        
+        let configuration = ImageViewerConfiguration { config in
+            config.imageView = cell.imagePost
+        }
+        
+        let imageViewerController = ImageViewerController(configuration: configuration)
+        
+        present(imageViewerController, animated: true)
+        
+    }
+    
 
 
     var ref:DatabaseReference!
@@ -86,13 +103,10 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
             return createPost
         }
             else {
-                
-                
-                
-                
+            
                 var cell = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
                 //Image Profile
-            
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             cell.delegate = self
             cell.indexPath = indexPath
             
@@ -155,10 +169,11 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
                 //Post  Date
                 
                 if let date = self.posts[indexPath.row - 1].date {
-                    let dateTravel = Date.init(timeIntervalSince1970: date)
+                    let timeinterval = TimeInterval(date)
+                    let dateTravel = Date.init(timeIntervalSince1970: timeinterval)
                     
                     if dateTravel.isInFuture{
-                        cell.dateLabel.text = "\(dateTravel.dateString(ofStyle: .long)), at"
+                        cell.dateLabel.text = "\(dateTravel.dayName(ofStyle: .full)), \(dateTravel.monthName(ofStyle: .threeLetters)) \(dateTravel.day), at"
                         cell.postIcon.image = #imageLiteral(resourceName: "icons8-airplane-landing-filled-100")
                     }
                     

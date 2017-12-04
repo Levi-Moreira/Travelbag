@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Raleway-Bold.ttf">
+            <string>Raleway-Bold</string>
+        </array>
+        <array key="Raleway-Regular.ttf">
+            <string>Raleway-Regular</string>
+        </array>
+        <array key="Raleway-SemiBold.ttf">
+            <string>Raleway-SemiBold</string>
+        </array>
         <array key="SourceSansPro-Regular.otf">
             <string>SourceSansPro-Regular</string>
         </array>
@@ -30,13 +39,13 @@
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esr-8D-eHG">
                         <rect key="frame" x="18" y="198" width="284" height="21.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="500" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="PostDate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Uu-3d-g68">
-                        <rect key="frame" x="74" y="47" width="185" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <rect key="frame" x="74" y="46" width="185" height="16.5"/>
+                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="14"/>
                         <color key="textColor" red="0.4175920051" green="0.4175920051" blue="0.4175920051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -49,13 +58,17 @@
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nk9-Kh-57E">
                         <rect key="frame" x="16" y="228.5" width="288" height="174"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="height" constant="174" id="t9u-MO-zUj"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ry3-pq-naa" appends="YES" id="k9L-Kq-uQh"/>
+                        </connections>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooX-Br-aJR">
-                        <rect key="frame" x="74" y="15" width="185" height="33"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <rect key="frame" x="74" y="15" width="185" height="32"/>
+                        <fontDescription key="fontDescription" name="Raleway-Bold" family="Raleway" pointSize="17"/>
                         <state key="normal" title="NameButton">
                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                         </state>
@@ -63,14 +76,14 @@
                             <action selector="didTapName:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Nox-8u-jpE"/>
                         </connections>
                     </button>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="tlV-hg-qdH">
+                    <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="tlV-hg-qdH">
                         <rect key="frame" x="16" y="132" width="288" height="50"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="288" id="7LU-uL-ANR"/>
                             <constraint firstAttribute="height" constant="50" id="KUn-4I-8RX"/>
                         </constraints>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nRV-VA-l3l">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nRV-VA-l3l">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -78,8 +91,8 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2wr-Dz-fQd">
-                        <rect key="frame" x="88" y="78" width="214" height="30"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                        <rect key="frame" x="91" y="78" width="211" height="30"/>
+                        <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="15"/>
                         <state key="normal" title="LocationButton">
                             <color key="titleColor" red="0.21568627450980393" green="0.78431372549019607" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
@@ -93,13 +106,13 @@
                             <constraint firstAttribute="height" constant="24" id="Ejc-uP-tUG"/>
                             <constraint firstAttribute="width" constant="139" id="lur-Ws-pDA"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="13"/>
                         <color key="textColor" red="0.41568627450980389" green="0.41568627450980389" blue="0.41568627450980389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L68-Gb-AQo">
-                        <rect key="frame" x="42" y="84" width="37.5" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <rect key="frame" x="42" y="84" width="40.5" height="18"/>
+                        <fontDescription key="fontDescription" name="Raleway-SemiBold" family="Raleway" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -120,8 +133,10 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXb-1n-pgy">
                         <rect key="frame" x="16" y="22" width="50" height="50"/>
+                        <gestureRecognizers/>
                         <connections>
                             <action selector="didTapName:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jcm-ht-ASu"/>
+                            <outletCollection property="gestureRecognizers" destination="nZk-Rk-kem" appends="YES" id="Y9W-sD-Fih"/>
                         </connections>
                     </button>
                 </subviews>
@@ -192,6 +207,16 @@
             <nil key="textColor"/>
             <nil key="highlightedColor"/>
         </label>
+        <tapGestureRecognizer id="nZk-Rk-kem">
+            <connections>
+                <action selector="didTapProfilePicture:" destination="KGk-i7-Jjw" id="zha-KO-N8B"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="ry3-pq-naa">
+            <connections>
+                <action selector="didTapImage:" destination="KGk-i7-Jjw" id="cwn-ZC-wF0"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="more" width="50" height="50"/>

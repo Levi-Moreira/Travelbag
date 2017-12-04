@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import Firebase
 
 class ChatEntry: FirebaseBaseModel{
     
@@ -19,7 +19,7 @@ class ChatEntry: FirebaseBaseModel{
         dic["first_user_name"] = self.firstUserName
         dic["second_user_name"] = self.secondUserName
         dic["last_message"] = self.lastMessage
-        dic["last_message_date"] = self.lastMessageDate
+        dic["last_message_date"] = ServerValue.timestamp()
         dic["first_user_image"] = self.firstUserImage
         dic["second_user_image"] = self.secondUserImage
         return dic

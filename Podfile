@@ -18,6 +18,7 @@ target 'Travelbag' do
   pod 'Nuke', '~> 5.0'
   pod 'RAMAnimatedTabBarController'
   pod 'JSQMessagesViewController'
+  pod 'SimpleImageViewer', '~> 1.1'
 
   
 
