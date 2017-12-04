@@ -21,6 +21,9 @@ class NotificationTableViewController: UITableViewController {
     var arrayNotification = [cellNotification]()
     
     override func viewDidLoad() {
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Raleway-Bold", size: 24)!, NSForegroundColorAttributeName: UIColor.white]
+
+        
         super.viewDidLoad()
         
         arrayNotification = [cellNotification(cell: 0, name: "John Lennon", time: "2 hours ago", cnotification: "He goes to London", img: #imageLiteral(resourceName: "John Lennon.jpg") )]

@@ -95,7 +95,7 @@ class ChatListTableViewController: BaseTableViewController {
             
             cell.lastMessageUser.text = chats[indexPath.row].lastMessage ?? ""
             
-            cell.lastMessageDateUser.text = chats[indexPath.row].timeToNow ?? "nil"
+            cell.lastMessageDateUser.text = chats[indexPath.row].timeToNow ?? ""
             
             if let url = chats[indexPath.row].secondUserImage {
                 if url.isValidHttpsUrl {
@@ -107,7 +107,7 @@ class ChatListTableViewController: BaseTableViewController {
         
             cell.nameUser.text = chats[indexPath.row].firstUserName ?? ""
             cell.lastMessageUser.text = chats[indexPath.row].lastMessage ?? ""
-            cell.lastMessageDateUser.text = chats[indexPath.row].timeToNow ?? "nil"
+            cell.lastMessageDateUser.text = chats[indexPath.row].timeToNow ?? ""
             
             if let url = chats[indexPath.row].firstUserImage {
                 if url.isValidHttpsUrl {

@@ -61,6 +61,7 @@
 		A26560C31F9E9AE000BDC06A /* INterestOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */; };
 		A26560CD1F9FED4300BDC06A /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560CC1F9FED4300BDC06A /* FirebaseModel.swift */; };
 		A26560CF1F9FF01C00BDC06A /* FirebaseImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26560CE1F9FF01C00BDC06A /* FirebaseImage.swift */; };
+		A26939091FD1EE3B0086A56D /* SimpleImageViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A269390A1FD1EE3B0086A56D /* SimpleImageViewer.framework */; };
 		A26F50B71F9952F700AC6FE5 /* DatePickerDialog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A26F50B81F9952F700AC6FE5 /* DatePickerDialog.framework */; };
 		A277760E1FA26D3C00DA64DC /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A277760D1FA26D3C00DA64DC /* SettingsTableViewController.swift */; };
 		A278B51D1FCDFA5900FB590F /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A278B51C1FCDFA5900FB590F /* NotificationTableViewController.swift */; };
@@ -71,6 +72,9 @@
 		A281FF7E1F86CBAB0098F9D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A281FF7C1F86CBAB0098F9D3 /* LaunchScreen.storyboard */; };
 		A281FF891F86CBAB0098F9D3 /* TravelbagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A281FF881F86CBAB0098F9D3 /* TravelbagTests.swift */; };
 		A281FF941F86CDE80098F9D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A281FF931F86CDE80098F9D3 /* GoogleService-Info.plist */; };
+		A29F09421FC4BE4200D0351B /* ImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F09401FC4BE4200D0351B /* ImageCollectionView.swift */; };
+		A29F09431FC4BE4200D0351B /* ImageCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A29F09411FC4BE4200D0351B /* ImageCollectionView.xib */; };
+		A29F09451FC4DAD400D0351B /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A29F09441FC4DAD400D0351B /* LocationSearchTable.swift */; };
 		A2AC03F41F8EA587007E35AB /* Menu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2AC03F31F8EA587007E35AB /* Menu.storyboard */; };
 		A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC03F51F8EB905007E35AB /* MenuViewController.swift */; };
 		A2AC03F81F8EBD38007E35AB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */; };
@@ -166,6 +170,7 @@
 		A26560CB1F9FCD1100BDC06A /* FireRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FireRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26560CC1F9FED4300BDC06A /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
 		A26560CE1F9FF01C00BDC06A /* FirebaseImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseImage.swift; sourceTree = "<group>"; };
+		A269390A1FD1EE3B0086A56D /* SimpleImageViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SimpleImageViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A26F50B81F9952F700AC6FE5 /* DatePickerDialog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DatePickerDialog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A277760D1FA26D3C00DA64DC /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		A278B51C1FCDFA5900FB590F /* NotificationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +188,9 @@
 		A28971C21F9A751600CF828F /* FireRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FireRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28971C41F9A7F0B00CF828F /* FirebaseCommunity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCommunity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28971C61F9A7F7A00CF828F /* FireRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FireRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A29F09401FC4BE4200D0351B /* ImageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionView.swift; sourceTree = "<group>"; };
+		A29F09411FC4BE4200D0351B /* ImageCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionView.xib; sourceTree = "<group>"; };
+		A29F09441FC4DAD400D0351B /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		A2AC03F31F8EA587007E35AB /* Menu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Menu.storyboard; sourceTree = "<group>"; };
 		A2AC03F51F8EB905007E35AB /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -217,6 +225,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A26939091FD1EE3B0086A56D /* SimpleImageViewer.framework in Frameworks */,
 				A22B2D7E1FCDEAD200809268 /* ImagePicker.framework in Frameworks */,
 				A2D7DFAA1FBA334200D7F8F0 /* RAMAnimatedTabBarController.framework in Frameworks */,
 				A2D7DF941FB110AF00D7F8F0 /* Nuke.framework in Frameworks */,
@@ -245,6 +254,7 @@
 		07EED10C1975E7005ED1D2F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A269390A1FD1EE3B0086A56D /* SimpleImageViewer.framework */,
 				A22B2D7F1FCDEAD200809268 /* ImagePicker.framework */,
 				A24401E71FB24BE0008FD3A6 /* MapKit.framework */,
 				A2D7DFAB1FBA334200D7F8F0 /* RAMAnimatedTabBarController.framework */,
@@ -298,7 +308,7 @@
 				A2AC03F71F8EBD38007E35AB /* FeedViewController.swift */,
 				A2368D021F97E5160075D88B /* CreatePostViewController.swift */,
 				A26560C21F9E9AE000BDC06A /* INterestOptionsTableViewController.swift */,
-				A24401E51FB24B78008FD3A6 /* ExploreViewController.swift */,
+				A29F09401FC4BE4200D0351B /* ImageCollectionView.swift */,
 				A20A5D0B1FA14B8F0022183B /* TableViewPersonProfileController.swift */,
 				A2D7DFA81FB650C000D7F8F0 /* TableViewProfileUsers.swift */,
 				A25EFD651FBA3A8B004149AF /* ChatListTableViewController.swift */,
@@ -307,8 +317,9 @@
 				A2B09B0E1FC7895500458251 /* ControllerManager.swift */,
 				A26105ED1FC78795001F536B /* BaseViewController.swift */,
 				A278B51C1FCDFA5900FB590F /* NotificationTableViewController.swift */,
-				A278B51F1FCDFA8600FB590F /* CNotification.xib */,
 				A2BA7FDD1FCF54E6008CCFA0 /* BaseTableViewController.swift */,
+				A24401E51FB24B78008FD3A6 /* ExploreViewController.swift */,
+				A29F09441FC4DAD400D0351B /* LocationSearchTable.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -324,6 +335,8 @@
 				A2D6C9291FCDFB6500F0CC76 /* InterestCollectionViewCell.xib */,
 				A2D6C9281FCDFB6500F0CC76 /* InterestCollectionViewCell.swift */,
 				A2D7DF9E1FB4F74500D7F8F0 /* TableViewCellProfile.xib */,
+				A29F09411FC4BE4200D0351B /* ImageCollectionView.xib */,
+				A278B51F1FCDFA8600FB590F /* CNotification.xib */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -520,7 +533,7 @@
 				TargetAttributes = {
 					A281FF6F1F86CBAA0098F9D3 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = Q4HH628EHZ;
+						DevelopmentTeam = 6MNS953WHJ;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -563,6 +576,7 @@
 				A22B2D7D1FC8BAF100809268 /* KoolBean.ttf in Resources */,
 				A21FE0B71F881AB8000359D7 /* SourceSansPro-Light.otf in Resources */,
 				A281FF7E1F86CBAB0098F9D3 /* LaunchScreen.storyboard in Resources */,
+				A29F09431FC4BE4200D0351B /* ImageCollectionView.xib in Resources */,
 				A281FF941F86CDE80098F9D3 /* GoogleService-Info.plist in Resources */,
 				A2D6C92B1FCDFB6500F0CC76 /* InterestCollectionViewCell.xib in Resources */,
 				A26105E31FC782F3001F536B /* Raleway-SemiBold.ttf in Resources */,
@@ -621,6 +635,7 @@
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
+				"${BUILT_PRODUCTS_DIR}/SimpleImageViewer/SimpleImageViewer.framework",
 				"${BUILT_PRODUCTS_DIR}/SwifterSwift/SwifterSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -643,6 +658,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimpleImageViewer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwifterSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -671,7 +687,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		62C268D4B07A8FE99001AFA8 /* [CP] Embed Pods Frameworks */ = {
@@ -704,7 +720,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E34C83470C58C7DF3FBF7F5D /* [CP] Copy Pods Resources */ = {
@@ -746,6 +762,7 @@
 			files = (
 				A2D7DF9B1FB3747D00D7F8F0 /* ChangeEmailViewController.swift in Sources */,
 				A25EFD661FBA3A8B004149AF /* ChatListTableViewController.swift in Sources */,
+				A29F09451FC4DAD400D0351B /* LocationSearchTable.swift in Sources */,
 				A2DCAD9E1FBB82840093A0F4 /* MainTabBarController.swift in Sources */,
 				A20A5D111FA3C3ED0022183B /* TableViewCell1.swift in Sources */,
 				A26560CD1F9FED4300BDC06A /* FirebaseModel.swift in Sources */,
@@ -754,6 +771,7 @@
 				A2D7DFA91FB650C000D7F8F0 /* TableViewProfileUsers.swift in Sources */,
 				A20A5D151FA3CC380022183B /* TableViewCell2.swift in Sources */,
 				A2AC03F61F8EB905007E35AB /* MenuViewController.swift in Sources */,
+				A29F09421FC4BE4200D0351B /* ImageCollectionView.swift in Sources */,
 				A2C231071FB5121800838D8B /* PostAnnotation.swift in Sources */,
 				A2B09B0F1FC7895500458251 /* ControllerManager.swift in Sources */,
 				A2368D031F97E5160075D88B /* CreatePostViewController.swift in Sources */,
@@ -921,7 +939,7 @@
 			baseConfigurationReference = E4D34368B183109F602F2036 /* Pods-Travelbag.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Q4HH628EHZ;
+				DEVELOPMENT_TEAM = 6MNS953WHJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1018,7 +1036,7 @@
 			baseConfigurationReference = EE36C95294F89478708AE67B /* Pods-Travelbag.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Q4HH628EHZ;
+				DEVELOPMENT_TEAM = 6MNS953WHJ;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

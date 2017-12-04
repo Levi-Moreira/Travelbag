@@ -13,49 +13,26 @@ import FirebaseDatabase
 import CoreLocation
 import ARSLineProgress
 import Nuke
-class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource, CreatePostViewControllerDelegate, FeedViewControllerDelegate{
-    func didTapName(at indexPath: IndexPath) {
-        if indexPath.row != 0 {
-            let uid = posts[indexPath.row - 1].uid
-            if uid == Auth.auth().currentUser?.uid {
-                
-                let menuStoryboard = UIStoryboard(name: "Menu", bundle: nil)
-                let myProfileController = menuStoryboard.instantiateViewController(withIdentifier: "myProfileStoryboard") as! TableViewPersonProfileController
-                myProfileController.uid = uid
-                self.navigationController?.pushViewController(myProfileController, animated: true)
-                
-            } else {
-                
-                let storyboard = UIStoryboard(name: "Menu", bundle: nil)
-                let controller = storyboard.instantiateViewController(withIdentifier: "storyboardProfile") as!  TableViewProfileUsers
-                controller.uid = uid
-                
-                //self.present(controller, animated: true, completion: nil)
-                self.navigationController?.pushViewController(controller, animated: true)
-            }
-        }
-    }
-    
-    func didTapLocation(at indexPath: IndexPath) {
-        if indexPath.row != 0 {
-            let storyboard = UIStoryboard(name: "Menu", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "storyboardMap") as!  ExploreViewController
-            //controller.place =
-            print("tap location")
-            
-        }
-    }
-    
-    
-    
-    func didFishedCreate() {
-    refreshControl.beginRefreshing()
-    updatePost()
+import SimpleImageViewer
 
-    
+
+class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewDataSource, CreatePostViewControllerDelegate, FeedViewControllerDelegate{
+    func didTapImage(at: IndexPath) {
+        print(at.row)
+        let cell = self.tableView.cellForRow(at: at) as! TableViewCell2
+        
+        let configuration = ImageViewerConfiguration { config in
+            config.imageView = cell.imagePost
+        }
+        
+        let imageViewerController = ImageViewerController(configuration: configuration)
+        
+        present(imageViewerController, animated: true)
+        
     }
     
-    
+
+
     var ref:DatabaseReference!
     var databaseHandle:DatabaseHandle?
     var postModel : PostModel!
@@ -63,10 +40,11 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
     var userProfile: Profile!
     let defaults = UserDefaults.standard
     let userID = Auth.auth().currentUser?.uid
-    
-    
     let refreshControl = UIRefreshControl()
+    
     @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad()  {
         super.viewDidLoad()
        
@@ -97,10 +75,6 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
         postModel.getPosts { (result) in
             self.posts = result
             
-//            self.posts.sort(by: { (first, second) -> Bool in
-//                return first.post_date ?? 0 > second.post_date ?? 0
-//            })
-            
             self.posts.sort{ return $0.0.post_date ?? 0 > $0.1.post_date ?? 0}
             
             DispatchQueue.main.async {
@@ -129,13 +103,10 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
             return createPost
         }
             else {
-                
-                
-                
-                
+            
                 var cell = Bundle.main.loadNibNamed("TableViewCell2", owner: self, options: nil)?.first as! TableViewCell2
                 //Image Profile
-            
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             cell.delegate = self
             cell.indexPath = indexPath
             
@@ -198,10 +169,11 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
                 //Post  Date
                 
                 if let date = self.posts[indexPath.row - 1].date {
-                    let dateTravel = Date.init(timeIntervalSince1970: date)
+                    let timeinterval = TimeInterval(date)
+                    let dateTravel = Date.init(timeIntervalSince1970: timeinterval)
                     
                     if dateTravel.isInFuture{
-                        cell.dateLabel.text = "\(dateTravel.dateString(ofStyle: .long)), at"
+                        cell.dateLabel.text = "\(dateTravel.dayName(ofStyle: .full)), \(dateTravel.monthName(ofStyle: .threeLetters)) \(dateTravel.day), at"
                         cell.postIcon.image = #imageLiteral(resourceName: "icons8-airplane-landing-filled-100")
                     }
                     
@@ -344,6 +316,47 @@ class FeedViewController: BaseViewController,UITableViewDelegate,UITableViewData
                                             }
 
         })
+    }
+    
+    func didTapName(at indexPath: IndexPath) {
+        if indexPath.row != 0 {
+            let uid = posts[indexPath.row - 1].uid
+            if uid == Auth.auth().currentUser?.uid {
+                
+                let menuStoryboard = UIStoryboard(name: "Menu", bundle: nil)
+                let myProfileController = menuStoryboard.instantiateViewController(withIdentifier: "myProfileStoryboard") as! TableViewPersonProfileController
+                myProfileController.uid = uid
+                self.navigationController?.pushViewController(myProfileController, animated: true)
+                
+            } else {
+                
+                let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+                let controller = storyboard.instantiateViewController(withIdentifier: "storyboardProfile") as!  TableViewProfileUsers
+                controller.uid = uid
+                
+                //self.present(controller, animated: true, completion: nil)
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
+        }
+    }
+    
+    func didTapLocation(at indexPath: IndexPath) {
+        if indexPath.row != 0 {
+            let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "storyboardMap") as!  ExploreViewController
+            //controller.place =
+            print("tap location")
+            
+        }
+    }
+    
+    
+    
+    func didFishedCreate() {
+        refreshControl.beginRefreshing()
+        updatePost()
+        
+        
     }
     
     

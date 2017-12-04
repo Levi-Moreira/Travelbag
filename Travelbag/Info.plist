@@ -46,6 +46,10 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>Please allow us to use your camera.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Please allow us to use your location.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Please allow us to use your location.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Please allow us to use your location.</string>
 	<key>NSPhotoLibraryUsageDescription</key>

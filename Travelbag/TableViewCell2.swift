@@ -21,6 +21,10 @@ class TableViewCell2: UITableViewCell, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionInterest", for: indexPath) as! InterestCollectionViewCell
+        
+        
+        
+        
         cell.interestImage.image = categoryImageArray[indexPath.row]
         cell.interestName.text = categoryNameArray[indexPath.row]
         return cell
@@ -29,6 +33,7 @@ class TableViewCell2: UITableViewCell, UICollectionViewDataSource {
         let nibName = UINib(nibName: "InterestCollectionViewCell", bundle: nil)
         collectionInterest.register(nibName, forCellWithReuseIdentifier: "collectionInterest")
         collectionInterest.dataSource = self
+        
     }
     
 
@@ -55,11 +60,19 @@ class TableViewCell2: UITableViewCell, UICollectionViewDataSource {
         delegate?.didTapLocation(at: indexPath!)
     }
     
+    @IBAction func didTapImage(_ sender: Any) {
+        delegate?.didTapImage(at: indexPath!)
+    }
+    @IBAction func didTapProfilePicture(_ sender: Any) {
+         delegate?.didTapName(at: indexPath!)
+    }
+    
 }
 
 
 protocol FeedViewControllerDelegate{
     func didTapName(at: IndexPath)
     func didTapLocation(at: IndexPath)
+    func didTapImage(at: IndexPath)
 }
 

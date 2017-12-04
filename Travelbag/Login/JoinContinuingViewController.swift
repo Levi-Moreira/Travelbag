@@ -43,6 +43,8 @@ class JoinContinuingViewController: UIViewController, ImagePickerDelegate {
 		let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
 		profileImage.isUserInteractionEnabled = true
 		profileImage.addGestureRecognizer(tapGestureRecognizer)
+        
+
 		
 		
 		
@@ -112,6 +114,10 @@ class JoinContinuingViewController: UIViewController, ImagePickerDelegate {
 	}
 	
 	func publishImage(image: UIImage) {
+        
+        profileImage.layer.cornerRadius = profileImage.frame.height/2
+        profileImage.layer.masksToBounds = true
+        
 		profileImage.image = image
 		
 		self.profile.profile_holder = FirebaseImage(image: image)

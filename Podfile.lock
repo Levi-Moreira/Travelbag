@@ -91,6 +91,7 @@ PODS:
   - Nuke (5.2)
   - Protobuf (3.4.0)
   - RAMAnimatedTabBarController (2.2.3)
+  - SimpleImageViewer (1.1)
   - SwifterSwift (3.2.0):
     - SwifterSwift/AppKit (= 3.2.0)
     - SwifterSwift/CoreGraphics (= 3.2.0)
@@ -118,6 +119,7 @@ DEPENDENCIES:
   - LocationPicker
   - Nuke (~> 5.0)
   - RAMAnimatedTabBarController
+  - SimpleImageViewer (~> 1.1)
   - SwifterSwift (~> 3.2.0)
 
 SPEC CHECKSUMS:
@@ -147,8 +149,9 @@ SPEC CHECKSUMS:
   Nuke: 5f420c4637415f979c83afb35e73176dd03232d9
   Protobuf: 03eef2ee0b674770735cf79d9c4d3659cf6908e8
   RAMAnimatedTabBarController: 71adaa59ea22a8badfa242b8e068f0b9ebbb447d
+  SimpleImageViewer: 293698047ffaf41e79c0c6b052ed38b218583453
   SwifterSwift: e009210d995737f54c1fbffc5a3f004c8467ab1d
 
-PODFILE CHECKSUM: 14596b538ac7075890827d31b74d9c8a66cb486b
+PODFILE CHECKSUM: 94778b6714bb5972a66c5993cf5595077e59df5a
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

@@ -8,6 +8,14 @@
 
 import UIKit
 import MapKit
+import Nuke
+import FirebaseAuth
+
+protocol HandleMapSearch {
+	
+	func zoomInMap(placemark:MKPlacemark)
+}
+
 
 class ExploreViewController: BaseViewController {
 	
@@ -15,10 +23,34 @@ class ExploreViewController: BaseViewController {
 	var postModel : PostModel!
 	var centerUserPosition: Bool = true
 	var pinoTest = CustomPointAnnotation()
+	let locationManager = CLLocationManager()
+	var resultSearchController:UISearchController? = nil
+	var annotationRef = [MKAnnotation]()
 	
+	@IBOutlet weak var viewSearch: UIView!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		locationManager.delegate = self
+		locationManager.desiredAccuracy = kCLLocationAccuracyBest
+		locationManager.requestLocation()
+		
+		let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
+		resultSearchController = UISearchController(searchResultsController: locationSearchTable)
+		resultSearchController?.searchResultsUpdater = locationSearchTable
+		
+		let searchBar = resultSearchController!.searchBar
+		searchBar.sizeToFit()
+		searchBar.placeholder = "Search for places"
+		viewSearch.addSubview(resultSearchController!.searchBar)
+		resultSearchController?.hidesNavigationBarDuringPresentation = false
+		resultSearchController?.dimsBackgroundDuringPresentation = true
+		definesPresentationContext = true
+		
+		locationSearchTable.mapView = mapView
+		locationSearchTable.handleMapSearchDelegate = self
+
 		
 		postModel = PostModel.shared
 		
@@ -27,7 +59,6 @@ class ExploreViewController: BaseViewController {
 		if postModel.posts.isEmpty {
 			postModel.getPosts(completion: { (postsResult) in
 				self.postModel.posts = postsResult })
-			
 			addPinToMapView()
 		} else{
 			addPinToMapView()
@@ -40,16 +71,42 @@ class ExploreViewController: BaseViewController {
     }
 	
 	func addPin(post: Post){
-		let location = CLLocationCoordinate2D(latitude: post.latitude!, longitude: post.longitude!)
+        if let latitude = post.latitude, let longitude = post.longitude {
+            let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
 		let point = PostAnnotation(coordinate: location)
 		point.imagePost = post.image
 		point.share_gas = post.share_gas
 		point.share_host = post.share_host
-		point.share_group = post.share_host
+		point.share_group = post.share_group
 		point.text = post.content
-		point.userName = "\(post.user_first_name) \(post.user_last_name)"
+		point.userName = "\(post.user_first_name!) \(post.user_last_name!)"
+		point.user_image_profile = post.user_image_profile
+		point.uid = post.uid
+		if(post.share_gas){
+			point.type = PostType.t
+		}
+		if(post.share_group){
+			point.type = PostType.g
+		}
+		if(post.share_host){
+			point.type = PostType.f
+		}
+		if(post.share_group && post.share_host){
+			point.type = PostType.fg
+		}
+		if(post.share_group && post.share_gas){
+			point.type = PostType.tg
+		}
+		if(post.share_gas && post.share_host){
+			point.type = PostType.ft
+		}
+		if(post.share_group && post.share_host && post.share_host){
+			point.type = PostType.fgt
+		}
+		
 		self.mapView.addAnnotation(point)
-	}
+		self.annotationRef.append(point)
+        }}
 
 	func addPinToMapView(){
 		for placeUser in self.postModel.posts {
@@ -63,7 +120,33 @@ class ExploreViewController: BaseViewController {
 		}
 		
 		addPinToMapView()
+		
 	
+	}
+	override func viewDidDisappear(_ animated: Bool) {
+		self.mapView.removeAnnotations(self.annotationRef)
+		self.annotationRef.removeAll()
+		print("Estou aqui")
+	}
+	
+	
+	func lookUpCurrentLocation(lat: Double, long: Double, completionHandler: @escaping (CLPlacemark?) -> Void ){
+		
+		let localizacao = CLLocation(latitude: lat as CLLocationDegrees, longitude: long as CLLocationDegrees)
+		
+		let geocoder = CLGeocoder()
+		
+		geocoder.reverseGeocodeLocation(localizacao,
+										completionHandler: { (placemarks, error) in
+											if error == nil {
+												let firstLocation = placemarks?[0]
+												completionHandler(firstLocation)
+											}
+											else {
+												// An error occurred during geocoding.
+												completionHandler(nil)
+											}
+		})
 	}
 	
     /*
@@ -86,19 +169,21 @@ extension ExploreViewController: MKMapViewDelegate {
 	
 	func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
 		if centerUserPosition{
-			let region: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 10000, 10000)
+			let region: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 15000, 15000)
 			self.mapView.setRegion(region, animated: true)
 			self.centerUserPosition = false
 		}
 	}
     
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-		
+		guard let postAnnotation = annotation as? PostAnnotation else { return nil}
 		
 		if annotation is MKUserLocation
 		{
 			return nil
 		}
+		
+		
 		var annotationView = self.mapView.dequeueReusableAnnotationView(withIdentifier: "Pin")
 		if annotationView == nil{
 			annotationView = AnnotationView(annotation: annotation, reuseIdentifier: "Pin")
@@ -106,11 +191,51 @@ extension ExploreViewController: MKMapViewDelegate {
 		}else{
 			annotationView?.annotation = annotation
 		}
-		annotationView?.image = #imageLiteral(resourceName: "icons8-Marker Filled-100")
+		annotationView?.image = postAnnotation.type?.returnImage()
 		return annotationView
 	}
 	
+	func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+		
+		let postAnnotation = view.annotation as! PostAnnotation
+		
+		let uid = postAnnotation.uid
+		if uid == Auth.auth().currentUser?.uid {
+			tabBarController?.selectedIndex = 2
+			
+		} else {
+			let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+			let controller = storyboard.instantiateViewController(withIdentifier: "storyboardProfile") as! TableViewProfileUsers
+			
+			controller.uid = uid
+			//self.present(controller, animated: true, completion: nil)
+			self.navigationController?.pushViewController(controller, animated: true)
+		}
+		
+	}
+	func goToProfile(sender: UITapGestureRecognizer){
+		guard let callOutView = sender.view as? CustomCalloutView else{
+			return
+		}
+		
+		let uid = callOutView.uid
+		if uid == Auth.auth().currentUser?.uid {
+			tabBarController?.selectedIndex = 2
+			
+		} else {
+			let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+			let controller = storyboard.instantiateViewController(withIdentifier: "storyboardProfile") as!  TableViewProfileUsers
+			
+			controller.uid = uid
+			//self.present(controller, animated: true, completion: nil)
+			self.navigationController?.pushViewController(controller, animated: true)
+		}
+		
+		
+	}
 	func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+		
+		
 		// 1
 		if view.annotation is MKUserLocation
 		{
@@ -119,47 +244,55 @@ extension ExploreViewController: MKMapViewDelegate {
 		}
 		// 2
 		let postAnnotation = view.annotation as! PostAnnotation
+		
 		let views = Bundle.main.loadNibNamed("CustomCalloutView", owner: nil, options: nil)
 		let calloutView = views?[0] as! CustomCalloutView
+		
+		lookUpCurrentLocation(lat: postAnnotation.coordinate.latitude, long: postAnnotation.coordinate.longitude) { (placemark) in
+					let location = "\(placemark?.locality ?? "") - \(placemark?.administrativeArea ?? "")"
+			
+			if location.length <= 21{
+				calloutView.viewHeight.constant -= 50
+			}
+			calloutView.location.text = location
+		}
+//		if postAnnotation.user
+		
 		calloutView.nameUser.text = postAnnotation.userName
-		calloutView.text.text = postAnnotation.text
+		calloutView.uid = postAnnotation.uid
 		if(postAnnotation.share_gas){
-			calloutView.share1.image = #imageLiteral(resourceName: "icons8-Home Page Filled_100")
-		}else{
-			calloutView.share1.isHidden = true
+			calloutView.categoryImageArray.append(#imageLiteral(resourceName: "transport"))
 		}
 
 		if(postAnnotation.share_group){
-			calloutView.share2.image = #imageLiteral(resourceName: "icons8-Home Page Filled_100")
-		}else{
-			calloutView.share2.isHidden = true
+			calloutView.categoryImageArray.append(#imageLiteral(resourceName: "group"))
 		}
 
 		if(postAnnotation.share_host){
-			calloutView.share3.image = #imageLiteral(resourceName: "icons8-Home Page Filled_100")
-		}else{
-			calloutView.share3.isHidden = true
+			calloutView.categoryImageArray.append(#imageLiteral(resourceName: "food"))
 		}
-		if let urlString = postAnnotation.imagePost{
-			if let url = URL(string:urlString ){
-//				calloutView.imagePost.frame.size = CGSize.zero
-				calloutView.imagePost.isHidden = true
-//				calloutView.layoutIfNeeded()
-//				calloutView.layoutSubviews()
-				if let data = try? Data(contentsOf: url){
-					let imagepost = UIImage(data: data)
-					calloutView.imagePost.image = imagepost
-				}
-			} else{
-				calloutView.imagePost.isHidden = true
+		
+		if let url = postAnnotation.user_image_profile {
+			if url.isValidHttpsUrl {
+				Nuke.loadImage(with: URL(string: url)!, into: calloutView.imagePost)
+				calloutView.imagePost.layer.masksToBounds = true
+				calloutView.imagePost.layer.cornerRadius = 25
 			}
 		}
 		
 		
+		
+		
 		// 3
+		calloutView.viewHeight.constant = 150
 		calloutView.center = CGPoint(x: view.bounds.size.width / 2, y: -calloutView.bounds.size.height*0.52)
 		view.addSubview(calloutView)
-		mapView.setCenter((view.annotation?.coordinate)!, animated: true)
+		let coordinateCenter = CLLocationCoordinate2D(latitude: (view.annotation?.coordinate.latitude)! + 0.07, longitude: (view.annotation?.coordinate.longitude)!)
+		mapView.setCenter(coordinateCenter, animated: true)
+		
+		let tap = UITapGestureRecognizer(target: self, action: #selector(ExploreViewController.goToProfile(sender:)))
+		calloutView.addGestureRecognizer(tap)
+		
 	}
 	
 	func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
@@ -171,44 +304,33 @@ extension ExploreViewController: MKMapViewDelegate {
 			}
 		}
 	}
-//		if !(annotation is MKPointAnnotation) {
-//			print("NOT REGISTERED AS MKPOINTANNOTATION")
-//			return nil
-//		}
-//
-//		var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "postIdentitfier")
-//		if annotationView == nil {
-//			annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "postIdentitfier")
-//			annotationView!.canShowCallout = true
-//		}
-//
-//		else {
-//			annotationView!.annotation = annotation
-//		}
-//
-////		let cpa = annotation as! CustomPointAnnotation
-//		annotationView!.image = #imageLiteral(resourceName: "icons8-Marker Filled-100")
-//
-//		return annotationView
-		
-//		// 2
-//		guard let annotation = annotation as? PostAnnotation else { return nil }
-//		// 3
-//		let identifier = MKMapViewDefaultAnnotationViewReuseIdentifier
-//		var view: MKMarkerAnnotationView
-//		// 4
-//		if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//			as? MKMarkerAnnotationView {
-//			dequeuedView.annotation = annotation
-//			view = dequeuedView
-//		} else {
-//			// 5
-//			view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-////			view.image = #imageLiteral(resourceName: "login-background")
-//			view.canShowCallout = true
-//			view.calloutOffset = CGPoint(x: -5, y: 5)
-//			view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-//		}
-//		return view
-//	}
+	
+	
+	
+
 }
+
+extension ExploreViewController : CLLocationManagerDelegate {
+	
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		if let location = locations.first {
+			print("location:: \(location)")
+		}
+	}
+	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+		print("error:: \(error)")
+	}
+}
+
+extension ExploreViewController: HandleMapSearch{
+	func zoomInMap(placemark: MKPlacemark) {
+//		let span = MKCoordinateSpanMake(1000, 1000)
+		let region = MKCoordinateRegionMakeWithDistance(placemark.coordinate, 50000, 50000)
+		mapView.setRegion(region, animated: true)
+	}
+	
+	
+}
+
+
+

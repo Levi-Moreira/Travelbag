@@ -104,9 +104,10 @@ class SettingsTableViewController: UITableViewController {
     
     func presentLogin(){
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "Login") as UIViewController
+        let controller = storyboard.instantiateViewController(withIdentifier: "LoginNav") as! UINavigationController
         
         self.dismiss(animated: true, completion: nil)
+        self.present(controller, animated: true, completion: nil)
         
     }
     

@@ -50,6 +50,8 @@ class TableViewPersonProfileController: UITableViewController {
                 if let val = value{
                     self.profile = Profile.init(with: val)
                     self.showUserInfo()
+                }else{
+                    self.logOut()
                 }
             }) { (error) in
                 print(error)
@@ -75,7 +77,7 @@ class TableViewPersonProfileController: UITableViewController {
             
             self.posts.sort{ return $0.0.post_date ?? 0 > $0.1.post_date ?? 0}
             
-                self.tableView.reloadData()
+            self.tableView.reloadData()
         }) { (error) in
             print(error)
             ARSLineProgress.hide()
@@ -83,8 +85,12 @@ class TableViewPersonProfileController: UITableViewController {
     }
     
     func showUserInfo() {
-        self.tableView.reloadData()
-        ARSLineProgress.hide()
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            ARSLineProgress.hide()
+        }
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,8 +109,7 @@ class TableViewPersonProfileController: UITableViewController {
                 }
             }
             
-//            navigationController?.navigationItem.
-            if tabBarController!.selectedIndex == 2 {
+            if tabBarController!.selectedIndex == 4 {
                 cell.btnBack.isHidden = true
             }
             else {
@@ -246,15 +251,15 @@ class TableViewPersonProfileController: UITableViewController {
 
             //Post Interesses Collection
             if self.posts[indexPath.row - 1].share_host {
-                cell.categoryImageArray.append(#imageLiteral(resourceName: "icons8-Home Page Filled_100"))
-                cell.categoryNameArray.append("Hosting")
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "food"))
+                cell.categoryNameArray.append("Meal")
             }
             if self.posts[indexPath.row - 1].share_gas {
-                cell.categoryImageArray.append(#imageLiteral(resourceName: "icons8-People in Car Filled_100"))
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "transport"))
                 cell.categoryNameArray.append("Transport")
             }
             if self.posts[indexPath.row - 1].share_group {
-                cell.categoryImageArray.append(#imageLiteral(resourceName: "icons8-User Groups Filled_100"))
+                cell.categoryImageArray.append(#imageLiteral(resourceName: "group"))
                 cell.categoryNameArray.append("Moment")
             }
             
@@ -298,6 +303,27 @@ class TableViewPersonProfileController: UITableViewController {
                 completionHandler(nil)
             }
         })
+    }
+    
+    func logOut(){
+        
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing  out: %@", signOutError)
+        }
+        
+        self.presentLogin()
+        
+    }
+    
+    func presentLogin(){
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "Login") as UIViewController
+        
+        self.dismiss(animated: true, completion: nil)
+        
     }
 
 }

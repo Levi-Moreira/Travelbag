@@ -59,7 +59,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 		
 		locationManager.delegate = self
 		locationManager.desiredAccuracy = kCLLocationAccuracyBest
-		//        locationManager.requestWhenInUseAuthorization()
+		locationManager.requestAlwaysAuthorization()
 		locationManager.startUpdatingLocation()
         
         self.navigationItem.title = "Your post"
@@ -118,10 +118,6 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 			pickDate()
 		case 4:
 			performSegue(withIdentifier: "pickInterestSegue", sender: self)
-			
-			
-			
-			
 		default:
 			return
 		}
@@ -130,6 +126,8 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 	func pickLocation(){
 		// you can optionally set initial location
 		let locationPicker = LocationPickerViewController()
+        
+        locationPicker.navigationController?.navigationBar.tintColor = .white;
 		
 		let initialLocation = Location(name: "You're here", location: currentLocation, placemark: currentPlacemark)
 		locationPicker.location = initialLocation
@@ -177,10 +175,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
     func showDate() {
         
         let date = Date()
-//        let formatter = DateFormatter()
-//        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-//        let formatterLocal = DateFormatter()
-//        formatterLocal.dateFormat = "MM-dd-yyyy"
+
         self.pickedDate.text = date.dateString(ofStyle: .medium)
         self.post.date = date.timeIntervalSince1970
       
@@ -193,11 +188,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 		DatePickerDialog().show("DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
 			(date) -> Void in
 			if let dt = date {
-//                let formatter = DateFormatter()
-//                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
-//                let formatterLocal = DateFormatter()
-//                formatterLocal.dateFormat = "MM-dd-yyyy"
-				
+
 				self.pickedDate.text = dt.dateString(ofStyle: .medium)
 				
 				self.post.date = dt.timeIntervalSince1970
@@ -231,16 +222,19 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 		geocoder.reverseGeocodeLocation(location) { (placemark, error) in
 			if (error != nil) {
 				completionHandler(nil)
+                print(error)
 			}
 			
             guard let chosenPlacemark = placemark else{
                 completionHandler(nil)
+                print("no placemark")
                 return
             }
 			if(chosenPlacemark.count > 0){
 				completionHandler(chosenPlacemark.first)
 			}else{
 				completionHandler(nil)
+                print("no placemark 2")
 			}
 		}
 	}
