@@ -100,7 +100,7 @@ class ExploreViewController: BaseViewController {
 		if(post.share_gas && post.share_host){
 			point.type = PostType.ft
 		}
-		if(post.share_group && post.share_host && post.share_host){
+		if(post.share_group && post.share_host && post.share_gas){
 			point.type = PostType.fgt
 		}
 		
@@ -115,6 +115,8 @@ class ExploreViewController: BaseViewController {
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+        
 		postModel.getPosts { (postResult) in
 			self.postModel.posts = postResult
 		}
@@ -167,6 +169,7 @@ extension ExploreViewController: MKMapViewDelegate {
 		var imageName: String!
 	}
 	
+    
 	func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
 		if centerUserPosition{
 			let region: MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(userLocation.coordinate, 15000, 15000)

@@ -58,12 +58,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oer-Q0-Z6K">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0j-16-8B7">
-                                        <rect key="frame" x="187" y="59" width="56" height="48"/>
-                                        <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="28"/>
-                                        <color key="textColor" red="0.2156862745" green="0.7843137255" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Username" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PMs-8s-SH6">
                                         <rect key="frame" x="55" y="153" width="210" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -155,44 +149,39 @@
                                             <segue destination="7dh-tk-PWR" kind="show" id="6oU-aR-dox"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Travel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ike-UZ-ZeR">
-                                        <rect key="frame" x="108" y="24" width="113" height="61"/>
-                                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="40"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo TravelBagw" translatesAutoresizingMaskIntoConstraints="NO" id="C2I-8O-p6U">
+                                        <rect key="frame" x="84" y="29" width="151" height="116"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="C2I-8O-p6U" secondAttribute="height" multiplier="151:116" id="0mE-vj-Z68"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.42389547413793105" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ike-UZ-ZeR" secondAttribute="trailing" constant="99" id="2nH-W9-73H"/>
                                     <constraint firstItem="7Kk-ib-kev" firstAttribute="leading" secondItem="oer-Q0-Z6K" secondAttribute="leading" constant="78" id="38G-9Y-gv0"/>
                                     <constraint firstAttribute="trailing" secondItem="t2O-H2-M2G" secondAttribute="trailing" constant="77" id="3IW-8R-SeJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="C2I-8O-p6U" secondAttribute="trailing" constant="85" id="3gQ-Pt-sfv"/>
+                                    <constraint firstItem="PMs-8s-SH6" firstAttribute="top" secondItem="C2I-8O-p6U" secondAttribute="bottom" constant="8" id="4BN-3U-h6A"/>
                                     <constraint firstAttribute="trailing" secondItem="PMs-8s-SH6" secondAttribute="trailing" constant="55" id="4Xf-Ac-GYG"/>
-                                    <constraint firstItem="ike-UZ-ZeR" firstAttribute="top" secondItem="oer-Q0-Z6K" secondAttribute="top" constant="24" id="7Ab-EW-ezM"/>
                                     <constraint firstAttribute="trailing" secondItem="5MB-70-juq" secondAttribute="trailing" constant="55" id="CbI-Yo-UeY"/>
                                     <constraint firstAttribute="trailing" secondItem="9OJ-WW-2H3" secondAttribute="trailing" constant="133" id="FFl-7I-8nY"/>
                                     <constraint firstItem="5MB-70-juq" firstAttribute="leading" secondItem="oer-Q0-Z6K" secondAttribute="leading" constant="55" id="HHH-FU-rFr"/>
-                                    <constraint firstItem="ike-UZ-ZeR" firstAttribute="leading" secondItem="oer-Q0-Z6K" secondAttribute="leading" constant="108" id="II7-v6-nMb"/>
+                                    <constraint firstItem="5MB-70-juq" firstAttribute="top" secondItem="PMs-8s-SH6" secondAttribute="bottom" constant="8" id="KPD-AV-viE"/>
                                     <constraint firstAttribute="trailing" secondItem="8j6-9c-cWZ" secondAttribute="trailing" constant="76" id="M3g-tJ-V1v"/>
-                                    <constraint firstItem="m0j-16-8B7" firstAttribute="leading" secondItem="oer-Q0-Z6K" secondAttribute="leading" constant="187" id="MNb-8k-nU1"/>
+                                    <constraint firstItem="7Kk-ib-kev" firstAttribute="top" secondItem="t2O-H2-M2G" secondAttribute="bottom" constant="13" id="Pi1-Rv-wH9"/>
                                     <constraint firstItem="8j6-9c-cWZ" firstAttribute="top" secondItem="4qE-Kc-JIk" secondAttribute="bottom" constant="36" id="Pio-Jn-vrE"/>
-                                    <constraint firstItem="t2O-H2-M2G" firstAttribute="top" secondItem="5MB-70-juq" secondAttribute="bottom" constant="21" id="Q5S-Q0-pEO"/>
                                     <constraint firstItem="8j6-9c-cWZ" firstAttribute="leading" secondItem="oer-Q0-Z6K" secondAttribute="leading" constant="84" id="T1x-vF-AVc"/>
                                     <constraint firstItem="9OJ-WW-2H3" firstAttribute="leading" secondItem="oer-Q0-Z6K" secondAttribute="leading" constant="135" id="UmS-iZ-HVt"/>
                                     <constraint firstItem="t2O-H2-M2G" firstAttribute="centerY" secondItem="oer-Q0-Z6K" secondAttribute="centerY" id="Xti-2K-ted"/>
+                                    <constraint firstItem="C2I-8O-p6U" firstAttribute="top" secondItem="oer-Q0-Z6K" secondAttribute="top" constant="29" id="gP9-77-PN9"/>
                                     <constraint firstAttribute="trailing" secondItem="7Kk-ib-kev" secondAttribute="trailing" constant="77" id="h5i-5x-fO7"/>
-                                    <constraint firstItem="m0j-16-8B7" firstAttribute="top" secondItem="ike-UZ-ZeR" secondAttribute="bottom" constant="-15" id="kQh-B5-xJb"/>
-                                    <constraint firstAttribute="trailing" secondItem="m0j-16-8B7" secondAttribute="trailing" constant="77" id="mh0-e5-xvs"/>
                                     <constraint firstItem="t2O-H2-M2G" firstAttribute="centerX" secondItem="oer-Q0-Z6K" secondAttribute="centerX" id="oTk-hN-Qi6"/>
                                     <constraint firstItem="4qE-Kc-JIk" firstAttribute="top" secondItem="7Kk-ib-kev" secondAttribute="bottom" constant="13" id="q8g-2f-mEz"/>
-                                    <constraint firstAttribute="trailing" secondItem="m0j-16-8B7" secondAttribute="trailing" constant="77" id="qSg-sD-6BR"/>
-                                    <constraint firstItem="m0j-16-8B7" firstAttribute="top" secondItem="oer-Q0-Z6K" secondAttribute="top" constant="70" id="rTY-jE-pTB"/>
                                     <constraint firstItem="PMs-8s-SH6" firstAttribute="leading" secondItem="oer-Q0-Z6K" secondAttribute="leading" constant="55" id="sk8-Iu-2LT"/>
+                                    <constraint firstItem="C2I-8O-p6U" firstAttribute="leading" secondItem="oer-Q0-Z6K" secondAttribute="leading" constant="84" id="suU-H6-TgU"/>
                                     <constraint firstAttribute="trailing" secondItem="4qE-Kc-JIk" secondAttribute="trailing" constant="77" id="sz4-ea-uLO"/>
                                     <constraint firstItem="t2O-H2-M2G" firstAttribute="leading" secondItem="oer-Q0-Z6K" secondAttribute="leading" constant="78" id="tLI-yd-WXr"/>
-                                    <constraint firstItem="7Kk-ib-kev" firstAttribute="top" secondItem="t2O-H2-M2G" secondAttribute="bottom" constant="13" id="v5q-up-8Ep"/>
                                     <constraint firstItem="4qE-Kc-JIk" firstAttribute="leading" secondItem="oer-Q0-Z6K" secondAttribute="leading" constant="86" id="v7v-Xr-1Kp"/>
-                                    <constraint firstItem="5MB-70-juq" firstAttribute="top" secondItem="PMs-8s-SH6" secondAttribute="bottom" constant="8" id="v8h-cL-2ld"/>
                                     <constraint firstItem="9OJ-WW-2H3" firstAttribute="top" secondItem="4qE-Kc-JIk" secondAttribute="bottom" constant="51" id="x4Y-UN-dAk"/>
                                 </constraints>
                             </view>
@@ -580,6 +569,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Logo TravelBagw" width="318" height="247"/>
         <image name="login-background" width="333" height="333"/>
         <image name="photo-camera" width="170" height="170"/>
     </resources>

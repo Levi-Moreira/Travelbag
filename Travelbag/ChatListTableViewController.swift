@@ -37,8 +37,8 @@ class ChatListTableViewController: BaseTableViewController {
         chats.removeAll()
         ref.child("chats").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let value = snapshot.value as! [String: Any]
-            
+            let value = snapshot.value as? [String: Any]
+            if let value  = value{
             for child in value {
                 
                 let childValue = child.value as? [String: Any]
@@ -59,6 +59,9 @@ class ChatListTableViewController: BaseTableViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 ARSLineProgress.hide()
+            }
+            }else{
+              ARSLineProgress.hide()
             }
             
         }) { (error) in

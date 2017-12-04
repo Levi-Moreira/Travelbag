@@ -185,7 +185,7 @@ class CreatePostViewController: UITableViewController, ImagePickerDelegate, CLLo
 	
 	func pickDate(){
 		
-		DatePickerDialog().show("DatePicker", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
+		DatePickerDialog().show("Pick a Travel Date", doneButtonTitle: "Done", cancelButtonTitle: "Cancel", datePickerMode: .date) {
 			(date) -> Void in
 			if let dt = date {
 
